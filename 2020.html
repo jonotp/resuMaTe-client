@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-16">
+  <title>Jonathan Pham</title>
+  <style type="text/css" id="static">
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+    @import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i');
+
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    font,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      outline: 0;
+      vertical-align: baseline;
+      background: transparent
+    }
+
+    body {
+      line-height: 1;
+      text-align: left;
+      font-feature-settings: "liga"0;
+      -moz-font-feature-settings: "liga"off;
+      -webkit-print-color-adjust: exact;
+    }
+
+    /*START content disc style for LI*/
+    #document.skn-mlg5 ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      padding-left: 10px;
+      margin-top: 3px
+    }
+
+    #document.skn-mlg5 ul li {
+      position: relative;
+      margin: 0 0 0 0px;
+      padding-left: 12px
+    }
+
+    #document.skn-mlg5 ul li:before {
+      content: '\2022';
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 0
+    }
+
+    #document.skn-mlg5 .leftBox ul {
+      margin-top: 0
+    }
+
+    #document.skn-mlg5 .leftBox ul li:before {
+      display: none
+    }
+
+    /*END content disc style for LI*/
+
+    #document.skn-mlg5 .txtBold {
+      font-weight: bold
+    }
+
+    #document.skn-mlg5 .txtItl {
+      font-style: italic
+    }
+
+    #document.skn-mlg5 .dispBlock {
+      display: block
+    }
+
+    #document.skn-mlg5 .fltRight {
+      float: right
+    }
+
+    #document.skn-mlg5 .txtCaps {
+      text-transform: uppercase
+    }
+
+    /*Document*/
+    #document.skn-mlg5 {
+      color: #000000;
+      line-height: 13px;
+      min-height: 792px
+    }
+
+    #document.skn-mlg5 .name {
+      color: #fff;
+      padding: 0;
+      text-align: center;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      font-family: 'Lora', serif
+    }
+
+    #document.skn-mlg5 .resumeTitle {
+      color: #fff;
+      text-transform: uppercase
+    }
+
+    /* common left-right container */
+    #document.skn-mlg5 .section {
+      position: relative
+    }
+
+    #document.skn-mlg5 .leftBox,
+    #document.skn-mlg5 .rightBox {
+      box-sizing: border-box;
+      position: relative;
+      display: table-cell;
+      vertical-align: top;
+      word-wrap: break-word
+    }
+
+    #document.skn-mlg5 .leftBox {
+      padding: 0px 30px 25px 10px
+    }
+
+    #document.skn-mlg5 .rightBox {
+      padding: 0px 10px 25px 30px
+    }
+
+    #document.skn-mlg5 .topSection .leftBox {
+      display: block;
+      text-align: center;
+      padding: 25px
+    }
+
+    #document.skn-mlg5 .leftBox:empty,
+    #document.skn-mlg5 .section:empty {
+      display: none
+    }
+
+    #document.skn-mlg5 .section:first-child {
+      padding-top: 0;
+      border: none
+    }
+
+    #document.skn-mlg5 .education .category-title {
+      margin-top: 8px;
+      font-weight: bold
+    }
+
+    #document.skn-mlg5 .refername {
+      text-transform: capitalize
+    }
+
+    #document.skn-mlg5 .refrence .refUponReq {
+      margin-top: -12px !important
+    }
+
+    /* Common Heading style */
+    #document.skn-mlg5 .heading {
+      padding-bottom: 5px;
+      position: relative
+    }
+
+    #document.skn-mlg5 .leftBox .heading:before,
+    #document.skn-mlg5 .rightBox .heading:before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      width: 25px;
+      height: 2px;
+      background: #ccc
+    }
+
+    #document.skn-mlg5 .leftBox .heading:before {
+      right: -30px
+    }
+
+    #document.skn-mlg5 .rightBox .heading:before {
+      left: -30px
+    }
+
+    #document.skn-mlg5 .leftBox .heading:after,
+    #document.skn-mlg5 .rightBox .heading:after {
+      content: '';
+      position: absolute;
+      top: 0px;
+      width: 14px;
+      height: 14px;
+      background: #000;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      z-index: 999
+    }
+
+    #document.skn-mlg5 .leftBox .heading:after {
+      right: -38px
+    }
+
+    #document.skn-mlg5 .rightBox .heading:after {
+      left: -38px
+    }
+
+    #document.skn-mlg5 .sectiontitle {
+      text-transform: uppercase;
+      color: #000000;
+      font-weight: bold;
+      font-family: 'Lora', serif
+    }
+
+    /* Top section */
+    #document.skn-mlg5 .topSection {
+      background: #2f2f2f;
+      margin: 5px 5px 0px 5px
+    }
+
+    #document.skn-mlg5 .topSection .section {
+      border: none;
+      margin-bottom: 0;
+      padding-top: 0
+    }
+
+    #document.skn-mlg5 .topSection .leftBox {
+      vertical-align: middle
+    }
+
+    /*parentContainer*/
+    #document.skn-mlg5 .parentContainer {
+      display: table;
+      table-layout: fixed;
+      margin: 25px 12px 12px 12px
+    }
+
+    #document.skn-mlg5 .parentContainer .leftBox {
+      border-right: 2px solid #ccc;
+      text-align: right
+    }
+
+    /* SVG Icon Style */
+    #document.skn-mlg5 .iconRow {
+      width: 175px;
+      clear: both;
+      margin-bottom: 7px;
+      word-wrap: break-word
+    }
+
+    #document.skn-mlg5 .iconRow:last-child {
+      margin-bottom: 0
+    }
+
+    #document.skn-mlg5 .iconRow label {
+      font-weight: bold;
+      text-transform: uppercase
+    }
+
+    #document.skn-mlg5 .icoTxt {
+      padding-left: 5px;
+      vertical-align: top;
+      word-wrap: break-word;
+      word-break: break-word;
+    }
+
+    #document.skn-mlg5 .refrence .refUponReq {
+      margin-top: 0 !important
+    }
+  </style>
+  <style type="text/css" id="dynamic">
+    #document.skn-mlg5,
+    #document.skn-mlg5 table {
+      line-height: 13px
+    }
+
+    #document.skn-mlg5.pagesize {
+      width: 612px
+    }
+
+    #document.skn-mlg5.fontsize {
+      font-size: 11px
+    }
+
+    #document.skn-mlg5.fontface {
+      font-family: open sans
+    }
+
+    #document.skn-mlg5 .section {
+      padding-top: 15px
+    }
+
+    #document.skn-mlg5 .firstparagraph {
+      margin-top: 0 !important
+    }
+
+    #document.skn-mlg5 .paragraph {
+      margin-top: 12px
+    }
+
+    #document.skn-mlg5 .skills .paragraph,
+    #document.skn-mlg5 .certificate .paragraph {
+      margin-top: 2px
+    }
+
+    #document.skn-mlg5 .parentContainer {
+      min-height: 696px
+    }
+
+    #document.skn-mlg5 .parentContainer .singlecolumn,
+    #document.skn-mlg5 .parentContainer .singlecolumn,
+    #document.skn-mlg5 .parentContainer .maincolumn {
+      margin-left: 0px
+    }
+
+    #document.skn-mlg5 .leftBox .singlecolumn {
+      margin-left: 0 !important
+    }
+
+    #document.skn-mlg5 .name {
+      font-size: 30px;
+      line-height: 30px
+    }
+
+    #document.skn-mlg5 .resumeTitle {
+      font-size: 15px;
+      line-height: 15px
+    }
+
+    #document.skn-mlg5 .sectiontitle {
+      font-size: 14px;
+      line-height: 17px
+    }
+
+    #document.skn-mlg5 .parentContainer .leftBox {
+      width: 215px
+    }
+
+    #document.skn-mlg5 .topSection {
+      background-color: #2f2f2f
+    }
+
+    #document.skn-mlg5 ul {
+      line-height: 14px
+    }
+
+    @-moz-document url-prefix() {
+      #document.skn-mlg5 .parentContainer {
+        height: 692px
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="document" class="91 skn-mlg5 fontsize fontface vmargins hmargins pagesize"
+    style="transform: scale(1.2); transform-origin: 0px 0px;">
+    <div id="CONTAINER_PARENT_0" class="topSection">
+      <div id="CONTAINER_0" class="leftBox">
+        <div id="SECTION_NAME69062b19-b50c-4e1e-8611-d563869d121a" class="section notdraggable firstsection">
+          <div id="PARAGRAPH_69062b19-b50c-4e1e-8611-d563869d121a_1_e30647b5-a88c-554f-c4ea-2b9c2377ad92"
+            class="paragraph PARAGRAPH_NAME firstparagraph">
+            <div class="name txtBold">
+              <span class="field" id="69062b19-b50c-4e1e-8611-d563869d121aFNAM0">Jonathan</span>
+              <span class="field" id="69062b19-b50c-4e1e-8611-d563869d121aLNAM0">Pham</span>
+            </div>
+            <div class="resumeTitle txtBold"><span id="69062b19-b50c-4e1e-8611-d563869d121aRTTL0">Software
+                Engineer</span></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div id="CONTAINER_PARENT_1" class="parentContainer">
+      <div id="CONTAINER_1" class="leftBox last-box">
+        <div id="SECTION_CNTCac3c3741-f6c8-48b0-b6a4-96484cc13945" class="section notdraggable">
+          <div class="heading">
+            <div class="sectiontitle" id="SECTNAME_CNTCac3c3741-f6c8-48b0-b6a4-96484cc13945">Contact</div>
+          </div>
+          <div id="PARAGRAPH_ac3c3741-f6c8-48b0-b6a4-96484cc13945_1_3e430419-d895-0556-3f3e-74fe44c6a3cc"
+            class="paragraph firstparagraph">
+            <div class="address">
+              <div class="iconRow">
+                <label>EMAIL:</label>
+                <div class="icoTxt">
+                  <span class="field emailText"
+                    id="ac3c3741-f6c8-48b0-b6a4-96484cc13945EMAI1">jonathanphame@gmail.com</span>
+                </div>
+              </div>
+              <div class="iconRow">
+                <label>PHONE:</label>
+                <div class="icoTxt">
+                  <span class="field" id="ac3c3741-f6c8-48b0-b6a4-96484cc13945HPHN1">(048) 124-9457</span>
+                  <span class="field" id="ac3c3741-f6c8-48b0-b6a4-96484cc13945CPHN1"></span>
+                </div>
+              </div>
+              <div class="iconRow">
+                <label>Address:</label>
+                <div class="icoTxt">
+                  <span class="field" id="ac3c3741-f6c8-48b0-b6a4-96484cc13945STRT1">16 Rowland Avenue</span>
+                  <span class="field" id="ac3c3741-f6c8-48b0-b6a4-96484cc13945CITY1">Wollongong</span><span>,</span>
+                  <span class="field" id="ac3c3741-f6c8-48b0-b6a4-96484cc13945STAT1">NSW</span><span>,</span>
+                  <span class="field" id="ac3c3741-f6c8-48b0-b6a4-96484cc13945ZIPC1">2500</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div id="SECTION_EDUC3c8f7e97-8800-4489-a00a-c52532d5dcd1" class="section education">
+          <div class="heading">
+            <div class="sectiontitle" id="SECTNAME_EDUC3c8f7e97-8800-4489-a00a-c52532d5dcd1">Education</div>
+          </div>
+          <div class="paragraph firstparagraph"
+            id="PARAGRAPH_3c8f7e97-8800-4489-a00a-c52532d5dcd1_1_c1c4daff-f648-7a73-cc99-4698cc828a4f">
+            <div class="singlecolumn">
+              <span class="dispBlock txtBold eduDetails">
+                <span class="dispBlock txtCaps" id="3c8f7e97-8800-4489-a00a-c52532d5dcd1SCHO1">University of
+                  Wollongong</span>
+                <span class="dispBlock">
+                  <span>WAM: </span><span class="field" id="3c8f7e97-8800-4489-a00a-c52532d5dcd1GRPA1">89</span>
+                </span>
+                <span class="txtItl" id="3c8f7e97-8800-4489-a00a-c52532d5dcd1SCIT1">Wollongong</span><span
+                  class="txtItl">, </span>
+                <span id="3c8f7e97-8800-4489-a00a-c52532d5dcd1SSTA1" class="txtItl">NSW</span>
+              </span>
+              <span class="dispBlock" dependencyoncharvalue="EGRD_YES">
+                <span id="3c8f7e97-8800-4489-a00a-c52532d5dcd1DGRE1">Bachelor of Computer Science</span>
+                <span id="3c8f7e97-8800-4489-a00a-c52532d5dcd1STUY1">Computer Science</span><span> (</span><span
+                  class="jobdates" id="3c8f7e97-8800-4489-a00a-c52532d5dcd1GRYR1" format="%b %Y">Dec
+                  2018</span><span>)</span>
+              </span>
+
+
+
+
+
+              <span class="field" id="3c8f7e97-8800-4489-a00a-c52532d5dcd1FRFM1"></span>
+            </div>
+          </div>
+          <div class="paragraph"
+            id="PARAGRAPH_3c8f7e97-8800-4489-a00a-c52532d5dcd1_2_172addd0-8c3f-f870-d1de-99dc6d5ffb5a">
+            <div class="singlecolumn">
+              <span class="dispBlock txtBold eduDetails">
+                <span class="dispBlock txtCaps" id="3c8f7e97-8800-4489-a00a-c52532d5dcd1SCHO2">University of
+                  Wollongong</span>
+                <span class="dispBlock">
+                  <span>WAM: </span><span class="field" id="3c8f7e97-8800-4489-a00a-c52532d5dcd1GRPA2">75</span>
+                </span>
+                <span class="txtItl" id="3c8f7e97-8800-4489-a00a-c52532d5dcd1SCIT2">Wollongong</span><span
+                  class="txtItl">, </span>
+                <span id="3c8f7e97-8800-4489-a00a-c52532d5dcd1SSTA2" class="txtItl">NSW</span>
+              </span>
+              <span class="dispBlock" dependencyoncharvalue="EGRD_YES">
+                <span id="3c8f7e97-8800-4489-a00a-c52532d5dcd1DGRE2">Bachelor of Science</span>
+                <span id="3c8f7e97-8800-4489-a00a-c52532d5dcd1STUY2">Nanotechnology</span><span> (</span><span
+                  class="jobdates" id="3c8f7e97-8800-4489-a00a-c52532d5dcd1GRYR2" format="%b %Y">Dec
+                  2015</span><span>)</span>
+              </span>
+
+
+
+
+
+              <span class="field" id="3c8f7e97-8800-4489-a00a-c52532d5dcd1FRFM2"></span>
+            </div>
+          </div>
+
+        </div>
+        <div id="SECTION_HILTc6b6ec01-de8f-4300-b244-d68a07f49687" class="section skills">
+          <div class="heading">
+            <div class="sectiontitle" id="SECTNAME_HILTc6b6ec01-de8f-4300-b244-d68a07f49687">Additional Skills</div>
+          </div>
+          <div class="paragraph firstparagraph"
+            id="PARAGRAPH_c6b6ec01-de8f-4300-b244-d68a07f49687_1_62ba78e0-ead1-720f-fde6-7315dbdf2935">
+            <div class="singlecolumn maincolumn">
+              <span id="c6b6ec01-de8f-4300-b244-d68a07f49687FRFM1">
+                <p>C# .NET Framework &amp; .NET Core</p>
+              </span>
+            </div>
+          </div>
+          <div class="paragraph"
+            id="PARAGRAPH_c6b6ec01-de8f-4300-b244-d68a07f49687_2_70d1434a-c3fa-e783-a731-64f5d9f6edd8">
+            <div class="singlecolumn maincolumn">
+              <span id="c6b6ec01-de8f-4300-b244-d68a07f49687FRFM2">
+                <p>Vue, React &amp; AngularJS</p>
+              </span>
+            </div>
+          </div>
+          <div class="paragraph"
+            id="PARAGRAPH_c6b6ec01-de8f-4300-b244-d68a07f49687_3_2c264162-aec0-2cd8-b6df-96dc9320bc81">
+            <div class="singlecolumn maincolumn">
+              <span id="c6b6ec01-de8f-4300-b244-d68a07f49687FRFM3">
+                <p>Javascript / Typescript</p>
+              </span>
+            </div>
+          </div>
+          <div class="paragraph"
+            id="PARAGRAPH_c6b6ec01-de8f-4300-b244-d68a07f49687_4_1a530f7f-077a-1517-09c7-0d110a615491">
+            <div class="singlecolumn maincolumn">
+              <span id="c6b6ec01-de8f-4300-b244-d68a07f49687FRFM4">
+                <p>TSQL &amp; NoSQL</p>
+              </span>
+            </div>
+          </div>
+          <div class="paragraph"
+            id="PARAGRAPH_c6b6ec01-de8f-4300-b244-d68a07f49687_5_ec915fa0-0040-ebbc-b78d-6d569be85a00">
+            <div class="singlecolumn maincolumn">
+              <span id="c6b6ec01-de8f-4300-b244-d68a07f49687FRFM5">
+                <p>HTML5 &amp; CSS</p>
+              </span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div id="CONTAINER_2" class="rightBox last-box">
+        <div id="SECTION_SUMM4aeacf27-5380-4bbf-81e2-23d660d7f789" class="section summary" spref="OSUM=SHOW">
+          <div class="heading">
+            <div class="sectiontitle" id="SECTNAME_SUMM4aeacf27-5380-4bbf-81e2-23d660d7f789">Career Objective</div>
+          </div>
+          <div class="paragraph firstparagraph"
+            id="PARAGRAPH_4aeacf27-5380-4bbf-81e2-23d660d7f789_1_63dfa5bc-da01-f6cf-fc27-0ca62539d7ff">
+            <div class="field singlecolumn" id="4aeacf27-5380-4bbf-81e2-23d660d7f789FRFM1">A meticulous hardworking
+              individual with a strong passion for anything technology related, whether it be science, computers or
+              programming. Possess strong planning and analytical skills and a thirst for problem solving opportunities.
+              Willing to listen, learn, experience and contribute to innovative ideas.</div>
+          </div>
+
+        </div>
+        <div id="SECTION_EXPRfdbeabf1-d716-422d-8e54-c0800be8ede9" class="section">
+          <div class="heading">
+            <div class="sectiontitle" id="SECTNAME_EXPRfdbeabf1-d716-422d-8e54-c0800be8ede9">Experience</div>
+          </div>
+          <div class="paragraph firstparagraph"
+            id="PARAGRAPH_fdbeabf1-d716-422d-8e54-c0800be8ede9_1_87203fb6-6586-4206-3cae-c8cf222c2095">
+            <div class="singlecolumn">
+              <span class="dispBlock txtBold">
+                <span class="jobtitle dispBlock " id="fdbeabf1-d716-422d-8e54-c0800be8ede9JTIT1">Web Developer / Project
+                  Manager</span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9COMP1">Self Employed</span><span><span>,
+                  </span></span><span class="txtItl"
+                  id="fdbeabf1-d716-422d-8e54-c0800be8ede9JCIT1">Wollongong</span><span>, </span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9JSTA1">NSW</span><span class="txtItl"> /
+                </span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9JSTD1" format="%b %Y">Mar 2020</span><span>
+                  - </span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9EDDT1" format="%b %Y">Present</span><br>
+              </span>
+              <div>
+                <ul>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_4f7a3a82-11cd-1c05-c980-a8e640980122"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM1">Performing discovery to identify client challenges
+                      &amp; translating them into developmental tasks</span></li>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_622775a9-1b9a-1b48-b215-43c60209be80"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM1">Delegating task, managing time-frames and client
+                      expectations for a team of 3 software developers following agile scrum methodology </span></li>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_9de6fac7-ba03-3b3f-c5e7-dad331a40481"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM1">Frequent communication &amp; collaboration with
+                      clients to deliver an effective solution for their business needs</span></li>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_2991a113-dd3b-9b54-2f0e-6d945a68beed"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM1">Creating web-applications with VueJS, NodeJS,
+                      Firebase and modern design styles</span></li>
+                </ul>
+              </div>
+              <span id="fdbeabf1-d716-422d-8e54-c0800be8ede9JDES1"></span>
+            </div>
+          </div>
+          <div class="paragraph"
+            id="PARAGRAPH_fdbeabf1-d716-422d-8e54-c0800be8ede9_2_dfd4f802-cb04-0f4f-9d5e-eb1903d068f7">
+            <div class="singlecolumn">
+              <span class="dispBlock txtBold">
+                <span class="jobtitle dispBlock " id="fdbeabf1-d716-422d-8e54-c0800be8ede9JTIT2">Software Developer
+                </span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9COMP2">DealerCell</span><span><span>,
+                  </span></span><span class="txtItl"
+                  id="fdbeabf1-d716-422d-8e54-c0800be8ede9JCIT2">Wollongong</span><span>, </span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9JSTA2">NSW</span><span class="txtItl"> /
+                </span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9JSTD2" format="%b %Y">Jan 2019</span><span>
+                  - </span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9EDDT2" format="%b %Y">Mar 2020</span><br>
+              </span>
+              <div>
+                <ul>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_a9aef166-df5e-6bbb-7e75-4d8e0762caab"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM2">Participated and since January 2020 lead the
+                      development of a reporting web-application that optimises rendering through canvas and is agnostic
+                      through NoSql models</span></li>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_741f04a9-191d-ec14-36d6-02e15d48c9ef"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM2">Mentoring new developers on development stack and
+                      in-house framework</span></li>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_3f488fec-5514-e91c-fcd8-efb423016d4f"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM2">Creating responsive UIs in AngularJs, backend APIs
+                      with C# .Net Framework 4.5+ and models in TSQL for a Sales CRM web-application used by over 400
+                      dealerships in the automotive industry </span></li>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_fd85c6f9-64b0-c801-55ac-df1faa8ba93a"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM2">Implementing application integration with 3rd party
+                      tools such as SEQ, JIRA and Slack, to assist with debugging and triaging production-based
+                      issues</span></li>
+                </ul>
+              </div>
+              <span id="fdbeabf1-d716-422d-8e54-c0800be8ede9JDES2"></span>
+            </div>
+          </div>
+          <div class="paragraph"
+            id="PARAGRAPH_fdbeabf1-d716-422d-8e54-c0800be8ede9_3_8f7b268c-ee69-aba9-f662-193122b9661c">
+            <div class="singlecolumn">
+              <span class="dispBlock txtBold">
+                <span class="jobtitle dispBlock " id="fdbeabf1-d716-422d-8e54-c0800be8ede9JTIT3">Software Test Engineer
+                </span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9COMP3">University of
+                  Wollongong</span><span><span>, </span></span><span class="txtItl"
+                  id="fdbeabf1-d716-422d-8e54-c0800be8ede9JCIT3">Wollongong</span><span>, </span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9JSTA3">NSW</span><span class="txtItl"> /
+                </span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9JSTD3" format="%b %Y">Mar 2017</span><span>
+                  - </span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9EDDT3" format="%b %Y">Jan 2019</span><br>
+              </span>
+              <div>
+                <ul>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_440d36a8-50b8-9bcb-9118-3320a9c03949"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM3">Provided mentorship for 5 mentees (new testers),
+                      familiarising them with agile practices, automation framework and high standards of quality
+                      assurance</span></li>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_b6d4fcb8-831b-6937-69ee-732f9a45fb28"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM3">Participation in design, development and testing of
+                      software using agile scum practices</span></li>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_021a83cf-2c62-b0b3-2749-e58dd57750c6"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM3">Creating and executing automated test cases using
+                      Groovy, Geb automation framework and SQL querying</span></li>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_d0fe92f0-1a00-8b99-3147-eed7bec3bf05"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM3">Assisting in the creation and compilation of user
+                      guidelines </span></li>
+                </ul>
+              </div>
+              <span id="fdbeabf1-d716-422d-8e54-c0800be8ede9JDES3"></span>
+            </div>
+          </div>
+          <div class="paragraph"
+            id="PARAGRAPH_fdbeabf1-d716-422d-8e54-c0800be8ede9_4_224e9eca-9de8-57f2-f9f6-fb0cabe3971b">
+            <div class="singlecolumn">
+              <span class="dispBlock txtBold">
+                <span class="jobtitle dispBlock " id="fdbeabf1-d716-422d-8e54-c0800be8ede9JTIT4">Service Desk Officer
+                </span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9COMP4">University of
+                  Wollongong</span><span><span>, </span></span><span class="txtItl"
+                  id="fdbeabf1-d716-422d-8e54-c0800be8ede9JCIT4">Wollongong</span><span>, </span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9JSTA4">NSW</span><span class="txtItl"> /
+                </span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9JSTD4" format="%b %Y">Jun 2016</span><span>
+                  - </span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9EDDT4" format="%b %Y">Jun 2018</span><br>
+              </span>
+              <div>
+                <ul>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_b62203b9-5b05-e8fc-8849-3a7a4022f12b"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM4">Serving as a first point of contact for student and
+                      staff for UOW IT related services </span></li>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_8567a876-3fb8-811b-4f96-56facc196769"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM4">Providing support for PC, MAC and mobile devices,
+                      able to diagnose and solve troubleshooting issues in person, over the phone or through
+                      emails</span></li>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_7117bee8-c361-23ee-3677-2f6b9ff32b77"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM4">Logging tickets and taking necessary actions to
+                      escalate and resolve complex issues</span></li>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_12fbc561-5a88-f229-2caf-a4e168d15597"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM4">Rebuilding, re-cabling and refreshing computers
+                      within the computer lab </span></li>
+                </ul>
+              </div>
+              <span id="fdbeabf1-d716-422d-8e54-c0800be8ede9JDES4"></span>
+            </div>
+          </div>
+          <div class="paragraph"
+            id="PARAGRAPH_fdbeabf1-d716-422d-8e54-c0800be8ede9_5_0093f182-a1d1-bbe6-8294-4a3ef45b1f6f">
+            <div class="singlecolumn">
+              <span class="dispBlock txtBold">
+                <span class="jobtitle dispBlock " id="fdbeabf1-d716-422d-8e54-c0800be8ede9JTIT5">Quality Assurance
+                  Engineer &amp; Developer (Summer Vacationer) </span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9COMP5">Telstra</span><span><span>,
+                  </span></span><span class="txtItl"
+                  id="fdbeabf1-d716-422d-8e54-c0800be8ede9JCIT5">Wollongong</span><span>, </span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9JSTA5">NSW</span><span class="txtItl"> /
+                </span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9JSTD5" format="%b %Y">Nov 2017</span><span>
+                  - </span>
+                <span class="txtItl" id="fdbeabf1-d716-422d-8e54-c0800be8ede9EDDT5" format="%b %Y">Feb 2018</span><br>
+              </span>
+              <div>
+                <ul>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_5ced6dbc-5d12-f950-3603-7cbaa01600f8"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM5">Developed bugfixes and automation test scripts for
+                      Telstra's “My Account” Dashboard with over 100,000 daily interactions</span></li>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_f476dee8-0735-2df5-1bd7-511c42a30060"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM5">Mocked customer data, API calls and microservice
+                      responses utilising SQL querying, JSON and CA service virtualisation </span></li>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_c247d865-bde1-4a64-1213-a97c88f1643d"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM5">Analysed application errors, escalated issues to
+                      developers and verifying fixes</span></li>
+                  <li id="CATEGORY_RESPONSIBILITY_FRFM_51eb16db-a052-f854-246c-bc7844a9ca0b"><span
+                      id="fdbeabf1-d716-422d-8e54-c0800be8ede9FRFM5">Wrote unit and functional test cases for developed
+                      code and bugfixes</span></li>
+                </ul>
+              </div>
+              <span id="fdbeabf1-d716-422d-8e54-c0800be8ede9JDES5"></span>
+            </div>
+          </div>
+
+        </div>
+        <div id="SECTION_REFR27780110-1103-4697-8a85-bc50e14c112d" class="section refrence"
+          spref="OPTN=SHOW|OPTN=UPONREQUEST">
+          <div class="heading">
+            <div class="sectiontitle" id="SECTNAME_REFR27780110-1103-4697-8a85-bc50e14c112d">References</div>
+          </div>
+          <div class="refr-wrapper">
+            <div class="paragraph firstparagraph"
+              id="PARAGRAPH_27780110-1103-4697-8a85-bc50e14c112d_1_e50f5e0c-95de-938a-494a-28fccde73b39">
+
+            </div>
+
+            <div class="paragraph refUponReq" spref="OPTN=UPONREQUEST">
+              <span class="txtItl">References available upon request</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</body>
+
+</html>

@@ -3,7 +3,7 @@ const pageHeight = 1123;
 setTimeout(() => {
   ManuallyAddPageBreak();
   AddHeightToSidePane();
-},300);
+}, 300);
 
 function AddHeightToSidePane() {
   const sidepane = document.getElementsByClassName("sidepane")[0];
@@ -29,7 +29,6 @@ function ManuallyAddPageBreak() {
     return;
   var experience = document.getElementsByClassName("experience")[0];
   if (experience.getBoundingClientRect().bottom > pageHeight) {
-    // check the paragraphas in experience
     var paragraphs = experience.getElementsByClassName("paragraph");
     var paragraph = GetBrokenElement(paragraphs, pageHeight);
     var listItems = paragraph.getElementsByTagName("li");
@@ -62,12 +61,12 @@ var dpi = {
   v: 0,
   get: function (noCache) {
     if (noCache || dpi.v == 0) {
-      e = document.body.appendChild(document.createElement('DIV'));
-      e.style.width = '1in';
-      e.style.padding = '0';
+      e = document.body.appendChild(document.createElement("DIV"));
+      e.style.width = "1in";
+      e.style.padding = "0";
       dpi.v = e.offsetWidth;
       e.parentNode.removeChild(e);
     }
     return dpi.v;
-  }
-}
+  },
+};

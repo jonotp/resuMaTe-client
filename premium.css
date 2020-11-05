@@ -1,0 +1,344 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Proza+Libre:400,400i,500,500i,600,600i,700");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+  text-align: left;
+  font-feature-settings: "liga" 0;
+  -moz-font-feature-settings: "liga" off;
+  -webkit-print-color-adjust: exact;
+}
+
+/*START content disc style for LI*/
+.skn-mlg3 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 14px;
+  margin-top: 3px;
+}
+
+.skn-mlg3 ul li {
+  position: relative;
+  margin: 0 0 0 0px;
+  padding-left: 18px;
+}
+
+.skn-mlg3 ul li:before {
+  content: "\2022";
+  font-size: 14px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.skn-mlg3 .leftBox ul {
+  margin-top: 0;
+}
+
+.skn-mlg3 .leftBox ul li:before {
+  display: none;
+}
+
+/*END content disc style for LI*/
+
+.skn-mlg3 .txtBold {
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.skn-mlg3 .txtItl {
+  font-style: italic;
+}
+
+.skn-mlg3 .dispBlock {
+  display: block;
+}
+
+.skn-mlg3 .txtCaps {
+  text-transform: uppercase;
+}
+
+.skn-mlg3 .txtCapt {
+  text-transform: capitalize;
+}
+
+/*Document*/
+.skn-mlg3 {
+  color: #000000;
+  line-height: 13px;
+  min-height: 792px;
+}
+
+.skn-mlg3 .name {
+  color: #000;
+  background: #fff;
+  padding: 10px 0px;
+  text-align: center;
+  text-transform: uppercase;
+  border: 2px solid #d9b289;
+  margin-top: -80px;
+  font-family: "Proza Libre", sans-serif;
+}
+
+.skn-mlg3 .paragraphName {
+  width: 100%;
+}
+
+.skn-mlg3 .resumeTitle {
+  color: #595959;
+  position: relative;
+  letter-spacing: 1.5px;
+  margin-top: 10px;
+}
+
+.skn-mlg3 .resumeTitle:after {
+  content: "";
+  width: 35px;
+  height: 2px;
+  background: #d9b289;
+  position: absolute;
+  left: 47%;
+  bottom: -8px;
+}
+
+/* common left-right container */
+.skn-mlg3 .section {
+  position: relative;
+  clear: both;
+}
+
+.skn-mlg3 .leftBox,
+.skn-mlg3 .rightBox {
+  box-sizing: border-box;
+  position: relative;
+  display: table-cell;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+
+.skn-mlg3 .leftBox {
+  padding: 0px 15px 25px 10px;
+}
+
+.skn-mlg3 .rightBox {
+  padding: 0px 10px 25px 15px;
+}
+
+.skn-mlg3 .section:first-child {
+  padding-top: 0;
+}
+
+.skn-mlg3 .leftBox:empty,
+.skn-mlg3 .section:empty {
+  display: none;
+}
+
+.skn-mlg3 .education .categoryTitle {
+  margin-top: 8px;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.skn-mlg3 .eduDetails {
+  margin-bottom: 8px;
+}
+
+.skn-mlg3 .refrence .refUponReq {
+  margin-top: 0 !important;
+}
+
+/* Common Heading style */
+.skn-mlg3 .heading {
+  padding-bottom: 8px;
+  position: relative;
+}
+
+.skn-mlg3 .leftBox .heading:before,
+.skn-mlg3 .rightBox .heading:before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  width: 25px;
+  height: 2px;
+  background: #d9b289;
+}
+
+.skn-mlg3 .rightBox .heading:before {
+  width: 50px;
+}
+
+.skn-mlg3 .leftBox .heading:before {
+  right: 0px;
+}
+
+.skn-mlg3 .rightBox .heading:before {
+  left: 0px;
+}
+
+.skn-mlg3 .sectionTitle {
+  text-transform: uppercase;
+  color: #000000;
+  margin-right: 30px;
+  letter-spacing: 2.5px;
+}
+
+.skn-mlg3 .rightBox .sectionTitle {
+  margin-left: 60px;
+}
+
+/* Top section */
+.skn-mlg3 .topSection {
+  background-color: #afabab;
+  text-align: center;
+  padding: 60px 0px 0px 0px;
+  margin: 47px 0px 20px 0px;
+}
+
+.skn-mlg3 .topSection .leftBox {
+  display: block;
+  text-align: center;
+  padding: 0px 75px 20px 75px;
+}
+
+/*parentContainer*/
+.skn-mlg3 .parentContainer {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  margin-top: 25px;
+}
+
+.skn-mlg3 .parentContainer .leftBox {
+  border-right: 2px solid #d9b289;
+  text-align: right;
+}
+
+/* SVG Icon Style */
+.skn-mlg3 .address {
+  table-layout: fixed;
+}
+
+.skn-mlg3 .iconRow {
+  width: 180px;
+  clear: both;
+  margin-bottom: 7px;
+  display: table;
+  float: right;
+  table-layout: fixed;
+}
+
+.skn-mlg3 .iconRow:last-child {
+  margin-bottom: 0;
+}
+
+.skn-mlg3 .icoTxt {
+  width: 160px;
+  padding-left: 5px;
+  vertical-align: top;
+  word-wrap: break-word;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.skn-mlg3 .iconSvg {
+  width: 11px;
+  height: 11px;
+  line-height: normal;
+  margin-top: 0;
+  float: right;
+  display: table-cell;
+  padding-left: 22px;
+}
+
+.skn-mlg3 .iconSvg svg {
+  width: 10px;
+  height: 10px;
+}
+
+.skn-mlg3 .location svg {
+  padding-right: 2px;
+}
+
+.slick-current .skn-mlg3 .iconRow {
+  margin-right: 10px;
+}
+.skn-mlg3,
+.skn-mlg3 table {
+  line-height: 13px;
+}
+
+.skn-mlg3.pagesize {
+  width: 794px;
+}
+
+.skn-mlg3.fontsize {
+  font-size: 10px;
+}
+
+.skn-mlg3.fontface {
+  font-family: open sans;
+}
+
+.skn-mlg3 .section {
+  padding-top: 15px;
+}
+
+.skn-mlg3 .firstparagraph {
+  margin-top: 0 !important;
+}
+
+.skn-mlg3 .paragraph {
+  margin-top: 12px;
+}
+
+.skn-mlg3 .skills .paragraph,
+.skn-mlg3 .certificate .paragraph {
+  margin-top: 2px;
+}
+
+/* .skn-mlg3 .parentContainer {
+      min-height: 696px
+    } */
+
+.skn-mlg3 .parentContainer .singlecolumn,
+.skn-mlg3 .parentContainer .singlecolumn,
+.skn-mlg3 .parentContainer .maincolumn {
+  margin-left: 0px;
+}
+
+.skn-mlg3 .leftBox .singlecolumn {
+  margin-left: 0 !important;
+}
+
+.skn-mlg3 .name {
+  font-size: 40px;
+  line-height: 41px;
+}
+
+.skn-mlg3 .resumeTitle {
+  font-size: 13px;
+  line-height: 14px;
+}
+
+.skn-mlg3 .sectionTitle {
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.skn-mlg3 .parentContainer .leftBox {
+  width: 215px;
+}
+
+.skn-mlg3 .topSection {
+  background-color: #afabab;
+}

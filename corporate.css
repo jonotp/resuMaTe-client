@@ -1,0 +1,350 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+  text-align: left;
+  font-feature-settings: "liga" 0;
+  -moz-font-feature-settings: "liga" off;
+  -webkit-print-color-adjust: exact;
+}
+
+/*START content disc style for LI*/
+.skn-mlg1 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 10px;
+  margin-top: 3px;
+}
+
+.skn-mlg1 ul li {
+  position: relative;
+  margin: 0 0 0 0px;
+  padding-left: 12px;
+}
+
+.skn-mlg1 ul li:before {
+  content: "\2022";
+  font-size: 14px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/*END content disc style for LI*/
+
+.skn-mlg1 .txtBold {
+  font-weight: bold;
+}
+
+.skn-mlg1 .txtItl {
+  font-style: italic;
+}
+
+.skn-mlg1 .dispBlock {
+  display: block;
+}
+
+.skn-mlg1 .fltRight {
+  float: right;
+}
+
+.skn-mlg1 .txtCaps {
+  text-transform: uppercase;
+}
+
+/*Document*/
+.skn-mlg1 {
+  color: #000000;
+  line-height: 13px;
+  min-height: 792px;
+}
+
+.skn-mlg1 .name {
+  color: #fff;
+  padding: 0 0 12px 0;
+  text-align: left;
+  text-transform: capitalize;
+  letter-spacing: 7.5px;
+}
+
+.skn-mlg1 .resumeTitle {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+/* common left-right container */
+.skn-mlg1 .section {
+  position: relative;
+}
+
+.skn-mlg1 .left-box,
+.skn-mlg1 .right-box {
+  box-sizing: border-box;
+  position: relative;
+  display: table-cell;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+
+.skn-mlg1 .left-box {
+  padding: 25px 15px 25px 25px;
+}
+
+.skn-mlg1 .right-box {
+  padding: 25px 25px 25px 15px;
+}
+
+.skn-mlg1 .topsection .left-box {
+  display: block;
+  text-align: center;
+  padding: 25px;
+}
+
+.skn-mlg1 .topsection .left-box .name {
+  text-align: center;
+  position: relative;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.skn-mlg1 .topsection .left-box .name:before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 1px;
+  background: #fff;
+  bottom: -5px;
+  left: 47.24%;
+}
+
+.skn-mlg1 .left-box:empty,
+.skn-mlg1 .section:empty {
+  display: none;
+}
+
+.skn-mlg1 .section:first-child {
+  padding-top: 0;
+  border: none;
+}
+
+.skn-mlg1 .singlecolumn .jobtitle {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.skn-mlg1 .education .category-title {
+  margin-top: 2px;
+}
+
+.skn-mlg1 .refername {
+  text-transform: capitalize;
+}
+
+.skn-mlg1 .right-box > .summary:first-child .heading {
+  display: none;
+}
+
+/* Common Heading style */
+.skn-mlg1 .heading {
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.skn-mlg1 .heading:before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: -2px;
+  width: 40px;
+  height: 2px;
+  background: #ccc;
+}
+
+.skn-mlg1 .sectiontitle {
+  text-transform: uppercase;
+  color: #000000;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+/* Top section */
+.skn-mlg1 .topsection {
+  background: #353f58;
+  position: relative;
+  z-index: 9;
+}
+
+.skn-mlg1 .topsection .section {
+  border: none;
+  margin-bottom: 0;
+  padding-top: 0;
+}
+
+.skn-mlg1 .topsection .left-box {
+  vertical-align: middle;
+}
+
+/*parentContainer*/
+.skn-mlg1 .parentContainer {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.skn-mlg1 .parentContainer .right-box {
+  background: #f5f6f5;
+}
+
+.skn-mlg1 .parentContainer .left-box,
+.skn-mlg1 .parentContainer .right-box {
+  padding-top: 18px;
+}
+
+/* SVG Icon Style */
+.skn-mlg1 .iconRow {
+  clear: both;
+  display: table;
+  margin-bottom: 7px;
+  word-wrap: break-word;
+}
+
+.skn-mlg1 .iconRow:last-child {
+  margin-bottom: 0;
+}
+
+.skn-mlg1 .iconSvg {
+  width: 15px;
+  height: 15px;
+  display: table-cell;
+  text-align: center;
+  line-height: normal;
+  margin-top: 0;
+  float: left;
+  background: #e0e0e0;
+  border-radius: 50%;
+}
+
+.skn-mlg1 .icoTxt {
+  display: table-cell;
+  padding-left: 5px;
+  vertical-align: top;
+}
+
+.skn-mlg1 .zipprefix {
+  display: none;
+}
+
+/* word-break:break-all added for pdf */
+.skn-mlg1 .icoTxt {
+  word-wrap: break-word;
+  word-break: break-all;
+  word-break: break-word;
+}
+.skn-mlg1,
+.skn-mlg1 table {
+  line-height: 13px;
+}
+
+.skn-mlg1.pagesize {
+  width: 794px;
+}
+
+.skn-mlg1.fontsize {
+  font-size: 11px;
+}
+
+.skn-mlg1.fontface {
+  font-family: open sans;
+}
+
+.skn-mlg1 .section {
+  padding-top: 15px;
+}
+
+.skn-mlg1 .firstparagraph {
+  margin-top: 12px !important;
+}
+
+.skn-mlg1 .paragraph {
+  margin-top: 24px;
+}
+
+.skn-mlg1 .skills .paragraph,
+.skn-mlg1 .certificate .paragraph {
+  margin-top: 5px;
+}
+
+.skn-mlg1 .parentContainer {
+  min-height: 696px;
+}
+
+.skn-mlg1 .parentContainer .singlecolumn,
+.skn-mlg1 .parentContainer .singlecolumn,
+.skn-mlg1 .parentContainer .maincolumn {
+  margin-left: 0px;
+}
+
+.skn-mlg1 .right-box .singlecolumn {
+  margin-left: 0 !important;
+}
+
+.skn-mlg1 .name {
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.skn-mlg1 .resumeTitle {
+  font-size: 12px;
+  line-height: 13px;
+}
+
+.skn-mlg1 .sectiontitle {
+  font-size: 15px;
+  line-height: 17px;
+}
+
+.skn-mlg1 .parentContainer .right-box {
+  width: 215px;
+}
+
+.skn-mlg1 .topsection {
+  background-color: #353f58;
+}
+
+.skn-mlg1 .singlecolumn .eduDetails,
+.skn-mlg1 .singlecolumn .jobtitle,
+.skn-mlg1 .refrence .referdetail {
+  font-size: 12px;
+}
+
+.skn-mlg1 ul {
+  line-height: 14px;
+}
+
+/* icons */
+.skn-mlg1 .iconSvg {
+  margin-top: -1px;
+}
+
+.skn-mlg1 .iconSvg svg {
+  width: 9px;
+  margin-top: 2px;
+}
+
+@-moz-document url-prefix() {
+  .skn-mlg1 .parentContainer {
+    height: 692px;
+  }
+}

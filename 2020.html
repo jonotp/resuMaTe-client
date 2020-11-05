@@ -3,484 +3,79 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-16">
   <title>Jonathan Pham</title>
-  <style type="text/css" >
-    @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
-    @import url('https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i');
-
-    html,
-    body,
-    div,
-    span,
-    applet,
-    object,
-    iframe,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    blockquote,
-    pre,
-    a,
-    abbr,
-    acronym,
-    address,
-    big,
-    cite,
-    code,
-    del,
-    dfn,
-    em,
-    font,
-    img,
-    ins,
-    kbd,
-    q,
-    s,
-    samp,
-    small,
-    strike,
-    strong,
-    sub,
-    sup,
-    tt,
-    var,
-    b,
-    u,
-    i,
-    center,
-    dl,
-    dt,
-    dd,
-    ol,
-    ul,
-    li,
-    fieldset,
-    form,
-    label,
-    legend,
-    table,
-    caption,
-    tbody,
-    tfoot,
-    thead,
-    tr,
-    th,
-    td {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      outline: 0;
-      vertical-align: baseline;
-      background: transparent
-    }
-
-    body {
-      line-height: 1;
-      text-align: left;
-      font-feature-settings: "liga"0;
-      -moz-font-feature-settings: "liga"off;
-      -webkit-print-color-adjust: exact;
-    }
-
-    /*START content disc style for LI*/
-    .skn-mlg5 ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      padding-left: 10px;
-      margin-top: 3px
-    }
-
-    .skn-mlg5 ul li {
-      position: relative;
-      margin: 0 0 0 0px;
-      padding-left: 12px
-    }
-
-    .skn-mlg5 ul li:before {
-      content: '\2022';
-      font-size: 14px;
-      position: absolute;
-      left: 0;
-      top: 0
-    }
-
-    .skn-mlg5 .leftBox ul {
-      margin-top: 0
-    }
-
-    .skn-mlg5 .leftBox ul li:before {
-      display: none
-    }
-
-    /*END content disc style for LI*/
-
-    .skn-mlg5 .txtBold {
-      font-weight: bold
-    }
-
-    .skn-mlg5 .txtItl {
-      font-style: italic
-    }
-
-    .skn-mlg5 .dispBlock {
-      display: block
-    }
-
-    .skn-mlg5 .fltRight {
-      float: right
-    }
-
-    .skn-mlg5 .txtCaps {
-      text-transform: uppercase
-    }
-
-    /*Document*/
-    .skn-mlg5 {
-      color: #000000;
-      line-height: 13px;
-      min-height: 792px
-    }
-
-    .skn-mlg5 .name {
-      color: #fff;
-      padding: 0;
-      text-align: center;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      font-family: 'Lora', serif
-    }
-
-    .skn-mlg5 .resumeTitle {
-      color: #fff;
-      text-transform: uppercase
-    }
-
-    /* common left-right container */
-    .skn-mlg5 .section {
-      position: relative
-    }
-
-    .skn-mlg5 .leftBox,
-    .skn-mlg5 .rightBox {
-      box-sizing: border-box;
-      position: relative;
-      display: table-cell;
-      vertical-align: top;
-      word-wrap: break-word
-    }
-
-    .skn-mlg5 .leftBox {
-      padding: 0px 30px 25px 10px
-    }
-
-    .skn-mlg5 .rightBox {
-      padding: 0px 10px 25px 30px
-    }
-
-    .skn-mlg5 .topSection .leftBox {
-      display: block;
-      text-align: center;
-      padding: 25px
-    }
-
-    .skn-mlg5 .leftBox:empty,
-    .skn-mlg5 .section:empty {
-      display: none
-    }
-
-    .skn-mlg5 .section:first-child {
-      padding-top: 0;
-      border: none
-    }
-
-    .skn-mlg5 .education .category-title {
-      margin-top: 8px;
-      font-weight: bold
-    }
-
-    .skn-mlg5 .refername {
-      text-transform: capitalize
-    }
-
-    .skn-mlg5 .refrence .refUponReq {
-      margin-top: -12px !important
-    }
-
-    /* Common Heading style */
-    .skn-mlg5 .heading {
-      padding-bottom: 5px;
-      position: relative
-    }
-
-    .skn-mlg5 .leftBox .heading:before,
-    .skn-mlg5 .rightBox .heading:before {
-      content: '';
-      position: absolute;
-      top: 6px;
-      width: 25px;
-      height: 2px;
-      background: #ccc
-    }
-
-    .skn-mlg5 .leftBox .heading:before {
-      right: -30px
-    }
-
-    .skn-mlg5 .rightBox .heading:before {
-      left: -30px
-    }
-
-    .skn-mlg5 .leftBox .heading:after,
-    .skn-mlg5 .rightBox .heading:after {
-      content: '';
-      position: absolute;
-      top: 0px;
-      width: 14px;
-      height: 14px;
-      background: #000;
-      border-radius: 50%;
-      -webkit-border-radius: 50%;
-      -moz-border-radius: 50%;
-      -ms-border-radius: 50%;
-      z-index: 999
-    }
-
-    .skn-mlg5 .leftBox .heading:after {
-      right: -38px
-    }
-
-    .skn-mlg5 .rightBox .heading:after {
-      left: -38px
-    }
-
-    .skn-mlg5 .sectiontitle {
-      text-transform: uppercase;
-      color: #000000;
-      font-weight: bold;
-      font-family: 'Lora', serif
-    }
-
-    /* Top section */
-    .skn-mlg5 .topSection {
-      background: #2f2f2f;
-      margin: 5px 5px 0px 5px
-    }
-
-    .skn-mlg5 .topSection .section {
-      border: none;
-      margin-bottom: 0;
-      padding-top: 0
-    }
-
-    .skn-mlg5 .topSection .leftBox {
-      vertical-align: middle
-    }
-
-    /*parentContainer*/
-    .skn-mlg5 .parentContainer {
-      display: table;
-      table-layout: fixed;
-      margin: 25px 12px 12px 12px
-    }
-
-    .skn-mlg5 .parentContainer .leftBox {
-      border-right: 2px solid #ccc;
-      text-align: right
-    }
-
-    /* SVG Icon Style */
-    .skn-mlg5 .iconRow {
-      width: 175px;
-      clear: both;
-      margin-bottom: 7px;
-      word-wrap: break-word
-    }
-
-    .skn-mlg5 .iconRow:last-child {
-      margin-bottom: 0
-    }
-
-    .skn-mlg5 .iconRow label {
-      font-weight: bold;
-      text-transform: uppercase
-    }
-
-    .skn-mlg5 .icoTxt {
-      padding-left: 5px;
-      vertical-align: top;
-      word-wrap: break-word;
-      word-break: break-word;
-    }
-
-    .skn-mlg5 .refrence .refUponReq {
-      margin-top: 0 !important
-    }
-  </style>
-  <style type="text/css" >
-    .skn-mlg5,
-    .skn-mlg5 table {
-      line-height: 13px
-    }
-
-    .skn-mlg5.pagesize {
-      width: 612px
-    }
-
-    .skn-mlg5.fontsize {
-      font-size: 11px
-    }
-
-    .skn-mlg5.fontface {
-      font-family: open sans
-    }
-
-    .skn-mlg5 .section {
-      padding-top: 15px
-    }
-
-    .skn-mlg5 .firstparagraph {
-      margin-top: 0 !important
-    }
-
-    .skn-mlg5 .paragraph {
-      margin-top: 12px
-    }
-
-    .skn-mlg5 .skills .paragraph,
-    .skn-mlg5 .certificate .paragraph {
-      margin-top: 2px
-    }
-
-    .skn-mlg5 .parentContainer {
-      min-height: 696px
-    }
-
-    .skn-mlg5 .parentContainer .singlecolumn,
-    .skn-mlg5 .parentContainer .singlecolumn,
-    .skn-mlg5 .parentContainer .maincolumn {
-      margin-left: 0px
-    }
-
-    .skn-mlg5 .leftBox .singlecolumn {
-      margin-left: 0 !important
-    }
-
-    .skn-mlg5 .name {
-      font-size: 30px;
-      line-height: 30px
-    }
-
-    .skn-mlg5 .resumeTitle {
-      font-size: 15px;
-      line-height: 15px
-    }
-
-    .skn-mlg5 .sectiontitle {
-      font-size: 14px;
-      line-height: 17px
-    }
-
-    .skn-mlg5 .parentContainer .leftBox {
-      width: 215px
-    }
-
-    .skn-mlg5 .topSection {
-      background-color: #2f2f2f
-    }
-
-    .skn-mlg5 ul {
-      line-height: 14px
-    }
-
-    @-moz-document url-prefix() {
-      .skn-mlg5 .parentContainer {
-        height: 692px
-      }
-    }
-  </style>
-
+  <link href="/2020.css" rel="stylesheet">
 </head>
 
 <body>
-  <div  class="91 skn-mlg5 fontsize fontface vmargins hmargins pagesize"
+  <div class="91 skn-mlg5 fontsize fontface vmargins hmargins pagesize"
     style="transform: scale(1.2); transform-origin: 0px 0px;">
-    <div  class="topSection">
-      <div  class="leftBox">
-        <div  class="section notdraggable firstsection">
-          <div 
-            class="paragraph PARAGRAPH_NAME firstparagraph">
+    <div class="topSection">
+      <div class="leftBox">
+        <div class="section  firstsection">
+          <div class="paragraph  firstparagraph">
             <div class="name txtBold">
-              <span class="field" >Jonathan</span>
-              <span class="field" >Pham</span>
+              <span class="field">Jonathan</span>
+              <span class="field">Pham</span>
             </div>
-            <div class="resumeTitle txtBold"><span >Software
+            <div class="resumeTitle txtBold"><span>Software
                 Engineer</span></div>
           </div>
 
         </div>
       </div>
     </div>
-    <div  class="parentContainer">
-      <div  class="leftBox last-box">
-        <div  class="section notdraggable">
+    <div class="parentContainer">
+      <div class="leftBox last-box sidepane">
+        <div class="section ">
           <div class="heading">
-            <div class="sectiontitle" >Contact</div>
+            <div class="sectiontitle">Contact</div>
           </div>
-          <div 
-            class="paragraph firstparagraph">
+          <div class="paragraph firstparagraph">
             <div class="address">
               <div class="iconRow">
                 <label>EMAIL:</label>
                 <div class="icoTxt">
-                  <span class="field emailText"
-                    >jonathanphame@gmail.com</span>
+                  <span class="field emailText">jonathanphame@gmail.com</span>
                 </div>
               </div>
               <div class="iconRow">
                 <label>PHONE:</label>
                 <div class="icoTxt">
-                  <span class="field" >(048) 124-9457</span>
-                  <span class="field" ></span>
+                  <span class="field">(048) 124-9457</span>
+                  <span class="field"></span>
                 </div>
               </div>
               <div class="iconRow">
                 <label>Address:</label>
                 <div class="icoTxt">
-                  <span class="field" >16 Rowland Avenue</span>
-                  <span class="field" >Wollongong</span><span>,</span>
-                  <span class="field" >NSW</span><span>,</span>
-                  <span class="field" >2500</span>
+                  <span class="field">16 Rowland Avenue</span>
+                  <span class="field">Wollongong</span><span>,</span>
+                  <span class="field">NSW</span><span>,</span>
+                  <span class="field">2500</span>
                 </div>
               </div>
             </div>
           </div>
 
         </div>
-        <div  class="section education">
+        <div class="section education">
           <div class="heading">
-            <div class="sectiontitle" >Education</div>
+            <div class="sectiontitle">Education</div>
           </div>
-          <div class="paragraph firstparagraph"
-            >
+          <div class="paragraph firstparagraph">
             <div class="singlecolumn">
               <span class="dispBlock txtBold eduDetails">
-                <span class="dispBlock txtCaps" >University of
+                <span class="dispBlock txtCaps">University of
                   Wollongong</span>
                 <span class="dispBlock">
-                  <span>WAM: </span><span class="field" >89</span>
+                  <span>WAM: </span><span class="field">89</span>
                 </span>
-                <span class="txtItl" >Wollongong</span><span
-                  class="txtItl">, </span>
-                <span  class="txtItl">NSW</span>
+                <span class="txtItl">Wollongong</span><span class="txtItl">, </span>
+                <span class="txtItl">NSW</span>
               </span>
               <span class="dispBlock" dependencyoncharvalue="EGRD_YES">
-                <span >Bachelor of Computer Science</span>
-                <span >Computer Science</span><span> (</span><span
-                  class="jobdates"  format="%b %Y">Dec
+                <span>Bachelor of Computer Science</span>
+                <span>Computer Science</span><span> (</span><span class="jobdates" format="%b %Y">Dec
                   2018</span><span>)</span>
               </span>
 
@@ -488,26 +83,23 @@
 
 
 
-              <span class="field" ></span>
+              <span class="field"></span>
             </div>
           </div>
-          <div class="paragraph"
-            >
+          <div class="paragraph">
             <div class="singlecolumn">
               <span class="dispBlock txtBold eduDetails">
-                <span class="dispBlock txtCaps" >University of
+                <span class="dispBlock txtCaps">University of
                   Wollongong</span>
                 <span class="dispBlock">
-                  <span>WAM: </span><span class="field" >75</span>
+                  <span>WAM: </span><span class="field">75</span>
                 </span>
-                <span class="txtItl" >Wollongong</span><span
-                  class="txtItl">, </span>
-                <span  class="txtItl">NSW</span>
+                <span class="txtItl">Wollongong</span><span class="txtItl">, </span>
+                <span class="txtItl">NSW</span>
               </span>
               <span class="dispBlock" dependencyoncharvalue="EGRD_YES">
-                <span >Bachelor of Science</span>
-                <span >Nanotechnology</span><span> (</span><span
-                  class="jobdates"  format="%b %Y">Dec
+                <span>Bachelor of Science</span>
+                <span>Nanotechnology</span><span> (</span><span class="jobdates" format="%b %Y">Dec
                   2015</span><span>)</span>
               </span>
 
@@ -515,51 +107,46 @@
 
 
 
-              <span class="field" ></span>
+              <span class="field"></span>
             </div>
           </div>
 
         </div>
-        <div  class="section skills">
+        <div class="section skills">
           <div class="heading">
-            <div class="sectiontitle" >Additional Skills</div>
+            <div class="sectiontitle">Additional Skills</div>
           </div>
-          <div class="paragraph firstparagraph"
-            >
+          <div class="paragraph firstparagraph">
             <div class="singlecolumn maincolumn">
-              <span >
+              <span>
                 <p>C# .NET Framework &amp; .NET Core</p>
               </span>
             </div>
           </div>
-          <div class="paragraph"
-            >
+          <div class="paragraph">
             <div class="singlecolumn maincolumn">
-              <span >
+              <span>
                 <p>Vue, React &amp; AngularJS</p>
               </span>
             </div>
           </div>
-          <div class="paragraph"
-            >
+          <div class="paragraph">
             <div class="singlecolumn maincolumn">
-              <span >
+              <span>
                 <p>Javascript / Typescript</p>
               </span>
             </div>
           </div>
-          <div class="paragraph"
-            >
+          <div class="paragraph">
             <div class="singlecolumn maincolumn">
-              <span >
+              <span>
                 <p>TSQL &amp; NoSQL</p>
               </span>
             </div>
           </div>
-          <div class="paragraph"
-            >
+          <div class="paragraph">
             <div class="singlecolumn maincolumn">
-              <span >
+              <span>
                 <p>HTML5 &amp; CSS</p>
               </span>
             </div>
@@ -567,209 +154,176 @@
 
         </div>
       </div>
-      <div  class="rightBox last-box">
-        <div  class="section summary" spref="OSUM=SHOW">
+      <div class="rightBox last-box">
+        <div class="section summary" spref="OSUM=SHOW">
           <div class="heading">
-            <div class="sectiontitle" >Career Objective</div>
+            <div class="sectiontitle">Career Objective</div>
           </div>
-          <div class="paragraph firstparagraph"
-            >
-            <div class="field singlecolumn" >A meticulous hardworking
+          <div class="paragraph firstparagraph">
+            <div class="field singlecolumn">A meticulous hardworking
               individual with a strong passion for anything technology related, whether it be science, computers or
               programming. Possess strong planning and analytical skills and a thirst for problem solving opportunities.
               Willing to listen, learn, experience and contribute to innovative ideas.</div>
           </div>
 
         </div>
-        <div  class="section">
+        <div class="section experience">
           <div class="heading">
-            <div class="sectiontitle" >Experience</div>
+            <div class="sectiontitle">Experience</div>
           </div>
-          <div class="paragraph firstparagraph"
-            >
+          <div class="paragraph firstparagraph">
             <div class="singlecolumn">
               <span class="dispBlock txtBold">
-                <span class="jobtitle dispBlock " >Web Developer / Project
+                <span class="jobtitle dispBlock ">Web Developer / Project
                   Manager</span>
-                <span class="txtItl" >Self Employed</span><span><span>,
-                  </span></span><span class="txtItl"
-                  >Wollongong</span><span>, </span>
-                <span class="txtItl" >NSW</span><span class="txtItl"> /
+                <span class="txtItl">Self Employed</span><span><span>,
+                  </span></span><span class="txtItl">Wollongong</span><span>, </span>
+                <span class="txtItl">NSW</span><span class="txtItl"> /
                 </span>
-                <span class="txtItl"  format="%b %Y">Mar 2020</span><span>
+                <span class="txtItl" format="%b %Y">Mar 2020</span><span>
                   - </span>
-                <span class="txtItl"  format="%b %Y">Present</span><br>
+                <span class="txtItl" format="%b %Y">Present</span><br>
               </span>
               <div>
                 <ul>
-                  <li ><span
-                      >Performing discovery to identify client challenges
+                  <li><span>Performing discovery to identify client challenges
                       &amp; translating them into developmental tasks</span></li>
-                  <li ><span
-                      >Delegating task, managing time-frames and client
+                  <li><span>Delegating task, managing time-frames and client
                       expectations for a team of 3 software developers following agile scrum methodology </span></li>
-                  <li ><span
-                      >Frequent communication &amp; collaboration with
+                  <li><span>Frequent communication &amp; collaboration with
                       clients to deliver an effective solution for their business needs</span></li>
-                  <li ><span
-                      >Creating web-applications with VueJS, NodeJS,
+                  <li><span>Creating web-applications with VueJS, NodeJS,
                       Firebase and modern design styles</span></li>
                 </ul>
               </div>
-              <span ></span>
+              <span></span>
             </div>
           </div>
-          <div class="paragraph"
-            >
+          <div class="paragraph">
             <div class="singlecolumn">
               <span class="dispBlock txtBold">
-                <span class="jobtitle dispBlock " >Software Developer
+                <span class="jobtitle dispBlock ">Software Developer
                 </span>
-                <span class="txtItl" >DealerCell</span><span><span>,
-                  </span></span><span class="txtItl"
-                  >Wollongong</span><span>, </span>
-                <span class="txtItl" >NSW</span><span class="txtItl"> /
+                <span class="txtItl">DealerCell</span><span><span>,
+                  </span></span><span class="txtItl">Wollongong</span><span>, </span>
+                <span class="txtItl">NSW</span><span class="txtItl"> /
                 </span>
-                <span class="txtItl"  format="%b %Y">Jan 2019</span><span>
+                <span class="txtItl" format="%b %Y">Jan 2019</span><span>
                   - </span>
-                <span class="txtItl"  format="%b %Y">Mar 2020</span><br>
+                <span class="txtItl" format="%b %Y">Mar 2020</span><br>
               </span>
               <div>
                 <ul>
-                  <li ><span
-                      >Participated and since January 2020 lead the
+                  <li><span>Participated and since January 2020 lead the
                       development of a reporting web-application that optimises rendering through canvas and is agnostic
                       through NoSql models</span></li>
-                  <li ><span
-                      >Mentoring new developers on development stack and
+                  <li><span>Mentoring new developers on development stack and
                       in-house framework</span></li>
-                  <li ><span
-                      >Creating responsive UIs in AngularJs, backend APIs
+                  <li><span>Creating responsive UIs in AngularJs, backend APIs
                       with C# .Net Framework 4.5+ and models in TSQL for a Sales CRM web-application used by over 400
                       dealerships in the automotive industry </span></li>
-                  <li ><span
-                      >Implementing application integration with 3rd party
+                  <li><span>Implementing application integration with 3rd party
                       tools such as SEQ, JIRA and Slack, to assist with debugging and triaging production-based
                       issues</span></li>
                 </ul>
               </div>
-              <span ></span>
+              <span></span>
             </div>
           </div>
-          <div class="paragraph"
-            >
+          <div class="paragraph">
             <div class="singlecolumn">
               <span class="dispBlock txtBold">
-                <span class="jobtitle dispBlock " >Software Test Engineer
+                <span class="jobtitle dispBlock ">Software Test Engineer
                 </span>
-                <span class="txtItl" >University of
-                  Wollongong</span><span><span>, </span></span><span class="txtItl"
-                  >Wollongong</span><span>, </span>
-                <span class="txtItl" >NSW</span><span class="txtItl"> /
+                <span class="txtItl">University of
+                  Wollongong</span><span><span>, </span></span><span class="txtItl">Wollongong</span><span>, </span>
+                <span class="txtItl">NSW</span><span class="txtItl"> /
                 </span>
-                <span class="txtItl"  format="%b %Y">Mar 2017</span><span>
+                <span class="txtItl" format="%b %Y">Mar 2017</span><span>
                   - </span>
-                <span class="txtItl"  format="%b %Y">Jan 2019</span><br>
+                <span class="txtItl" format="%b %Y">Jan 2019</span><br>
               </span>
               <div>
                 <ul>
-                  <li ><span
-                      >Provided mentorship for 5 mentees (new testers),
+                  <li><span>Provided mentorship for 5 mentees (new testers),
                       familiarising them with agile practices, automation framework and high standards of quality
                       assurance</span></li>
-                  <li ><span
-                      >Participation in design, development and testing of
+                  <li><span>Participation in design, development and testing of
                       software using agile scum practices</span></li>
-                  <li ><span
-                      >Creating and executing automated test cases using
+                  <li><span>Creating and executing automated test cases using
                       Groovy, Geb automation framework and SQL querying</span></li>
-                  <li ><span
-                      >Assisting in the creation and compilation of user
+                  <li><span>Assisting in the creation and compilation of user
                       guidelines </span></li>
                 </ul>
               </div>
-              <span ></span>
+              <span></span>
             </div>
           </div>
-          <div class="paragraph"
-            >
+          <div class="paragraph">
             <div class="singlecolumn">
               <span class="dispBlock txtBold">
-                <span class="jobtitle dispBlock " >Service Desk Officer
+                <span class="jobtitle dispBlock ">Service Desk Officer
                 </span>
-                <span class="txtItl" >University of
-                  Wollongong</span><span><span>, </span></span><span class="txtItl"
-                  >Wollongong</span><span>, </span>
-                <span class="txtItl" >NSW</span><span class="txtItl"> /
+                <span class="txtItl">University of
+                  Wollongong</span><span><span>, </span></span><span class="txtItl">Wollongong</span><span>, </span>
+                <span class="txtItl">NSW</span><span class="txtItl"> /
                 </span>
-                <span class="txtItl"  format="%b %Y">Jun 2016</span><span>
+                <span class="txtItl" format="%b %Y">Jun 2016</span><span>
                   - </span>
-                <span class="txtItl"  format="%b %Y">Jun 2018</span><br>
+                <span class="txtItl" format="%b %Y">Jun 2018</span><br>
               </span>
               <div>
                 <ul>
-                  <li ><span
-                      >Serving as a first point of contact for student and
+                  <li><span>Serving as a first point of contact for student and
                       staff for UOW IT related services </span></li>
-                  <li ><span
-                      >Providing support for PC, MAC and mobile devices,
+                  <li><span>Providing support for PC, MAC and mobile devices,
                       able to diagnose and solve troubleshooting issues in person, over the phone or through
                       emails</span></li>
-                  <li ><span
-                      >Logging tickets and taking necessary actions to
+                  <li><span>Logging tickets and taking necessary actions to
                       escalate and resolve complex issues</span></li>
-                  <li ><span
-                      >Rebuilding, re-cabling and refreshing computers
+                  <li><span>Rebuilding, re-cabling and refreshing computers
                       within the computer lab </span></li>
                 </ul>
               </div>
-              <span ></span>
+              <span></span>
             </div>
           </div>
-          <div class="paragraph"
-            >
+          <div class="paragraph">
             <div class="singlecolumn">
               <span class="dispBlock txtBold">
-                <span class="jobtitle dispBlock " >Quality Assurance
+                <span class="jobtitle dispBlock ">Quality Assurance
                   Engineer &amp; Developer (Summer Vacationer) </span>
-                <span class="txtItl" >Telstra</span><span><span>,
-                  </span></span><span class="txtItl"
-                  >Wollongong</span><span>, </span>
-                <span class="txtItl" >NSW</span><span class="txtItl"> /
+                <span class="txtItl">Telstra</span><span><span>,
+                  </span></span><span class="txtItl">Wollongong</span><span>, </span>
+                <span class="txtItl">NSW</span><span class="txtItl"> /
                 </span>
-                <span class="txtItl"  format="%b %Y">Nov 2017</span><span>
+                <span class="txtItl" format="%b %Y">Nov 2017</span><span>
                   - </span>
-                <span class="txtItl"  format="%b %Y">Feb 2018</span><br>
+                <span class="txtItl" format="%b %Y">Feb 2018</span><br>
               </span>
               <div>
                 <ul>
-                  <li ><span
-                      >Developed bugfixes and automation test scripts for
+                  <li><span>Developed bugfixes and automation test scripts for
                       Telstra's “My Account” Dashboard with over 100,000 daily interactions</span></li>
-                  <li ><span
-                      >Mocked customer data, API calls and microservice
+                  <li><span>Mocked customer data, API calls and microservice
                       responses utilising SQL querying, JSON and CA service virtualisation </span></li>
-                  <li ><span
-                      >Analysed application errors, escalated issues to
+                  <li><span>Analysed application errors, escalated issues to
                       developers and verifying fixes</span></li>
-                  <li ><span
-                      >Wrote unit and functional test cases for developed
+                  <li><span>Wrote unit and functional test cases for developed
                       code and bugfixes</span></li>
                 </ul>
               </div>
-              <span ></span>
+              <span></span>
             </div>
           </div>
 
         </div>
-        <div  class="section refrence"
-          spref="OPTN=SHOW|OPTN=UPONREQUEST">
+        <div class="section refrence" spref="OPTN=SHOW|OPTN=UPONREQUEST">
           <div class="heading">
-            <div class="sectiontitle" >References</div>
+            <div class="sectiontitle">References</div>
           </div>
           <div class="refr-wrapper">
-            <div class="paragraph firstparagraph"
-              >
+            <div class="paragraph firstparagraph">
 
             </div>
 

@@ -1,0 +1,314 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700");
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+  text-align: left;
+  font-feature-settings: "liga" 0;
+  -moz-font-feature-settings: "liga" off;
+  -webkit-print-color-adjust: exact;
+  -moz--webkit-print-color-adjust: exact;
+}
+
+/*START content disc style for LI*/
+.skn-mlg9 ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-left: 10px;
+  margin-top: 5px;
+}
+
+.skn-mlg9 ul li {
+  position: relative;
+  margin: 0 0 0 0px;
+  padding-left: 14px;
+}
+
+.skn-mlg9 ul li:before {
+  content: "\2022";
+  font-size: 14px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/*END content disc style for LI*/
+
+.skn-mlg9 .txtBold {
+  font-weight: bold;
+}
+
+.skn-mlg9 .txtItl {
+  font-style: italic;
+}
+
+.skn-mlg9 .dispBlock {
+  display: block;
+}
+
+.skn-mlg9 .txtCaps {
+  text-transform: uppercase;
+}
+
+/*Document*/
+.skn-mlg9 {
+  color: #000000;
+  lmin-height: 792px;
+}
+
+.skn-mlg9 .name {
+  padding: 0;
+  text-align: left;
+  text-transform: capitalize;
+}
+
+/* common left-right container */
+.skn-mlg9 .section {
+  position: relative;
+}
+
+.skn-mlg9 .leftBox,
+.skn-mlg9 .rightBox {
+  box-sizing: border-box;
+  position: relative;
+  display: table-cell;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+
+.skn-mlg9 .leftBox {
+  padding: 25px 0px;
+}
+
+.skn-mlg9 .rightBox {
+  padding: 25px 25px 25px 15px;
+}
+
+.skn-mlg9 .leftBox:empty,
+.skn-mlg9 .section:empty {
+  display: none;
+}
+
+.skn-mlg9 .section:first-child {
+  padding-top: 0;
+  border: none;
+}
+
+.skn-mlg9 .singlecolumn .jobtitle {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.skn-mlg9 .education .categoryTitle {
+  margin-top: 4px;
+}
+
+.skn-mlg9 .refername {
+  text-transform: uppercase;
+}
+
+.skn-mlg9 .leftBox .section {
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #fff;
+}
+
+.skn-mlg9 .leftBox .section:last-child {
+  border: none;
+}
+
+.skn-mlg9 .location {
+  margin-bottom: 3px;
+}
+
+.skn-mlg9 .locIcon svg {
+  padding-top: 2px;
+}
+
+/* Common Heading style */
+.skn-mlg9 .heading {
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.skn-mlg9 .leftBox .heading {
+  margin-bottom: 0;
+}
+
+.skn-mlg9 .rightBox .heading:before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: #e0e0e0;
+}
+
+.skn-mlg9 .sectionTitle {
+  text-transform: uppercase;
+  color: #000;
+  font-weight: bold;
+}
+
+/*parentContainer*/
+.skn-mlg9 .parentContainer {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.skn-mlg9 .parentContainer .leftBox {
+  background-color: #f5f6f5 !important;
+}
+
+.skn-mlg9 .parentContainer .rightBox,
+.skn-mlg9 .parentContainer .leftBox {
+  padding-top: 20px;
+}
+
+/* SVG Icon Style */
+.skn-mlg9 .iconRow {
+  clear: both;
+  display: table;
+  margin-bottom: 2px;
+  word-wrap: break-word;
+}
+
+.skn-mlg9 .iconRow:last-child {
+  margin-bottom: 0;
+}
+
+.skn-mlg9 .iconSvg {
+  width: 16px;
+  height: 16px;
+  display: table-cell;
+  text-align: center;
+  line-height: normal;
+  margin-top: 0;
+  float: left;
+  background: #000;
+  border-radius: 50%;
+}
+
+.skn-mlg9 .icoTxt {
+  display: table-cell;
+  padding-left: 5px;
+  vertical-align: top;
+}
+
+/* word-break:break-all added for pdf */
+.skn-mlg9 .icoTxt {
+  word-wrap: break-word;
+  word-break: break-all;
+  word-break: break-word;
+}
+.skn-mlg9,
+.skn-mlg9 table {
+  line-height: 14px;
+}
+
+.skn-mlg9.pagesize {
+  width: 794px;
+}
+
+.skn-mlg9.fontsize {
+  font-size: 11px;
+}
+
+.skn-mlg9.fontface {
+  font-family: open sans;
+}
+
+.skn-mlg9 .section {
+  padding-top: 30px;
+}
+
+.skn-mlg9 .leftBox .section {
+  padding-top: 15px;
+}
+
+.skn-mlg9 .firstparagraph {
+  margin-top: 0 !important;
+}
+
+.skn-mlg9 .paragraph {
+  margin-top: 12px;
+}
+
+.skn-mlg9 .skills .paragraph,
+.skn-mlg9 .certificate .paragraph {
+  margin-top: 5px;
+}
+
+.skn-mlg9 .parentContainer {
+  min-height: 798px;
+}
+
+.skn-mlg9 .parentContainer .singlecolumn,
+.skn-mlg9 .parentContainer .singlecolumn,
+.skn-mlg9 .parentContainer .maincolumn {
+  margin-left: 0px;
+}
+
+.skn-mlg9 .rightBox .singlecolumn {
+  margin-left: 0 !important;
+}
+
+.skn-mlg9 .name {
+  font-size: 17px;
+  line-height: 18px;
+}
+
+.skn-mlg9 .resumeTitle {
+  font-size: 11px;
+  line-height: 14px;
+  margin-top: 3px;
+}
+
+.skn-mlg9 .sectionTitle {
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.skn-mlg9 .parentContainer .leftBox {
+  width: 245px;
+}
+
+.skn-mlg9 .icoTxt {
+  font-size: 10px;
+}
+
+.skn-mlg9 .singlecolumn .jobtitle,
+.skn-mlg9 .referdetail,
+.skn-mlg9 .refUponReq {
+  font-size: 12px;
+}
+
+/* icons */
+.skn-mlg9 .iconSvg {
+  margin-top: 0px;
+}
+
+.skn-mlg9 .iconSvg svg {
+  width: 9px;
+  vertical-align: baseline;
+}
+
+@-moz-document url-prefix() {
+  .skn-mlg9 .parentContainer {
+    height: 798px;
+  }
+}

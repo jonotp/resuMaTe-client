@@ -1,11 +1,10 @@
 import React from 'react';
+import Resume from '../Resume/Resume.jsx';
 import "./app.scss";
 
 function App() {
 	return (
-		<div>
-			<h1>My React App2</h1>
-		</div>
+		<Resume />
 	)
 }
 

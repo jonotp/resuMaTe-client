@@ -10,7 +10,7 @@ function Header({firstName, lastName, positionTitle}) {
               <span className="">{firstName}</span>
               <span className="">{lastName}</span>
             </div>
-            <div className="position-titletle txtBold"><span>{positionTitle}</span></div>
+            <div className="position-title txtBold"><span>{positionTitle}</span></div>
           </div>
         </div>
       </div>

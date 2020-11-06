@@ -1,0 +1,13 @@
+.resume {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+@media print {
+  .resume {
+    display: block;
+    margin-top: 0;
+  }
+}

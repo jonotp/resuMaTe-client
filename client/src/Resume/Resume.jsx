@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import data from "../testData";
 import Corporate from "./Corporate/Corporate.jsx"
+import "./resume.scss";
 
 function Resume() {
   const [isMounted, setMounted] = useState(false);
@@ -12,7 +13,9 @@ function Resume() {
     }
   }, [isMounted])
   return (
-    <Corporate resume={data} />
+    <div className="resume">
+      <Corporate resume={data} />
+    </div>
   )
 }
 
@@ -22,6 +25,7 @@ function AddHeightToSidePane() {
   const sidepane = document.getElementsByClassName("sidepane")[0];
   if (sidepane === undefined) return;
 
+  const parentTop = document.getElementsByClassName("resume")[0].getBoundingClientRect().top;
   const rect = sidepane.getBoundingClientRect();
   const top = rect.top;
   const bottom = rect.bottom;
@@ -30,7 +34,7 @@ function AddHeightToSidePane() {
     newPageHeight += pageHeight;
   }
 
-  const newHeight = newPageHeight - top;
+  const newHeight = newPageHeight - top + parentTop;
   sidepane.style.height = newHeight + "px";
 }
 

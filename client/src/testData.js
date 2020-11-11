@@ -84,8 +84,9 @@ const data = {
         "Creating responsive UIs in AngularJs, backend APIs with C# .Net Framework 4.5+ and models in TSQL for a Sales CRM web-application used by over 400 dealerships in the automotive industry",
         "Implementing application integration with 3rd party tools such as SEQ, JIRA and Slack, to assist with debugging and triaging production-based issues",
       ],
-    }
+    },
   ],
+  certificates: ["Deans award (2016 - 2018)", "IT Professionalism award"],
   skills: [
     "C# .NET Framework & .NET Core",
     "Vue, React & AngularJS",
@@ -97,4 +98,44 @@ const data = {
   references: [],
 };
 
+const getTestPersonalDetails = ({firstName, lastName, email, phone, positionTitle, country, address, state, city,zipCode}) => 
+{
+  return {
+    firstName,
+    lastName,
+    email,
+    phone,
+    positionTitle,
+    country,
+    address,
+    state,
+    city,
+    zipCode,
+  };
+}
+
+const getTestReferenceDetails = (data) => {
+  return { referenceType: data.referenceType, references: data.references };
+};
+const getTestExperience = (data) => {
+  return data.experience;
+};
+const getTestEducation = (data) => {
+  return data.education;
+};
+const getTestCertificates = (data) => {
+  return data.certificates;
+};
+const getTestSkills = (data) => {
+  return data.skills;
+};
+
 export default data;
+export {
+  getTestPersonalDetails,
+  getTestReferenceDetails,
+  getTestExperience,
+  getTestEducation,
+  getTestCertificates,
+  getTestSkills,
+};

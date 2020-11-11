@@ -7,10 +7,6 @@ function Reference({ referenceType, references }) {
         <div className="sectiontitle">References</div>
       </div>
       <div className="refr-wrapper">
-        <div className="paragraph ">
-
-        </div>
-
         <div className="paragraph">
           <span className="txtBold">References available upon request</span>
         </div>

@@ -8,12 +8,9 @@ import Education from "./Education.jsx";
 import Skills from "./Skills.jsx";
 import "./corporate.scss";
 
-
 function Corporate({ resume }) {
-
   return (
-    <div className="corporate"
-      >
+    <div className="corporate" >
       <Header firstName={resume.firstName} lastName={resume.lastName} positionTitle={resume.positionTitle} />
       <div className="parentContainer">
         <div className="left-box last-box">

@@ -6,6 +6,7 @@ module.exports = {
     hot: true,
     open: true,
     port: 3000,
+    historyApiFallback: true,
   },
   entry: {
     index: "./src/index.js",
@@ -13,6 +14,7 @@ module.exports = {
   output: {
     path: path.resolve("dist"),
     filename: "main.js",
+    publicPath:'/'
   },
   module: {
     rules: [

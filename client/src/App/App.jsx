@@ -1,7 +1,11 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
+import {
+	BrowserRouter as Router
+} from "react-router-dom";
 import NavBar from '../NavBar/NavBar.jsx';
+import ResumeBuilder from '../ResumeBuilder/ResumeBuilder.jsx';
 import "./app.scss";
 import theme from '../theme.js';
 
@@ -10,7 +14,9 @@ function App() {
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
 			<NavBar />
-			<h1>Content to display here</h1>
+			<Router>
+				<ResumeBuilder />
+			</Router>
 		</ThemeProvider>
 	)
 }

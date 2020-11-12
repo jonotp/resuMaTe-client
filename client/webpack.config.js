@@ -33,6 +33,9 @@ module.exports = {
       },
     ],
   },
+  resolve:{
+    extensions: ['.js', '.jsx']
+  },
   plugins: [
     // Will handle creating a new html in the build directory
     new HTMLWebpackPlugin({

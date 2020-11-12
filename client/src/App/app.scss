@@ -1,12 +1,9 @@
 .app-body{
   display:flex;
-
-  h1,h2,h3,h4,h5{
-    margin:0;
-  }
+  padding-left:3rem;
+  padding-right:3rem;
 
   .content{
     flex-grow: 1;
-    padding:1rem;
   }
 }

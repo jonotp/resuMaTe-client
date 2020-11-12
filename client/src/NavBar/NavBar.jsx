@@ -19,9 +19,9 @@ function NavBar() {
   const classes = useStyles();
 
   return (
-    <AppBar className={classes.root} position="sticky" color="secondary">
+    <AppBar className={classes.root} position="sticky" color="primary">
       <Toolbar>
-        <NavLink to="/" activeStyle={{ color: "initial", textDecoration: "initial", fontWeight: "intial" }} >
+        <NavLink to="/" activeStyle={{ color: "#F3F4F9", textDecoration: "initial", fontWeight: "intial" }} >
           Resume<strong className={classes.emphasise}>Ready</strong>
         </NavLink>
       </Toolbar>

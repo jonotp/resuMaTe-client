@@ -1,11 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import {
-  Redirect,
   Route,
-  Switch,
   useHistory,
   useLocation,
+  Switch,
+  useRouteMatch,
+  Redirect,
 } from "react-router-dom";
 import data, { getTestCertificates, getTestEducation, getTestExperience, getTestPersonalDetails, getTestReferenceDetails, getTestSkills } from "../testData";
 import * as ROUTES from "../routes.js";
@@ -16,7 +17,6 @@ import Skills from "./Skills.jsx";
 import CareerObjective from "./CareerObjective.jsx";
 import References from "./References.jsx";
 import Finalise from "./Finalise.jsx";
-import NotFound from "../NotFound/NotFound.jsx";
 import WorkExperience from "./WorkExperience.jsx";
 import "./resume-builder.scss";
 
@@ -42,15 +42,17 @@ function ResumeBuilder() {
   const [currentPage, setCurrentPage] = useState(0);
   const history = useHistory();
   const location = useLocation();
+  const { path } = useRouteMatch();
 
   const nextPage = () => {
     const newPage = Math.min(currentPage + 1, ResumeBuilderPages.length - 1);
     setCurrentPage(newPage);
-    history.push(ResumeBuilderPages[newPage]);
+    history.push(`${path}${ResumeBuilderPages[newPage]}`);
   }
 
   const onPageLoad = () => {
-    const index = Math.max(ResumeBuilderPages.findIndex(x => x=== location.pathname),0);
+    const route = location.pathname.substr(path.length);
+    const index = Math.max(ResumeBuilderPages.findIndex(x => x === route), 0);
     setCurrentPage(index);
   }
 
@@ -58,19 +60,19 @@ function ResumeBuilder() {
 
   return (
     <div className="resume-builder">
-        <Switch>
-          <Route exact path="/" render={(props) => (<Introduction {...props} state={personalDetails} setState={setPersonalDetails} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
-          <Route exact path={ROUTES.RESUME_BUILDER.INTRODUCTION} render={(props) => (<Introduction {...props} state={personalDetails} setState={setPersonalDetails} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
-          <Route path={ROUTES.RESUME_BUILDER.EDUCATION} render={(props) => (<Education {...props} state={education} setState={setEducation} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
-          <Route path={ROUTES.RESUME_BUILDER.CERTIFICATIONS} render={(props) => (<Certifications {...props} state={certifications} setState={setCertifications} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
-          <Route path={ROUTES.RESUME_BUILDER.WORK_EXPERIENCE} render={(props) => (<WorkExperience {...props} state={experience} setState={setExperience} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
-          <Route path={ROUTES.RESUME_BUILDER.SKILLS} render={(props) => (<Skills {...props} state={skills} setState={setSkills} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
-          <Route path={ROUTES.RESUME_BUILDER.CAREER_OBJECTIVE} render={(props) => (<CareerObjective {...props} state={personalDetails} setState={setPersonalDetails} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
-          <Route path={ROUTES.RESUME_BUILDER.REFERENCES} render={(props) => (<References {...props} state={reference} setState={setReferences} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
-          <Route path={ROUTES.RESUME_BUILDER.FINALISE} render={(props) => (<Finalise {...props} state={personalDetails} setState={setPersonalDetails} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
-          <Route path={ROUTES.NOT_FOUND} render={(props) => (<NotFound {...props} />)} />
-          <Redirect from="*" to={ROUTES.NOT_FOUND} />
-        </Switch>
+      <Switch>
+        <Route exact path={path} render={(props) => (<Introduction {...props} state={personalDetails} setState={setPersonalDetails} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
+        <Route path={path + ROUTES.RESUME_BUILDER.INTRODUCTION} render={(props) => (<Introduction {...props} state={personalDetails} setState={setPersonalDetails} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
+        <Route path={path + ROUTES.RESUME_BUILDER.EDUCATION} render={(props) => (<Education {...props} state={education} setState={setEducation} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
+        <Route path={path + ROUTES.RESUME_BUILDER.CERTIFICATIONS} render={(props) => (<Certifications {...props} state={certifications} setState={setCertifications} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
+        <Route path={path + ROUTES.RESUME_BUILDER.WORK_EXPERIENCE} render={(props) => (<WorkExperience {...props} state={experience} setState={setExperience} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
+        <Route path={path + ROUTES.RESUME_BUILDER.SKILLS} render={(props) => (<Skills {...props} state={skills} setState={setSkills} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
+        <Route path={path + ROUTES.RESUME_BUILDER.CAREER_OBJECTIVE} render={(props) => (<CareerObjective {...props} state={personalDetails} setState={setPersonalDetails} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
+        <Route path={path + ROUTES.RESUME_BUILDER.REFERENCES} render={(props) => (<References {...props} state={reference} setState={setReferences} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
+        <Route path={path + ROUTES.RESUME_BUILDER.FINALISE} render={(props) => (<Finalise {...props} state={personalDetails} setState={setPersonalDetails} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
+        <Redirect from="*" to={ROUTES.NOT_FOUND} />
+
+      </Switch>
     </div>
   )
 }

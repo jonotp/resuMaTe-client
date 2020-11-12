@@ -5,7 +5,8 @@ import { NavLink } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    fontSize: "1.6rem"
+    fontSize: "1.6rem",
+    zIndex: theme.zIndex.drawer + 1,
   },
   emphasise: {
     fontWeight: "bold",

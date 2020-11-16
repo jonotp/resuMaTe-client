@@ -1,6 +1,6 @@
-@import "../variables";
+@import "../../variables";
 
-.education-form {
+.education-section {
   background-color: white;
   margin: 1rem -1rem;
   padding: 1rem;
@@ -41,7 +41,7 @@
     }
   }
 
-  > .education-form-section {
+  > .education-form {
     display: grid !important;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
@@ -109,7 +109,7 @@
   }
 
   &.active {
-    > .education-form-section {
+    > .education-form {
       max-height: 800px;
       transform: scaleY(1);
     }

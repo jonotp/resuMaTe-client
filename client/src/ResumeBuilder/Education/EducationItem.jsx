@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { format } from "date-fns";
-import { v4 as uuidv4 } from "uuid";
-import WithPageLoad from "./WithPageLoad";
 import {
   Divider,
   IconButton,
@@ -11,109 +9,20 @@ import {
   FormControl,
   InputLabel,
 } from "@material-ui/core";
-import { GreenButton } from "../CustomButton/GreenButton";
-import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
-import { AddButton } from "../CustomButton/AddButton";
+import { GreenButton } from "../../CustomButton/GreenButton";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import CloseIcon from "@material-ui/icons/Close";
 import { DatePicker } from "@material-ui/pickers";
 import "./education.scss";
 
-function Education({ state, setState, onContinue }) {
-  const [hasError, setHasError] = useState(false);
-
-  const handleAdd = () => {
-    setState((prev) => prev.concat({ id: uuidv4() }));
-  };
-
-  const handleDelete = (id) => {
-    setState((prev) => prev.filter((x) => x.id !== id));
-  };
-
-  const handleChange = (id) => (event) => {
-    setState((prev) => {
-      return prev.map((x) =>
-        x.id === id
-          ? {
-              ...x,
-              [event.target.name]: event.target.value,
-            }
-          : x
-      );
-    });
-  };
-
-  const handleDateChange = (id) => (property, value) => {
-    setState((prev) => {
-      return prev.map((x) =>
-        x.id === id
-          ? {
-              ...x,
-              [property]: value,
-            }
-          : x
-      );
-    });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!validate()) return;
-    onContinue();
-  };
-
-  const validate = () => {
-    const isValid =
-      state.find(
-        (x) =>
-          x.program === undefined ||
-          x.schoolName === undefined ||
-          x.endDate === undefined ||
-          x.mark === undefined ||
-          x.program.length === 0 ||
-          x.schoolName.length === 0 ||
-          x.mark.length === 0
-      ) === undefined;
-
-    setHasError(!isValid);
-    return isValid;
-  };
-
-  return (
-    <form onSubmit={handleSubmit} noValidate className="resume-builder-section">
-      <h1 className="resume-builder-heading">Education</h1>
-      <div className="resume-builder-description">
-        Include relevant education experience
-      </div>
-      {state !== null
-        ? state.map((x) => (
-            <Form
-              education={x}
-              handleChange={handleChange(x.id)}
-              onDateChange={handleDateChange(x.id)}
-              onDelete={handleDelete}
-              hasError={hasError}
-              key={x.id}
-            />
-          ))
-        : null}
-      <AddButton
-        onClick={handleAdd}
-        variant="text"
-        color="primary"
-        startIcon={<AddCircleOutlineIcon />}
-      >
-        Add education
-      </AddButton>
-      <GreenButton type="submit" variant="contained" color="primary">
-        Continue
-      </GreenButton>
-    </form>
-  );
-}
-
-function Form({ education, handleChange, onDelete, onDateChange, hasError }) {
+function EducationItem({
+  education,
+  handleChange,
+  onDelete,
+  onDateChange,
+  hasError,
+}) {
   const [showForm, setShowForm] = useState(true);
   const [showMore, setShowMore] = useState(false);
 
@@ -128,7 +37,7 @@ function Form({ education, handleChange, onDelete, onDateChange, hasError }) {
   };
 
   return (
-    <div className={showForm ? "education-form active" : "education-form"}>
+    <div className={showForm ? "education-section active" : "education-section"}>
       {/* Header */}
       <div className="form-header">
         {showForm ? (
@@ -151,7 +60,7 @@ function Form({ education, handleChange, onDelete, onDateChange, hasError }) {
           {education.program || "Missing program"} (
           {education.endDate !== undefined
             ? format(new Date(education.endDate), "LLL yyyy")
-            : format(new Date(), "LLL yyyy")}
+            : "Missing graudation date"}
           )
         </p>
         <p className="school-name-summary">
@@ -167,7 +76,7 @@ function Form({ education, handleChange, onDelete, onDateChange, hasError }) {
       </div>
 
       {/* Form */}
-      <section className="education-form-section">
+      <div className="education-form">
         <TextField
           id={`program-${education.id}`}
           name="program"
@@ -315,9 +224,9 @@ function Form({ education, handleChange, onDelete, onDateChange, hasError }) {
             Show more
           </GreenButton>
         </div>
-      </section>
+      </div>
     </div>
   );
 }
 
-export default WithPageLoad(Education);
+export default EducationItem;

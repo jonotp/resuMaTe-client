@@ -34,7 +34,7 @@ module.exports = {
     ],
   },
   resolve:{
-    extensions: ['.js', '.jsx']
+    extensions: ['.js', '.jsx','.scss']
   },
   plugins: [
     // Will handle creating a new html in the build directory

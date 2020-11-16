@@ -5,7 +5,7 @@ import {
 } from '@material-ui/core/styles';
 import { green  } from '@material-ui/core/colors';
 import { Button } from "@material-ui/core";
-
+import "./custom-button";
 
 const theme = createMuiTheme({
   palette: {
@@ -21,9 +21,17 @@ const theme = createMuiTheme({
 function GreenButton(props) {
   return (
     <ThemeProvider theme={theme}>
-      <Button {...props} color="primary"></Button>
+      <Button {...props}  color="primary"></Button>
     </ThemeProvider>
   )
 }
 
-export { GreenButton };
+function GreenButtonLarge(props) {
+  return (
+    <ThemeProvider theme={theme}>
+      <Button {...props} className="btn-lg" color="primary" size="large"></Button>
+    </ThemeProvider>
+  )
+}
+
+export { GreenButton, GreenButtonLarge };

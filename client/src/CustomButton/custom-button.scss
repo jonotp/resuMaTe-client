@@ -1,0 +1,33 @@
+@import "../variables";
+
+$add-btn-border-color: rgba(0, 0, 0, 0.23);
+
+.btn-lg {
+  font-size: $lg-button-font !important;
+  svg {
+    font-size: $lg-button-icon !important;
+  }
+}
+
+.add-btn {
+  display: flex !important;
+  width: 50%;
+  border-radius: 3%;
+  border: 2px dashed $add-btn-border-color;
+  justify-content: center;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 1rem;
+
+  &:hover {
+    border-color: $primary;
+  }
+
+  &:active,
+  &:focus {
+    border-color: $primary-light;
+  }
+
+  > * {
+    width: 100%;
+  }
+}

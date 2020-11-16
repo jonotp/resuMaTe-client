@@ -37,9 +37,9 @@ function EducationItem({
   };
 
   return (
-    <div className={showForm ? "education-section active" : "education-section"}>
+    <div className={showForm ? "card-container active" : "card-container"}>
       {/* Header */}
-      <div className="form-header">
+      <div className="card-header">
         {showForm ? (
           <IconButton aria-label="dropdown" onClick={() => setShowForm(false)}>
             <KeyboardArrowUpIcon />
@@ -56,14 +56,14 @@ function EducationItem({
 
       {/* Summary fields */}
       <div className="summary">
-        <p className="program-summary">
+        <p className="summary-title">
           {education.program || "Missing program"} (
           {education.endDate !== undefined
             ? format(new Date(education.endDate), "LLL yyyy")
             : "Missing graudation date"}
           )
         </p>
-        <p className="school-name-summary">
+        <p>
           {education.schoolName || "Missing institution's name"}
           {education.state !== undefined && education.state.length > 0
             ? `, ${education.state}`
@@ -72,11 +72,11 @@ function EducationItem({
             ? `, ${education.city}`
             : ""}
         </p>
-        <p className="mark-summary">{education.mark || "Missing mark"}</p>
+        <p>{education.mark || "Missing mark"}</p>
       </div>
 
       {/* Form */}
-      <div className="education-form">
+      <div className="required-form-fields">
         <TextField
           id={`program-${education.id}`}
           name="program"
@@ -139,8 +139,8 @@ function EducationItem({
         />
         <Divider style={{ gridArea: "divider" }} variant="middle" />
         <div
-          className={showMore ? "more-details active" : "more-details"}
-          style={{ gridArea: "more" }}
+          className={`${showMore ? "active": ""} additional-form-fields`}
+          style={{ gridArea: "addition-fields" }}
         >
           <DatePicker
             id={`start-date-${education.id}`}
@@ -200,7 +200,7 @@ function EducationItem({
             value={education.city || ""}
             onChange={handleChange}
           />
-          <div className="hide-button" style={{ gridArea: "hide" }}>
+          <div className="hide-fields-button" style={{ gridArea: "hide-fields-button" }}>
             <GreenButton
               variant="text"
               size="small"
@@ -212,8 +212,8 @@ function EducationItem({
           </div>
         </div>
         <div
-          className={showMore ? "show-button" : "show-button active"}
-          style={{ gridArea: "show-button" }}
+          className={showMore ? "show-fields-button" : "show-fields-button active"}
+          style={{ gridArea: "show-fields-button" }}
         >
           <GreenButton
             variant="text"

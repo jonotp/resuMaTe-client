@@ -29,6 +29,7 @@ const data = {
   Willing to listen, learn, experience and contribute to innovative ideas.`,
   education: [
     {
+      id: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
       schoolType: EDUCATION_TYPE.UNIVERSITY_OR_COLLEGE,
       schoolName: "University of Wollongong",
       country: "Australia",
@@ -38,15 +39,17 @@ const data = {
       mark: "WAM 89",
       startDate: "2016-02-15T00:00:00.000Z",
       endDate: "2018-12-15T00:00:00.000Z",
+      hasGraduated: true,
       awards: [],
     },
     {
+      id: "1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed",
       schoolType: EDUCATION_TYPE.UNIVERSITY_OR_COLLEGE,
       schoolName: "University of Wollongong",
       country: "Australia",
       state: "NSW",
       city: "Wollongong",
-      program: "Bachelor of Science (Nanotechnology)",
+      program: "Bachelor of Science Major in Nanotechnology",
       mark: "WAM 89",
       startDate: "2016-02-15T00:00:00.000Z",
       endDate: "2018-12-15T00:00:00.000Z",

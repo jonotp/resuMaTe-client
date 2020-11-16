@@ -21,6 +21,8 @@ import { DatePicker } from "@material-ui/pickers";
 import "./education.scss";
 
 function Education({ state, setState, onContinue }) {
+  const [hasError, setHasError] = useState(false);
+
   const handleAdd = () => {
     setState((prev) => prev.concat({ id: uuidv4() }));
   };
@@ -55,8 +57,31 @@ function Education({ state, setState, onContinue }) {
     });
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!validate()) return;
+    onContinue();
+  };
+
+  const validate = () => {
+    const isValid =
+      state.find(
+        (x) =>
+          x.program === undefined ||
+          x.schoolName === undefined ||
+          x.endDate === undefined ||
+          x.mark === undefined ||
+          x.program.length === 0 ||
+          x.schoolName.length === 0 ||
+          x.mark.length === 0
+      ) === undefined;
+
+    setHasError(!isValid);
+    return isValid;
+  };
+
   return (
-    <div className="resume-builder-section">
+    <form onSubmit={handleSubmit} noValidate className="resume-builder-section">
       <h1 className="resume-builder-heading">Education</h1>
       <div className="resume-builder-description">
         Include relevant education experience
@@ -68,6 +93,7 @@ function Education({ state, setState, onContinue }) {
               handleChange={handleChange(x.id)}
               onDateChange={handleDateChange(x.id)}
               onDelete={handleDelete}
+              hasError={hasError}
               key={x.id}
             />
           ))
@@ -80,19 +106,16 @@ function Education({ state, setState, onContinue }) {
       >
         Add education
       </AddButton>
-      <GreenButton onClick={onContinue} variant="contained" color="primary">
+      <GreenButton type="submit" variant="contained" color="primary">
         Continue
       </GreenButton>
-    </div>
+    </form>
   );
 }
 
-function Form({ education, handleChange, onDelete, onDateChange }) {
+function Form({ education, handleChange, onDelete, onDateChange, hasError }) {
   const [showForm, setShowForm] = useState(true);
   const [showMore, setShowMore] = useState(false);
-  const handleSubmit = () => {
-    console.log("Submitting education form");
-  };
 
   const handleDelete = () => {
     onDelete(education.id);
@@ -144,20 +167,9 @@ function Form({ education, handleChange, onDelete, onDateChange }) {
       </div>
 
       {/* Form */}
-      <form onSubmit={handleSubmit} noValidate>
+      <section className="education-form-section">
         <TextField
-          id="school-name"
-          name="schoolName"
-          label="Educational Institution's name"
-          variant="outlined"
-          margin="none"
-          style={{ gridArea: "school-name" }}
-          value={education.schoolName || ""}
-          onChange={handleChange}
-          required
-        />
-        <TextField
-          id="program"
+          id={`program-${education.id}`}
           name="program"
           label="Degree / Program"
           variant="outlined"
@@ -165,23 +177,44 @@ function Form({ education, handleChange, onDelete, onDateChange }) {
           style={{ gridArea: "program" }}
           value={education.program || ""}
           onChange={handleChange}
+          error={
+            hasError &&
+            (education.program === undefined || education.program.length === 0)
+          }
+          required
+        />
+        <TextField
+          id={`school-name-${education.id}`}
+          name="schoolName"
+          label="Educational Institution's name"
+          variant="outlined"
+          margin="none"
+          style={{ gridArea: "school-name" }}
+          value={education.schoolName || ""}
+          onChange={handleChange}
+          error={
+            hasError &&
+            (education.schoolName === undefined ||
+              education.schoolName.length === 0)
+          }
+          required
         />
         <DatePicker
-          id="end-date"
+          id={`end-date-${education.id}`}
           name="endDate"
           label="Graduation Date"
           margin="none"
           inputVariant="outlined"
           format="MMM yyyy"
-          KeyboardButtonProps={{
-            "aria-label": "change date",
-          }}
+          className="date"
           style={{ gridArea: "end-date" }}
-          value={education.endDate}
+          value={education.endDate || null}
           onChange={handleDateChange("endDate")}
+          error={hasError && education.endDate === undefined}
+          required
         />
         <TextField
-          id="mark"
+          id={`mark-${education.id}`}
           name="mark"
           label="Mark"
           variant="outlined"
@@ -189,6 +222,11 @@ function Form({ education, handleChange, onDelete, onDateChange }) {
           style={{ gridArea: "mark" }}
           value={education.mark || ""}
           onChange={handleChange}
+          error={
+            hasError &&
+            (education.mark === undefined || education.mark.length === 0)
+          }
+          required
         />
         <Divider style={{ gridArea: "divider" }} variant="middle" />
         <div
@@ -196,25 +234,25 @@ function Form({ education, handleChange, onDelete, onDateChange }) {
           style={{ gridArea: "more" }}
         >
           <DatePicker
-            id="start-date"
+            id={`start-date-${education.id}`}
             name="startDate"
             label="Enrolled Date"
             margin="none"
             inputVariant="outlined"
             format="MMM yyyy"
-            KeyboardButtonProps={{
-              "aria-label": "change date",
-            }}
+            className="date"
             style={{ gridArea: "start-date" }}
-            value={education.startDate}
+            value={education.startDate || null}
             onChange={handleDateChange("startDate")}
           />
           <FormControl style={{ gridArea: "has-graduated" }} variant="outlined">
-            <InputLabel id="has-graduted-label">Graduated?</InputLabel>
+            <InputLabel id={`has-graduted-label-${education.id}`}>
+              Graduated?
+            </InputLabel>
             <Select
-              id="has-graduated"
+              id={`has-graduated-${education.id}`}
               name="hasGraduated"
-              labelId="has-graduated-label"
+              labelid={`has-graduated-label-${education.id}`}
               label="Graduated?"
               value={education.hasGraduated || false}
               onChange={handleChange}
@@ -224,7 +262,7 @@ function Form({ education, handleChange, onDelete, onDateChange }) {
             </Select>
           </FormControl>
           <TextField
-            id="country"
+            id={`country-${education.id}`}
             name="country"
             label="Country"
             variant="outlined"
@@ -234,7 +272,7 @@ function Form({ education, handleChange, onDelete, onDateChange }) {
             onChange={handleChange}
           />
           <TextField
-            id="state"
+            id={`state-${education.id}`}
             name="state"
             label="State"
             variant="outlined"
@@ -244,7 +282,7 @@ function Form({ education, handleChange, onDelete, onDateChange }) {
             onChange={handleChange}
           />
           <TextField
-            id="city"
+            id={`city-${education.id}`}
             name="city"
             label="City"
             variant="outlined"
@@ -277,7 +315,7 @@ function Form({ education, handleChange, onDelete, onDateChange }) {
             Show more
           </GreenButton>
         </div>
-      </form>
+      </section>
     </div>
   );
 }

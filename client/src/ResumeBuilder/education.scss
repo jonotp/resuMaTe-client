@@ -41,7 +41,7 @@
     }
   }
 
-  > form {
+  > .education-form-section {
     display: grid !important;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
@@ -60,7 +60,7 @@
 
     .more-details {
       display: grid;
-      margin-top:-1rem;
+      margin-top: -1rem;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: auto;
       gap: 1rem;
@@ -79,12 +79,12 @@
       }
     }
 
-    .show-button{
-      margin-bottom:-1rem;
+    .show-button {
+      margin-bottom: -1rem;
       opacity: 0;
       max-height: 0;
 
-      &.active{
+      &.active {
         opacity: 1;
         max-height: 150px;
       }
@@ -100,10 +100,16 @@
         }
       }
     }
+
+    .date {
+      input {
+        cursor: pointer;
+      }
+    }
   }
 
   &.active {
-    > form {
+    > .education-form-section {
       max-height: 800px;
       transform: scaleY(1);
     }

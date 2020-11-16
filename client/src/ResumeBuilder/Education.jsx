@@ -1,14 +1,23 @@
 import React, { useState } from "react";
-import { format, isDate } from "date-fns";
+import { format } from "date-fns";
 import { v4 as uuidv4 } from "uuid";
 import WithPageLoad from "./WithPageLoad";
-import { IconButton, TextField } from "@material-ui/core";
+import {
+  Divider,
+  IconButton,
+  Select,
+  TextField,
+  MenuItem,
+  FormControl,
+  InputLabel,
+} from "@material-ui/core";
 import { GreenButton } from "../CustomButton/GreenButton";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import { AddButton } from "../CustomButton/AddButton";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import CloseIcon from "@material-ui/icons/Close";
+import { DatePicker } from "@material-ui/pickers";
 import "./education.scss";
 
 function Education({ state, setState, onContinue }) {
@@ -33,6 +42,19 @@ function Education({ state, setState, onContinue }) {
     });
   };
 
+  const handleDateChange = (id) => (property, value) => {
+    setState((prev) => {
+      return prev.map((x) =>
+        x.id === id
+          ? {
+              ...x,
+              [property]: value,
+            }
+          : x
+      );
+    });
+  };
+
   return (
     <div className="resume-builder-section">
       <h1 className="resume-builder-heading">Education</h1>
@@ -44,6 +66,7 @@ function Education({ state, setState, onContinue }) {
             <Form
               education={x}
               handleChange={handleChange(x.id)}
+              onDateChange={handleDateChange(x.id)}
               onDelete={handleDelete}
               key={x.id}
             />
@@ -64,21 +87,25 @@ function Education({ state, setState, onContinue }) {
   );
 }
 
-function Form({ education, handleChange, onDelete }) {
+function Form({ education, handleChange, onDelete, onDateChange }) {
   const [showForm, setShowForm] = useState(true);
+  const [showMore, setShowMore] = useState(false);
   const handleSubmit = () => {
     console.log("Submitting education form");
   };
-
-  console.log(education);
 
   const handleDelete = () => {
     onDelete(education.id);
   };
 
+  const handleDateChange = (property) => (date) => {
+    if (date !== null) {
+      onDateChange(property, date.toISOString());
+    }
+  };
+
   return (
     <div className={showForm ? "education-form active" : "education-form"}>
-      
       {/* Header */}
       <div className="form-header">
         {showForm ? (
@@ -98,9 +125,21 @@ function Form({ education, handleChange, onDelete }) {
       {/* Summary fields */}
       <div className="summary">
         <p className="program-summary">
-          {education.program || "Missing program"} ({education.endDate !== undefined ? format(new Date(education.endDate), "LLL yyyy") : "Invaid Date"})
+          {education.program || "Missing program"} (
+          {education.endDate !== undefined
+            ? format(new Date(education.endDate), "LLL yyyy")
+            : format(new Date(), "LLL yyyy")}
+          )
         </p>
-        <p className="school-name-summary">{education.schoolName || "Missing institution's name"}, {education.state}, {education.city}</p>
+        <p className="school-name-summary">
+          {education.schoolName || "Missing institution's name"}
+          {education.state !== undefined && education.state.length > 0
+            ? `, ${education.state}`
+            : ""}
+          {education.city !== undefined && education.city.length > 0
+            ? `, ${education.city}`
+            : ""}
+        </p>
         <p className="mark-summary">{education.mark || "Missing mark"}</p>
       </div>
 
@@ -115,36 +154,7 @@ function Form({ education, handleChange, onDelete }) {
           style={{ gridArea: "school-name" }}
           value={education.schoolName || ""}
           onChange={handleChange}
-        />
-        <TextField
-          id="country"
-          name="country"
-          label="Country"
-          variant="outlined"
-          margin="none"
-          style={{ gridArea: "country" }}
-          value={education.country || ""}
-          onChange={handleChange}
-        />
-        <TextField
-          id="state"
-          name="state"
-          label="State"
-          variant="outlined"
-          margin="none"
-          style={{ gridArea: "state" }}
-          value={education.state || ""}
-          onChange={handleChange}
-        />
-        <TextField
-          id="city"
-          name="city"
-          label="City"
-          variant="outlined"
-          margin="none"
-          style={{ gridArea: "city" }}
-          value={education.city || ""}
-          onChange={handleChange}
+          required
         />
         <TextField
           id="program"
@@ -156,35 +166,19 @@ function Form({ education, handleChange, onDelete }) {
           value={education.program || ""}
           onChange={handleChange}
         />
-        <TextField
-          id="has-graduated"
-          name="hasGraduated"
-          label="Graduated?"
-          variant="outlined"
+        <DatePicker
+          id="end-date"
+          name="endDate"
+          label="Graduation Date"
           margin="none"
-          style={{ gridArea: "has-graduated" }}
-          value={education.hasGraduated || ""}
-          onChange={handleChange}
-        />
-        <TextField
-          id="month"
-          name="month"
-          label="Month"
-          variant="outlined"
-          margin="none"
-          style={{ gridArea: "month" }}
-          value={education.month || ""}
-          onChange={handleChange}
-        />
-        <TextField
-          id="year"
-          name="year"
-          label="Year"
-          variant="outlined"
-          margin="none"
-          style={{ gridArea: "year" }}
-          value={education.year || ""}
-          onChange={handleChange}
+          inputVariant="outlined"
+          format="MMM yyyy"
+          KeyboardButtonProps={{
+            "aria-label": "change date",
+          }}
+          style={{ gridArea: "end-date" }}
+          value={education.endDate}
+          onChange={handleDateChange("endDate")}
         />
         <TextField
           id="mark"
@@ -196,6 +190,93 @@ function Form({ education, handleChange, onDelete }) {
           value={education.mark || ""}
           onChange={handleChange}
         />
+        <Divider style={{ gridArea: "divider" }} variant="middle" />
+        <div
+          className={showMore ? "more-details active" : "more-details"}
+          style={{ gridArea: "more" }}
+        >
+          <DatePicker
+            id="start-date"
+            name="startDate"
+            label="Enrolled Date"
+            margin="none"
+            inputVariant="outlined"
+            format="MMM yyyy"
+            KeyboardButtonProps={{
+              "aria-label": "change date",
+            }}
+            style={{ gridArea: "start-date" }}
+            value={education.startDate}
+            onChange={handleDateChange("startDate")}
+          />
+          <FormControl style={{ gridArea: "has-graduated" }} variant="outlined">
+            <InputLabel id="has-graduted-label">Graduated?</InputLabel>
+            <Select
+              id="has-graduated"
+              name="hasGraduated"
+              labelId="has-graduated-label"
+              label="Graduated?"
+              value={education.hasGraduated || false}
+              onChange={handleChange}
+            >
+              <MenuItem value={true}>Yes</MenuItem>
+              <MenuItem value={false}>No</MenuItem>
+            </Select>
+          </FormControl>
+          <TextField
+            id="country"
+            name="country"
+            label="Country"
+            variant="outlined"
+            margin="none"
+            style={{ gridArea: "country" }}
+            value={education.country || ""}
+            onChange={handleChange}
+          />
+          <TextField
+            id="state"
+            name="state"
+            label="State"
+            variant="outlined"
+            margin="none"
+            style={{ gridArea: "state" }}
+            value={education.state || ""}
+            onChange={handleChange}
+          />
+          <TextField
+            id="city"
+            name="city"
+            label="City"
+            variant="outlined"
+            margin="none"
+            style={{ gridArea: "city" }}
+            value={education.city || ""}
+            onChange={handleChange}
+          />
+          <div className="hide-button" style={{ gridArea: "hide" }}>
+            <GreenButton
+              variant="text"
+              size="small"
+              margin="none"
+              onClick={() => setShowMore(false)}
+            >
+              Hide
+            </GreenButton>
+          </div>
+        </div>
+        <div
+          className={showMore ? "show-button" : "show-button active"}
+          style={{ gridArea: "show-button" }}
+        >
+          <GreenButton
+            variant="text"
+            size="small"
+            margin="none"
+            onClick={() => setShowMore(true)}
+          >
+            Show more
+          </GreenButton>
+        </div>
       </form>
     </div>
   );

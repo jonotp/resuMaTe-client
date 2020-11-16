@@ -1,6 +1,8 @@
 import React from 'react';
 import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+import DateFnsUtils from "@date-io/date-fns";
 import theme from '../theme.js';
 import * as ROUTES from "../routes.js";
 import {
@@ -18,8 +20,10 @@ import SideBar from '../SideBar/SideBar.jsx';
 
 function App() {
 	return (
+
 		<ThemeProvider theme={theme}>
 			<CssBaseline />
+			<MuiPickersUtilsProvider utils={DateFnsUtils}>
 			<Router>
 				<NavBar />
 				<div className="app-body">
@@ -34,6 +38,7 @@ function App() {
 					</div>
 				</div>
 			</Router>
+			</MuiPickersUtilsProvider>
 		</ThemeProvider>
 	)
 }

@@ -68,7 +68,7 @@ function Education({ state, setState, onContinue }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="resume-builder-section">
+    <form onSubmit={handleSubmit} noValidate className="resume-builder-section education-section">
       <h1 className="resume-builder-heading">Education</h1>
       <div className="resume-builder-description">
         Include relevant education experience

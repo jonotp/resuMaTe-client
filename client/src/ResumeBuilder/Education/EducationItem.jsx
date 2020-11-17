@@ -67,16 +67,16 @@ function EducationItem({
           {education.schoolName || "Missing institution's name"}
           {education.state !== undefined && education.state.length > 0
             ? `, ${education.state}`
-            : ""}
+            : null}
           {education.city !== undefined && education.city.length > 0
             ? `, ${education.city}`
-            : ""}
+            : null}
         </p>
         <p>{education.mark || "Missing mark"}</p>
       </div>
 
       {/* Form */}
-      <div className="required-form-fields">
+      <div className="resume-form-fields">
         <TextField
           id={`program-${education.id}`}
           name="program"
@@ -200,7 +200,7 @@ function EducationItem({
             value={education.city || ""}
             onChange={handleChange}
           />
-          <div className="hide-fields-button" style={{ gridArea: "hide-fields-button" }}>
+          <div className="hide-additional-fields-button" style={{ gridArea: "hide-additional-fields-button" }}>
             <GreenButton
               variant="text"
               size="small"
@@ -212,8 +212,8 @@ function EducationItem({
           </div>
         </div>
         <div
-          className={showMore ? "show-fields-button" : "show-fields-button active"}
-          style={{ gridArea: "show-fields-button" }}
+          className={showMore ? "show-additional-fields-button" : "show-additional-fields-button active"}
+          style={{ gridArea: "show-additional-fields-button" }}
         >
           <GreenButton
             variant="text"

@@ -11,7 +11,7 @@ import {
 import data, { getTestCertificates, getTestEducation, getTestExperience, getTestPersonalDetails, getTestReferenceDetails, getTestSkills } from "../testData";
 import * as ROUTES from "../routes.js";
 import Introduction from "./Introduction.jsx";
-import Education from "./Education.jsx";
+import Education from "./Education/Education";
 import Certifications from "./Certifcations.jsx";
 import Skills from "./Skills.jsx";
 import CareerObjective from "./CareerObjective.jsx";

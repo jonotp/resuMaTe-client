@@ -59,11 +59,13 @@ const data = {
   ],
   experience: [
     {
+      id: "4e2f2da9-2520-41d1-8807-d571532b3fbe",
       title: "Web Developer / Project Manager",
       company: "Self Employed",
       country: "Australia",
       state: "NSW",
       city: "Wollongong",
+      isCurrentJob: true,
       startDate: "2020-03-15T00:00:00.000Z",
       endDate: null,
       responsibilities: [
@@ -74,11 +76,13 @@ const data = {
       ],
     },
     {
+      id:"da732612-db45-4ff6-ae52-e7b964368297",
       title: "Software Developer",
       company: "DealerCell",
       country: "Australia",
       state: "NSW",
       city: "Wollongong",
+      isCurrentJob: false,
       startDate: "2019-01-15T00:00:00.000Z",
       endDate: "2020-03-15T00:00:00.000Z",
       responsibilities: [
@@ -101,8 +105,18 @@ const data = {
   references: [],
 };
 
-const getTestPersonalDetails = ({firstName, lastName, email, phone, positionTitle, country, address, state, city,zipCode}) => 
-{
+const getTestPersonalDetails = ({
+  firstName,
+  lastName,
+  email,
+  phone,
+  positionTitle,
+  country,
+  address,
+  state,
+  city,
+  zipCode,
+}) => {
   return {
     firstName,
     lastName,
@@ -115,7 +129,7 @@ const getTestPersonalDetails = ({firstName, lastName, email, phone, positionTitl
     city,
     zipCode,
   };
-}
+};
 
 const getTestReferenceDetails = (data) => {
   return { referenceType: data.referenceType, references: data.references };

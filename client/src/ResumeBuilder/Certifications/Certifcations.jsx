@@ -5,7 +5,7 @@ import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import { AddButton } from "../../CustomButton/AddButton";
 import ListItem from "../ListItem.jsx";
 
-function Certification({ state, setState, onContinue }) {
+function Certifications({ state, setState, onContinue }) {
   const [hasError, setHasError] = useState(false);
 
   const handleAdd = () => {
@@ -39,7 +39,7 @@ function Certification({ state, setState, onContinue }) {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="resume-builder-section certification-section"
+      className="resume-builder-section certifications-section"
     >
       <h1 className="resume-builder-heading">Certifications</h1>
       <div className="resume-builder-description">
@@ -74,4 +74,4 @@ function Certification({ state, setState, onContinue }) {
   );
 }
 
-export default WithPageLoad(Certification);
+export default WithPageLoad(Certifications);

@@ -10,14 +10,14 @@ import {
 } from "react-router-dom";
 import data, { getTestCertificates, getTestEducation, getTestExperience, getTestPersonalDetails, getTestReferenceDetails, getTestSkills } from "../testData";
 import * as ROUTES from "../routes.js";
-import Introduction from "./Introduction.jsx";
+import Introduction from "./Introduction";
 import Education from "./Education/Education";
-import Certifications from "./Certifcations.jsx";
-import Skills from "./Skills.jsx";
-import CareerObjective from "./CareerObjective.jsx";
-import References from "./References.jsx";
-import Finalise from "./Finalise.jsx";
-import WorkExperience from "./WorkExperience.jsx";
+import Certification from "./Certification/Certifcation";
+import Skills from "./Skills";
+import CareerObjective from "./CareerObjective";
+import References from "./References";
+import Finalise from "./Finalise";
+import WorkExperience from "./WorkExperience/WorkExperience";
 import "./resume-builder.scss";
 
 const useTestData = true;
@@ -64,7 +64,7 @@ function ResumeBuilder() {
         <Route exact path={path} render={(props) => (<Introduction {...props} state={personalDetails} setState={setPersonalDetails} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
         <Route path={path + ROUTES.RESUME_BUILDER.INTRODUCTION} render={(props) => (<Introduction {...props} state={personalDetails} setState={setPersonalDetails} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
         <Route path={path + ROUTES.RESUME_BUILDER.EDUCATION} render={(props) => (<Education {...props} state={education} setState={setEducation} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
-        <Route path={path + ROUTES.RESUME_BUILDER.CERTIFICATIONS} render={(props) => (<Certifications {...props} state={certifications} setState={setCertifications} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
+        <Route path={path + ROUTES.RESUME_BUILDER.CERTIFICATIONS} render={(props) => (<Certification {...props} state={certifications} setState={setCertifications} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
         <Route path={path + ROUTES.RESUME_BUILDER.WORK_EXPERIENCE} render={(props) => (<WorkExperience {...props} state={experience} setState={setExperience} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
         <Route path={path + ROUTES.RESUME_BUILDER.SKILLS} render={(props) => (<Skills {...props} state={skills} setState={setSkills} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
         <Route path={path + ROUTES.RESUME_BUILDER.CAREER_OBJECTIVE} render={(props) => (<CareerObjective {...props} state={personalDetails} setState={setPersonalDetails} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
@@ -76,23 +76,5 @@ function ResumeBuilder() {
     </div>
   )
 }
-
-// Personal details section 
-// // What is your name 
-
-//  Education 
-// Choose from the three 
-//// More detail section 
-
-// Certifications
-
-// Work Experience 
-
-// SKills
-
-// Career Objective 
-
-
-// Finish 
 
 export default ResumeBuilder;

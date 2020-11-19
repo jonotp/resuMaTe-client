@@ -13,7 +13,7 @@ import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import CloseIcon from "@material-ui/icons/Close";
 import { DatePicker } from "@material-ui/pickers";
-import Responsibility from "./Responsibility";
+import ListItem from "../ListItem";
 import { GreenButton } from "../../CustomButton/GreenButton";
 import "./work-experience.scss";
 
@@ -58,7 +58,6 @@ function WorkExperienceItem({
 
   return (
     <div className={showForm ? "card-container active" : "card-container"}>
-
       {/* Header */}
       <div className="card-header">
         {showForm ? (
@@ -207,9 +206,10 @@ function WorkExperienceItem({
           style={{ gridArea: "responsibilities" }}
         >
           {workExperience.responsibilities.map((x, i) => (
-            <Responsibility
+            <ListItem
               key={i}
               id={workExperience.id}
+              name="Responsibility"
               index={i}
               value={x}
               handleChange={handleEditResponsibilities(i)}

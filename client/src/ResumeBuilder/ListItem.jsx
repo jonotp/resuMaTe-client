@@ -18,7 +18,7 @@ function ListItem({
   hasError,
 }) {
   return (
-    <FormControl className={`${name}`} variant="outlined" fullWidth>
+    <FormControl className="list-item" variant="outlined" fullWidth>
       <InputLabel htmlFor={`${name}-${index}-${id}`}>
         {name} #{index + 1}
       </InputLabel>

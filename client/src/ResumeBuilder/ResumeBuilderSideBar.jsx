@@ -9,8 +9,8 @@ const SideBarLinks = [
   { text: "Certifications", route: ROUTES.RESUME_BUILDER.CERTIFICATIONS },
   { text: "Work Experience", route: ROUTES.RESUME_BUILDER.WORK_EXPERIENCE },
   { text: "Skills", route: ROUTES.RESUME_BUILDER.SKILLS },
-  { text: "Career Objective", route: ROUTES.RESUME_BUILDER.CAREER_OBJECTIVE },
-  { text: "Reference", route: ROUTES.RESUME_BUILDER.REFERENCES },
+  // { text: "Career Objective", route: ROUTES.RESUME_BUILDER.CAREER_OBJECTIVE },
+  // { text: "Reference", route: ROUTES.RESUME_BUILDER.REFERENCES },
   { text: "Finalise", route: ROUTES.RESUME_BUILDER.FINALISE },
 ];
 

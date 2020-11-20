@@ -23,10 +23,7 @@ const data = {
   zipCode: "2500",
 
   // Nullable
-  careerObjective: `A meticulous hardworking
-  individual with a strong passion for anything technology related, whether it be science, computers or
-  programming. Possess strong planning and analytical skills and a thirst for problem solving opportunities.
-  Willing to listen, learn, experience and contribute to innovative ideas.`,
+  careerObjective: `A meticulous hardworking individual with a strong passion for anything technology related, whether it be science, computers or programming. Possess strong planning and analytical skills and a thirst for problem solving opportunities. Willing to listen, learn, experience and contribute to innovative ideas.`,
   education: [
     {
       id: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
@@ -76,7 +73,7 @@ const data = {
       ],
     },
     {
-      id:"da732612-db45-4ff6-ae52-e7b964368297",
+      id: "da732612-db45-4ff6-ae52-e7b964368297",
       title: "Software Developer",
       company: "DealerCell",
       country: "Australia",
@@ -116,6 +113,7 @@ const getTestPersonalDetails = ({
   state,
   city,
   zipCode,
+  careerObjective,
 }) => {
   return {
     firstName,
@@ -128,6 +126,7 @@ const getTestPersonalDetails = ({
     state,
     city,
     zipCode,
+    careerObjective,
   };
 };
 

@@ -14,9 +14,9 @@ import Introduction from "./Introduction";
 import Education from "./Education/Education";
 import Certifications from "./Certifications/Certifcations";
 import Skills from "./Skills/Skills";
-import CareerObjective from "./CareerObjective";
-import References from "./References";
-import Finalise from "./Finalise";
+// import CareerObjective from "./CareerObjective";
+// import References from "./References";
+import Finalise from "./Finalise/Finalise";
 import WorkExperience from "./WorkExperience/WorkExperience";
 import "./resume-builder.scss";
 
@@ -28,8 +28,8 @@ const ResumeBuilderPages = [
   ROUTES.RESUME_BUILDER.CERTIFICATIONS,
   ROUTES.RESUME_BUILDER.WORK_EXPERIENCE,
   ROUTES.RESUME_BUILDER.SKILLS,
-  ROUTES.RESUME_BUILDER.CAREER_OBJECTIVE,
-  ROUTES.RESUME_BUILDER.REFERENCES,
+  // ROUTES.RESUME_BUILDER.CAREER_OBJECTIVE,
+  // ROUTES.RESUME_BUILDER.REFERENCES,
   ROUTES.RESUME_BUILDER.FINALISE]
 
 function ResumeBuilder() {
@@ -67,8 +67,8 @@ function ResumeBuilder() {
         <Route path={path + ROUTES.RESUME_BUILDER.CERTIFICATIONS} render={(props) => (<Certifications {...props} state={certifications} setState={setCertifications} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
         <Route path={path + ROUTES.RESUME_BUILDER.WORK_EXPERIENCE} render={(props) => (<WorkExperience {...props} state={experience} setState={setExperience} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
         <Route path={path + ROUTES.RESUME_BUILDER.SKILLS} render={(props) => (<Skills {...props} state={skills} setState={setSkills} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
-        <Route path={path + ROUTES.RESUME_BUILDER.CAREER_OBJECTIVE} render={(props) => (<CareerObjective {...props} state={personalDetails} setState={setPersonalDetails} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
-        <Route path={path + ROUTES.RESUME_BUILDER.REFERENCES} render={(props) => (<References {...props} state={reference} setState={setReferences} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
+        {/* <Route path={path + ROUTES.RESUME_BUILDER.CAREER_OBJECTIVE} render={(props) => (<CareerObjective {...props} state={personalDetails} setState={setPersonalDetails} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
+        <Route path={path + ROUTES.RESUME_BUILDER.REFERENCES} render={(props) => (<References {...props} state={reference} setState={setReferences} onContinue={nextPage} onPageLoad={onPageLoad} />)} /> */}
         <Route path={path + ROUTES.RESUME_BUILDER.FINALISE} render={(props) => (<Finalise {...props} state={personalDetails} setState={setPersonalDetails} onContinue={nextPage} onPageLoad={onPageLoad} />)} />
         <Redirect from="*" to={ROUTES.NOT_FOUND} />
       </Switch>

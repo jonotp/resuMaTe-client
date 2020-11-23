@@ -1,0 +1,16 @@
+@import "../../variables";
+
+.certifications-section {
+  .card-container {
+    .resume-form-fields {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 1rem;
+      grid-template-areas:
+        "name name name"
+        "issuer issuer issuer"
+        "issue-date has-expiry-date expiry-date"
+    }
+  }
+}

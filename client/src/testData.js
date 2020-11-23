@@ -85,7 +85,23 @@ const data = {
       ],
     },
   ],
-  certificates: ["Deans award (2016 - 2018)", "IT Professionalism award"],
+  certificates: [
+    {
+      id: "da732612-db45-4ff6-ae52-e7b964368291",
+      name: "Deans award (2016 - 2018)",
+      issuer:"University of Wollongong",
+      issueDate: "2019-01-15T00:00:00.000Z",
+      hasExpiryDate: false,
+    },
+    {
+      id: "da732612-db45-4ff6-ae52-e7b964368292",
+      name: "IT Professionalism award",
+      issuer:"University of Wollongong",
+      issueDate: "2019-01-15T00:00:00.000Z",
+      hasExpiryDate: true,
+      expiryDate: "2020-01-15T00:00:00.000Z",
+    },
+  ],
   skills: [
     "C# .NET Framework & .NET Core",
     "Vue, React & AngularJS",

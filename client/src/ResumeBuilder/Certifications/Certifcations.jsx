@@ -1,25 +1,56 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import WithPageLoad from "../WithPageLoad.jsx";
 import { GreenButton } from "../../CustomButton/GreenButton.jsx";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import { AddButton } from "../../CustomButton/AddButton";
-import ListItem from "../ListItem.jsx";
+import CertificationItem from "./CertificationItem";
+import "./certifications.scss";
 
 function Certifications({ state, setState, onContinue }) {
   const [hasError, setHasError] = useState(false);
 
   const handleAdd = () => {
-    setState((prev) => prev.concat(""));
-  };
-
-  const handleChange = (index) => (event) => {
     setState((prev) =>
-      prev.map((x, i) => (i === index ? event.target.value : x))
+      prev.concat({
+        id: uuidv4(),
+        name: "",
+        issuer:"",
+        issueDate: null,
+        hasExpiryDate: false,
+        expiryDate: null,
+      })
     );
   };
 
-  const handleDelete = (index) => () => {
-    setState((prev) => prev.filter((x, i) => i !== index));
+  const handleDelete = (id) => {
+    setState((prev) => prev.filter((x) => x.id !== id));
+  };
+
+  const handleEventChange = (id) => (event) => {
+    setState((prev) => {
+      return prev.map((x) =>
+        x.id === id
+          ? {
+              ...x,
+              [event.target.name]: event.target.value,
+            }
+          : x
+      );
+    });
+  };
+
+  const handleChange = (id) => (property, value) => {
+    setState((prev) => {
+      return prev.map((x) =>
+        x.id === id
+          ? {
+              ...x,
+              [property]: value,
+            }
+          : x
+      );
+    });
   };
 
   const handleSubmit = (event) => {
@@ -29,7 +60,13 @@ function Certifications({ state, setState, onContinue }) {
   };
 
   const validate = () => {
-    const isValid = !state.some((x) => x.trim().length === 0);
+    const isValid = !state.some(
+      (x) =>
+        x.issueDate === null ||
+        x.name.trim().length === 0 ||
+        x.issuer.trim().length === 0 || 
+        (x.hasExpiryDate ? x.expiryDate === null : false)
+    );
 
     setHasError(!isValid);
     return isValid;
@@ -43,21 +80,17 @@ function Certifications({ state, setState, onContinue }) {
     >
       <h1 className="resume-builder-heading">Certifications</h1>
       <div className="resume-builder-description">
-        Add any relevant certificate, licences or awards
+        Add any relevant certificates, qualifications or awards
       </div>
-      {state.map((x, i) => (
-        <div className="card-container">
-          <ListItem
-            key={i}
-            id={i}
-            name="Certification"
-            index={i}
-            value={x}
-            handleChange={handleChange(i)}
-            handleDelete={handleDelete(i)}
-            hasError={hasError}
-          />
-        </div>
+      {state.map((x) => (
+        <CertificationItem
+          key={x.id}
+          certification={x}
+          onInputChange={handleEventChange(x.id)}
+          onChange={handleChange(x.id)}
+          onDelete={handleDelete}
+          hasError={hasError}
+        />
       ))}
       <AddButton
         onClick={handleAdd}

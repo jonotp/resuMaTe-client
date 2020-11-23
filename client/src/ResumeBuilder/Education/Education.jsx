@@ -56,11 +56,9 @@ function Education({ state, setState, onContinue }) {
         (x) =>
           x.program === undefined ||
           x.schoolName === undefined ||
-          x.endDate === undefined ||
-          x.mark === undefined ||
+          x.endDate === null ||
           x.program.length === 0 ||
-          x.schoolName.length === 0 ||
-          x.mark.length === 0
+          x.schoolName.length === 0 
       ) === undefined;
 
     setHasError(!isValid);

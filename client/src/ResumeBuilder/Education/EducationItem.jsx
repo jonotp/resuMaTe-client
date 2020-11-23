@@ -57,22 +57,19 @@ function EducationItem({
       {/* Summary fields */}
       <div className="summary">
         <p className="summary-title">
-          {education.program || "Missing program"} (
-          {education.endDate !== undefined
-            ? format(new Date(education.endDate), "LLL yyyy")
-            : "Missing graudation date"}
-          )
+          {education.program || "Missing program"}
+        </p>
+        <p>
+          {education.completionDate !== undefined
+            ? `Completed on ${format(new Date(education.completionDate), "LLL yyyy")}`
+            : "Missing completion date"}
         </p>
         <p>
           {education.schoolName || "Missing institution's name"}
-          {education.state !== undefined && education.state.length > 0
-            ? `, ${education.state}`
-            : null}
-          {education.city !== undefined && education.city.length > 0
-            ? `, ${education.city}`
+          {education.location !== undefined && education.location.length > 0
+            ? `, ${education.location}`
             : null}
         </p>
-        <p>{education.mark || "Missing mark"}</p>
       </div>
 
       {/* Form */}
@@ -109,37 +106,22 @@ function EducationItem({
           required
         />
         <DatePicker
-          id={`end-date-${education.id}`}
-          name="endDate"
-          label="Graduation Date"
+          id={`completion-date-${education.id}`}
+          name="completionDate"
+          label="Completion Date"
           margin="none"
           inputVariant="outlined"
           format="MMM yyyy"
           className="date"
-          style={{ gridArea: "end-date" }}
-          value={education.endDate || null}
-          onChange={handleDateChange("endDate")}
-          error={hasError && education.endDate === undefined}
-          required
-        />
-        <TextField
-          id={`mark-${education.id}`}
-          name="mark"
-          label="Mark"
-          variant="outlined"
-          margin="none"
-          style={{ gridArea: "mark" }}
-          value={education.mark || ""}
-          onChange={handleChange}
-          error={
-            hasError &&
-            (education.mark === undefined || education.mark.length === 0)
-          }
+          style={{ gridArea: "completion-date" }}
+          value={education.completionDate || null}
+          onChange={handleDateChange("completionDate")}
+          error={hasError && education.completionDate === undefined}
           required
         />
         <Divider style={{ gridArea: "divider" }} variant="middle" />
         <div
-          className={`${showMore ? "active": ""} additional-form-fields`}
+          className={`${showMore ? "active" : ""} additional-form-fields`}
           style={{ gridArea: "addition-fields" }}
         >
           <DatePicker
@@ -171,36 +153,29 @@ function EducationItem({
             </Select>
           </FormControl>
           <TextField
-            id={`country-${education.id}`}
-            name="country"
-            label="Country"
+            id={`mark-${education.id}`}
+            name="mark"
+            label="Mark"
             variant="outlined"
             margin="none"
-            style={{ gridArea: "country" }}
-            value={education.country || ""}
+            style={{ gridArea: "mark" }}
+            value={education.mark || ""}
             onChange={handleChange}
           />
           <TextField
-            id={`state-${education.id}`}
-            name="state"
-            label="State"
+            id={`location-${education.id}`}
+            name="location"
+            label="Location"
             variant="outlined"
             margin="none"
-            style={{ gridArea: "state" }}
-            value={education.state || ""}
+            style={{ gridArea: "location" }}
+            value={education.location || ""}
             onChange={handleChange}
           />
-          <TextField
-            id={`city-${education.id}`}
-            name="city"
-            label="City"
-            variant="outlined"
-            margin="none"
-            style={{ gridArea: "city" }}
-            value={education.city || ""}
-            onChange={handleChange}
-          />
-          <div className="hide-additional-fields-button" style={{ gridArea: "hide-additional-fields-button" }}>
+          <div
+            className="hide-additional-fields-button"
+            style={{ gridArea: "hide-additional-fields-button" }}
+          >
             <GreenButton
               variant="text"
               size="small"
@@ -212,7 +187,11 @@ function EducationItem({
           </div>
         </div>
         <div
-          className={showMore ? "show-additional-fields-button" : "show-additional-fields-button active"}
+          className={
+            showMore
+              ? "show-additional-fields-button"
+              : "show-additional-fields-button active"
+          }
           style={{ gridArea: "show-additional-fields-button" }}
         >
           <GreenButton

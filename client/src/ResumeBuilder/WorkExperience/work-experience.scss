@@ -14,8 +14,8 @@
       grid-template-areas:
         "title title title"
         "company company company"
-        "country state city"
-        "is-current-job start-date end-date"
+        "location location empty"
+        "start-date is-current-job end-date"
         "divider divider divider"
         "responsibilities responsibilities responsibilities";
     }

@@ -10,9 +10,7 @@ import "./work-experience.scss";
 const defaultWorkExperience ={
   title: "",
   company: "",
-  country: "",
-  state: "",
-  city: "",
+  location:"",
   isCurrentJob: false,
   startDate: null,
   endDate: null,

@@ -91,8 +91,7 @@ function WorkExperienceItem({
         </p>
         <p>
           {workExperience.company || "Missing company's name"}
-          {workExperience.state.length > 0 ? `, ${workExperience.state}` : null}
-          {workExperience.city.length > 0 ? `, ${workExperience.city}` : null}
+          {workExperience.location.length > 0 ? `, ${workExperience.location}` : null}
         </p>
         <p>Responsibilities ({workExperience.responsibilities.length})</p>
       </div>
@@ -124,33 +123,13 @@ function WorkExperienceItem({
           required
         />
         <TextField
-          id={`country-${workExperience.id}`}
-          name="country"
-          label="Country"
+          id={`location-${workExperience.id}`}
+          name="location"
+          label="Location"
           variant="outlined"
           margin="none"
-          style={{ gridArea: "country" }}
-          value={workExperience.country}
-          onChange={onInputChange}
-        />
-        <TextField
-          id={`state-${workExperience.id}`}
-          name="state"
-          label="State"
-          variant="outlined"
-          margin="none"
-          style={{ gridArea: "state" }}
-          value={workExperience.state}
-          onChange={onInputChange}
-        />
-        <TextField
-          id={`city-${workExperience.id}`}
-          name="city"
-          label="City"
-          variant="outlined"
-          margin="none"
-          style={{ gridArea: "city" }}
-          value={workExperience.city}
+          style={{ gridArea: "location" }}
+          value={workExperience.location}
           onChange={onInputChange}
         />
         <FormControl style={{ gridArea: "is-current-job" }} variant="outlined">

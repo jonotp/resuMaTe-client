@@ -1,8 +1,12 @@
 @import "../../variables";
 
 .work-experience-section {
-  .list-item { 
-    margin-bottom: 1rem;
+  .summary-responsibilities{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-family: inherit;
+    margin: 0.5rem 0rem 0rem 0.5rem;
+    font-size: 1rem;
   }
 
   .card-container {

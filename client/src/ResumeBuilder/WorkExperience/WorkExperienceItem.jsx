@@ -13,8 +13,6 @@ import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import CloseIcon from "@material-ui/icons/Close";
 import { DatePicker } from "@material-ui/pickers";
-import ListItem from "../ListItem";
-import { GreenButton } from "../../CustomButton/GreenButton";
 import "./work-experience.scss";
 
 function WorkExperienceItem({
@@ -56,6 +54,12 @@ function WorkExperienceItem({
     }
   };
 
+  const reponsibilityPlaceholder = `Responsibility #1
+  
+Responsibility #2
+
+Responsibility #3`;
+
   return (
     <div className={showForm ? "card-container active" : "card-container"}>
       {/* Header */}
@@ -91,9 +95,12 @@ function WorkExperienceItem({
         </p>
         <p>
           {workExperience.company || "Missing company's name"}
-          {workExperience.location.length > 0 ? `, ${workExperience.location}` : null}
+          {workExperience.location.length > 0
+            ? `, ${workExperience.location}`
+            : null}
         </p>
-        <p>Responsibilities ({workExperience.responsibilities.length})</p>
+        <p>Responsibilities</p>
+        <pre className="summary-responsibilities">{workExperience.responsibilities || "Missing Responsibilities"}</pre>
       </div>
 
       {/* Form */}
@@ -180,33 +187,24 @@ function WorkExperienceItem({
           />
         )}
         <Divider style={{ gridArea: "divider" }} variant="middle" />
-        <div
-          className="responsibilities-container"
+        <TextField
+          id={`responsibilities-${workExperience.id}`}
+          name="responsibilities"
+          label="Responsibilities"
+          variant="outlined"
+          margin="none"
           style={{ gridArea: "responsibilities" }}
-        >
-          {workExperience.responsibilities.map((x, i) => (
-            <ListItem
-              key={i}
-              id={workExperience.id}
-              name="Responsibility"
-              index={i}
-              value={x}
-              handleChange={handleEditResponsibilities(i)}
-              handleDelete={handleDeleteResponsibilities(i)}
-              hasError={hasError}
-            />
-          ))}
-          <div className="text-button">
-            <GreenButton
-              variant="text"
-              size="small"
-              margin="none"
-              onClick={handleAddResponsibilities}
-            >
-              Add responsibility
-            </GreenButton>
-          </div>
-        </div>
+          value={workExperience.responsibilities}
+          onChange={onInputChange}
+          rows={5}
+          rowsMax={10}
+          fullWidth
+          multiline
+          required
+          placeholder={reponsibilityPlaceholder}
+          error={hasError && workExperience.responsibilities.length === 0}
+          helperText="Separate responsibilities with an empty line"
+        />
       </div>
     </div>
   );

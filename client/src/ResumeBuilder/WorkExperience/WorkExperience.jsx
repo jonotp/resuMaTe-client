@@ -14,7 +14,7 @@ const defaultWorkExperience ={
   isCurrentJob: false,
   startDate: null,
   endDate: null,
-  responsibilities: [],
+  responsibilities: "",
 }
 
 function WorkExperience({ state, setState, onContinue }) {
@@ -65,13 +65,11 @@ function WorkExperience({ state, setState, onContinue }) {
   const validate = () => {
     const isValid = !state.some(
       (x) =>
-        x.title === undefined ||
-        x.company === undefined ||
-        x.endDate === undefined ||
-        x.startDate === undefined ||
-        x.title.length === 0 ||
-        x.company.length === 0 ||
-        x.responsibilities.some((x) => x.trim().length === 0)
+        x.title.trim().length === 0 ||
+        x.company.trim().length === 0 ||
+        x.responsibilities.trim().length === 0 || 
+        x.startDate === null || 
+        (!x.isCurrentJob && (x.endDate === null))
     );
 
     setHasError(!isValid);

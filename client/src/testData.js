@@ -58,12 +58,14 @@ const data = {
       isCurrentJob: true,
       startDate: "2020-03-15T00:00:00.000Z",
       endDate: null,
-      responsibilities: [
-        "Performing discovery to identify client challenges & translating them into developmental tasks",
-        "Delegating task, managing time-frames and client expectations for a team of 3 software developers following agile scrum methodology",
-        "Frequent communication & collaboration with clients to deliver an effective solution for their business needs",
-        "Creating web-applications with VueJS, NodeJS, Firebase and modern design styles",
-      ],
+      responsibilities:`Performing discovery to identify client challenges & translating them into developmental tasks,
+
+Delegating task, managing time-frames and client expectations for a team of 3 software developers following agile scrum methodology,
+
+Frequent communication & collaboration with clients to deliver an effective solution for their business needs,
+
+Creating web-applications with VueJS, NodeJS, Firebase and modern design styles
+      `,
     },
     {
       id: "da732612-db45-4ff6-ae52-e7b964368297",
@@ -73,12 +75,13 @@ const data = {
       isCurrentJob: false,
       startDate: "2019-01-15T00:00:00.000Z",
       endDate: "2020-03-15T00:00:00.000Z",
-      responsibilities: [
-        "Participated and since January 2020 lead the development of a reporting web-application that optimises rendering through canvas and is agnostic through NoSql models",
-        "Mentoring new developers on development stack and in-house framework",
-        "Creating responsive UIs in AngularJs, backend APIs with C# .Net Framework 4.5+ and models in TSQL for a Sales CRM web-application used by over 400 dealerships in the automotive industry",
-        "Implementing application integration with 3rd party tools such as SEQ, JIRA and Slack, to assist with debugging and triaging production-based issues",
-      ],
+    responsibilities: `Participated and since January 2020 lead the development of a reporting web-application that optimises rendering through canvas and is agnostic through NoSql models
+    
+Mentoring new developers on development stack and in-house framework
+
+Creating responsive UIs in AngularJs, backend APIs with C# .Net Framework 4.5+ and models in TSQL for a Sales CRM web-application used by over 400 dealerships in the automotive industry
+
+Implementing application integration with 3rd party tools such as SEQ, JIRA and Slack, to assist with debugging and triaging production-based issues`
     },
   ],
   certificates: [

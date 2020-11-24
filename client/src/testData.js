@@ -16,11 +16,7 @@ const data = {
   email: "jonathanphame@gmail.com",
   phone: "+61 400 000 000",
   positionTitle: "Software Engineer",
-  country: "Australia",
-  address: "15 test street",
-  state: "NSW",
-  city: "Wollongong",
-  zipCode: "2500",
+  address: "NSW, Wollongong, 15 test street",
 
   // Nullable
   careerObjective: `A meticulous hardworking individual with a strong passion for anything technology related, whether it be science, computers or programming. Possess strong planning and analytical skills and a thirst for problem solving opportunities. Willing to listen, learn, experience and contribute to innovative ideas.`,

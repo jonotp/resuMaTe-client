@@ -1,0 +1,39 @@
+@import "../../variables";
+
+.personal-section {
+  .mt-4 {
+    margin-top: 2rem;
+  }
+
+  .summary-career-objective{
+    border-top: 1px solid $grey;
+    padding-top: 0.5rem;
+  }
+
+  .card-container {
+    .resume-form-fields {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: auto;
+      gap: 1rem;
+      grid-template-areas:
+        "first-name first-name last-name last-name"
+        "address address address address"
+        "email email phone phone"
+        "website website empty empty"
+        "divider divider divider divider"
+        "position-title position-title position-title empty2"
+        "career-objective career-objective career-objective career-objective";
+
+      .additional-form-fields {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        gap: 1rem;
+        grid-template-areas:
+          "career-objective career-objective career-objective"
+          "hide-additional-fields-button hide-additional-fields-button hide-additional-fields-button";
+      }
+    }
+  }
+}

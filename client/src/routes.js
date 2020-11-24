@@ -1,9 +1,9 @@
 export const RESUME_BUILDER_BASE = "/resume-builder"
 export const RESUME_BUILDER = {
   INTRODUCTION: "/introduction",
+  PERSONAL: "/personal",
   EDUCATION: "/education",
   CERTIFICATIONS: "/certifications",
-  CAREER_OBJECTIVE: "/career-objective",
   WORK_EXPERIENCE: "/work-experience",
   SKILLS: "/skills",
   REFERENCES: "/references",

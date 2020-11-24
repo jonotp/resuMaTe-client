@@ -1,36 +1,5 @@
 @import "../../variables";
 
 .finalise-section {
-  .mt-4{
-    margin-top:2rem;
-  }
-
-  .card-container {
-    .resume-form-fields {
-      display: grid !important;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-template-rows: auto;
-      gap: 1rem;
-      grid-template-areas:
-        "first-name first-name last-name last-name"
-        "email email phone phone"
-        "position-title position-title position-title empty"
-        "divider divider divider divider"
-        "show-additional-fields-button show-additional-fields-button show-additional-fields-button show-additional-fields-button"
-        "addition-fields addition-fields addition-fields addition-fields";
-
-      .additional-form-fields {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto;
-        gap: 1rem;
-        grid-template-areas:
-          "address address address"
-          "country state zip-code"
-          "city city empty"
-          "website website website"
-          "hide-additional-fields-button hide-additional-fields-button hide-additional-fields-button";
-      }
-    }
-  }
+ 
 }

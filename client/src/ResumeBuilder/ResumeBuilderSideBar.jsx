@@ -5,11 +5,11 @@ import * as ROUTES from "../routes.js";
 
 const SideBarLinks = [
   { text: "Introduction", route: ROUTES.RESUME_BUILDER.INTRODUCTION },
+  { text: "Personal", route: ROUTES.RESUME_BUILDER.PERSONAL },
   { text: "Education", route: ROUTES.RESUME_BUILDER.EDUCATION },
   { text: "Certifications", route: ROUTES.RESUME_BUILDER.CERTIFICATIONS },
   { text: "Work Experience", route: ROUTES.RESUME_BUILDER.WORK_EXPERIENCE },
   { text: "Skills", route: ROUTES.RESUME_BUILDER.SKILLS },
-  // { text: "Career Objective", route: ROUTES.RESUME_BUILDER.CAREER_OBJECTIVE },
   // { text: "Reference", route: ROUTES.RESUME_BUILDER.REFERENCES },
   { text: "Finalise", route: ROUTES.RESUME_BUILDER.FINALISE },
 ];

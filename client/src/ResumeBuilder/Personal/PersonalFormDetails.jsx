@@ -1,17 +1,10 @@
 import React, { useState } from "react";
-import {
-  Divider,
-  IconButton,
-  TextField,
-} from "@material-ui/core";
+import { Divider, IconButton, TextField } from "@material-ui/core";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import { GreenButton } from "../../CustomButton/GreenButton";
-import "./finalise.scss";
 
-function FinaliseFormDetails({ applicant, onInputChange, hasError }) {
+function PersonalFormDetails({ applicant, onInputChange, hasError }) {
   const [showForm, setShowForm] = useState(true);
-  const [showMore, setShowMore] = useState(false);
 
   const applicantName =
     applicant.firstName.trim().length + applicant.lastName.trim().length === 0
@@ -23,11 +16,26 @@ function FinaliseFormDetails({ applicant, onInputChange, hasError }) {
       ? "Missing position"
       : applicant.positionTitle;
 
+  const applicantAddress =
+    applicant.address.trim().length === 0
+      ? "Missing address"
+      : applicant.address;
+
   const applicantEmail =
     applicant.email.trim().length === 0 ? "Missing email" : applicant.email;
 
   const applicantPhone =
     applicant.phone.trim().length === 0 ? "Missing phone" : applicant.phone;
+
+  const applicantCareerObjective =
+    applicant.careerObjective.trim().length === 0 ? null : (
+      <>
+        <p className="summary-career-objective summary-title">
+          Career Objective
+        </p>
+        <p>{applicant.careerObjective}</p>
+      </>
+    );
 
   return (
     <div>
@@ -52,8 +60,10 @@ function FinaliseFormDetails({ applicant, onInputChange, hasError }) {
           <p className="summary-title">
             {applicantName} ({applicantPosition})
           </p>
+          <p>{applicantAddress}</p>
           <p>{applicantEmail}</p>
           <p>{applicantPhone}</p>
+          {applicantCareerObjective}
         </div>
 
         {/* Form */}
@@ -105,6 +115,30 @@ function FinaliseFormDetails({ applicant, onInputChange, hasError }) {
             required
           />
           <TextField
+            id={`website`}
+            name="website"
+            label="Website"
+            variant="outlined"
+            margin="none"
+            style={{ gridArea: "website" }}
+            value={applicant.website}
+            onChange={onInputChange}
+          />
+          <TextField
+            id={`address`}
+            name="address"
+            label="Address"
+            variant="outlined"
+            margin="none"
+            style={{ gridArea: "address" }}
+            value={applicant.address}
+            onChange={onInputChange}
+            required
+            error={hasError && applicant.address.length === 0}
+            placeholder="Street Address, City, State"
+          />
+          <Divider style={{ gridArea: "divider" }} variant="middle" />
+          <TextField
             id={`position-title`}
             name="positionTitle"
             label="Position"
@@ -116,106 +150,24 @@ function FinaliseFormDetails({ applicant, onInputChange, hasError }) {
             error={hasError && applicant.positionTitle.length === 0}
             required
           />
-          <Divider style={{ gridArea: "divider" }} variant="middle" />
-          <div
-            className={`${showMore ? "active" : ""} additional-form-fields`}
-            style={{ gridArea: "addition-fields" }}
-          >
-            <TextField
-              id={`address`}
-              name="address"
-              label="Address"
-              variant="outlined"
-              margin="none"
-              style={{ gridArea: "address" }}
-              value={applicant.address}
-              onChange={onInputChange}
-            />
-            <TextField
-              id={`country`}
-              name="country"
-              label="Country"
-              variant="outlined"
-              margin="none"
-              style={{ gridArea: "country" }}
-              value={applicant.country}
-              onChange={onInputChange}
-            />
-            <TextField
-              id={`state`}
-              name="state"
-              label="State"
-              variant="outlined"
-              margin="none"
-              style={{ gridArea: "state" }}
-              value={applicant.state}
-              onChange={onInputChange}
-            />
-            <TextField
-              id={`zip-code`}
-              name="zipCode"
-              label="Zip Code"
-              variant="outlined"
-              margin="none"
-              style={{ gridArea: "zip-code" }}
-              value={applicant.zipCode}
-              onChange={onInputChange}
-            />
-            <TextField
-              id={`city`}
-              name="city"
-              label="City"
-              variant="outlined"
-              margin="none"
-              style={{ gridArea: "city" }}
-              value={applicant.city}
-              onChange={onInputChange}
-            />
-            <TextField
-              id={`website`}
-              name="website"
-              label="Website"
-              variant="outlined"
-              margin="none"
-              style={{ gridArea: "website" }}
-              value={applicant.website}
-              onChange={onInputChange}
-            />
-            <div
-              className="hide-additional-fields-button"
-              style={{ gridArea: "hide-additional-fields-button" }}
-            >
-              <GreenButton
-                variant="text"
-                size="small"
-                margin="none"
-                onClick={() => setShowMore(false)}
-              >
-                Hide
-              </GreenButton>
-            </div>
-          </div>
-          <div
-            className={
-              showMore
-                ? "show-additional-fields-button"
-                : "show-additional-fields-button active"
-            }
-            style={{ gridArea: "show-additional-fields-button" }}
-          >
-            <GreenButton
-              variant="text"
-              size="small"
-              margin="none"
-              onClick={() => setShowMore(true)}
-            >
-              Show more
-            </GreenButton>
-          </div>
+          <TextField
+            id="career-objective"
+            name="careerObjective"
+            label="Career Objective"
+            variant="outlined"
+            margin="none"
+            fullWidth
+            multiline
+            rows={3}
+            rowsMax={10}
+            style={{ gridArea: "career-objective" }}
+            value={applicant.careerObjective}
+            onChange={onInputChange}
+          />
         </div>
       </div>
     </div>
   );
 }
 
-export default FinaliseFormDetails;
+export default PersonalFormDetails;

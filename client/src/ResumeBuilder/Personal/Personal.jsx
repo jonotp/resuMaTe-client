@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import WithPageLoad from "../WithPageLoad.jsx";
 import { GreenButton } from "../../CustomButton/GreenButton.jsx";
+import PersonalFormDetails from "./PersonalFormDetails.jsx";
+import "./personal.scss";
 
-function Finalise({ state, setState, onContinue }) {
+function Personal({ state, setState, onContinue }) {
   const [hasError, setHasError] = useState(false);
 
   const handleChange = (event) => {
     setState((prev) => {
       return {
         ...prev,
-        [event.target.name]: event.target.valu,
+        [event.target.name]: event.target.value,
       };
     });
   };
@@ -36,18 +38,24 @@ function Finalise({ state, setState, onContinue }) {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="resume-builder-section finalise-section"
+      className="resume-builder-section personal-section"
     >
-      <h1 className="resume-builder-heading">Finalise</h1>
+      <h1 className="resume-builder-heading">Personal</h1>
       <div className="resume-builder-description">
-        Review your information and click the finalise button to save your
-        resume as a pdf
+        Include your personal details & contact information 
       </div>
+      {
+        <PersonalFormDetails
+          applicant={state}
+          onInputChange={handleChange}
+          hasError={hasError}
+        />
+      }
       <GreenButton type="submit" variant="contained" color="primary">
-        Finalise
+        Continue
       </GreenButton>
     </form>
   );
 }
 
-export default WithPageLoad(Finalise);
+export default WithPageLoad(Personal);

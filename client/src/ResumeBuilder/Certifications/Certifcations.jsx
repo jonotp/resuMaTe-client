@@ -7,6 +7,14 @@ import { AddButton } from "../../CustomButton/AddButton";
 import CertificationItem from "./CertificationItem";
 import "./certifications.scss";
 
+const defaultCertificate = {
+  name: "",
+  issuer: "",
+  issueDate: null,
+  hasExpiryDate: false,
+  expiryDate: null,
+};
+
 function Certifications({ state, setState, onContinue }) {
   const [hasError, setHasError] = useState(false);
 
@@ -14,11 +22,7 @@ function Certifications({ state, setState, onContinue }) {
     setState((prev) =>
       prev.concat({
         id: uuidv4(),
-        name: "",
-        issuer:"",
-        issueDate: null,
-        hasExpiryDate: false,
-        expiryDate: null,
+        ...defaultCertificate,
       })
     );
   };
@@ -64,7 +68,7 @@ function Certifications({ state, setState, onContinue }) {
       (x) =>
         x.issueDate === null ||
         x.name.trim().length === 0 ||
-        x.issuer.trim().length === 0 || 
+        x.issuer.trim().length === 0 ||
         (x.hasExpiryDate ? x.expiryDate === null : false)
     );
 

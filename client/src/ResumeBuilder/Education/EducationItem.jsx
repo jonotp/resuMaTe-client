@@ -161,6 +161,7 @@ function EducationItem({
             style={{ gridArea: "mark" }}
             value={education.mark || ""}
             onChange={handleChange}
+            placholder="GPA 2.7"
           />
           <TextField
             id={`location-${education.id}`}
@@ -171,6 +172,7 @@ function EducationItem({
             style={{ gridArea: "location" }}
             value={education.location || ""}
             onChange={handleChange}
+            placeholder="Street Address, City, State"
           />
           <div
             className="hide-additional-fields-button"

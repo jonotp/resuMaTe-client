@@ -19,11 +19,11 @@ function ListItem({
 }) {
   return (
     <FormControl className="list-item" variant="outlined" fullWidth>
-      <InputLabel htmlFor={`${name}-${index}-${id}`}>
+      <InputLabel htmlFor={`${name}-${id}`}>
         {name} #{index + 1}
       </InputLabel>
       <OutlinedInput
-        id={`${name}-${index}-${id}`}
+        id={`${name}-${id}`}
         label={`${name} #${index + 1}`}
         value={value}
         onChange={handleChange}

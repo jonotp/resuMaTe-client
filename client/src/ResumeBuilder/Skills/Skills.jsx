@@ -42,13 +42,10 @@ function Skills({ state, setState, onContinue }) {
       className="resume-builder-section certification-section"
     >
       <h1 className="resume-builder-heading">Skills</h1>
-      <div className="resume-builder-description">
-        Include relevant skills
-      </div>
+      <div className="resume-builder-description">Include relevant skills</div>
       {state.map((x, i) => (
-        <div className="card-container">
+        <div className="card-container" key={i}>
           <ListItem
-            key={i}
             id={i}
             name="Skill"
             index={i}

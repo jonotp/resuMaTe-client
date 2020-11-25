@@ -7,11 +7,21 @@ import { AddButton } from "../../CustomButton/AddButton";
 import EducationItem from "./EducationItem";
 import "./education.scss";
 
+const defaultEducation ={
+  schoolName: "",
+  location: "",
+  program: "",
+  mark: "",
+  startDate: null,
+  completionDate: null,
+  hasGraduated: false,
+}
+
 function Education({ state, setState, onContinue }) {
   const [hasError, setHasError] = useState(false);
 
   const handleAdd = () => {
-    setState((prev) => prev.concat({ id: uuidv4() }));
+    setState((prev) => prev.concat({ id: uuidv4(), ...defaultEducation}));
   };
 
   const handleDelete = (id) => {

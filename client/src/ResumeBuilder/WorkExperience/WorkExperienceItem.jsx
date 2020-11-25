@@ -24,26 +24,6 @@ function WorkExperienceItem({
 }) {
   const [showForm, setShowForm] = useState(true);
 
-  const handleAddResponsibilities = () => {
-    onChange("responsibilities", workExperience.responsibilities.concat(""));
-  };
-
-  const handleDeleteResponsibilities = (index) => () => {
-    onChange(
-      "responsibilities",
-      workExperience.responsibilities.filter((x, i) => i !== index)
-    );
-  };
-
-  const handleEditResponsibilities = (index) => (event) => {
-    onChange(
-      "responsibilities",
-      workExperience.responsibilities.map((x, i) =>
-        i === index ? event.target.value : x
-      )
-    );
-  };
-
   const handleDelete = () => {
     onDelete(workExperience.id);
   };
@@ -138,6 +118,7 @@ Responsibility #3`;
           style={{ gridArea: "location" }}
           value={workExperience.location}
           onChange={onInputChange}
+          placeholder="Street Address, City, State"
         />
         <FormControl style={{ gridArea: "is-current-job" }} variant="outlined">
           <InputLabel id={`is-current-job-label-${workExperience.id}`}>

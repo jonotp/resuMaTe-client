@@ -23,7 +23,6 @@ const data = {
   education: [
     {
       id: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
-      schoolType: EDUCATION_TYPE.UNIVERSITY_OR_COLLEGE,
       schoolName: "University of Wollongong",
       location: "Australia, NSW, Wollongong",
       program: "Bachelor of Computer Science",
@@ -31,18 +30,15 @@ const data = {
       startDate: "2016-02-15T00:00:00.000Z",
       completionDate: "2018-12-15T00:00:00.000Z",
       hasGraduated: true,
-      awards: [],
     },
     {
       id: "1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed",
-      schoolType: EDUCATION_TYPE.UNIVERSITY_OR_COLLEGE,
       schoolName: "University of Wollongong",
       program: "Bachelor of Science Major in Nanotechnology",
       mark: "WAM 89",
       startDate: "2016-02-15T00:00:00.000Z",
       completionDate: "2018-12-15T00:00:00.000Z",
       hasGraduated: true,
-      awards: [],
     },
   ],
   experience: [
@@ -79,57 +75,57 @@ Creating responsive UIs in AngularJs, backend APIs with C# .Net Framework 4.5+ a
 
 Implementing application integration with 3rd party tools such as SEQ, JIRA and Slack, to assist with debugging and triaging production-based issues`,
     },
-//     {
-//       id: "4e2f2da9-2520-41d1-8807-d571532b3fb1",
-//       title: "SOFTWARE TEST ENGINEER",
-//       company: "University of Wollongong",
-//       location: "NSW, Wollongong",
-//       isCurrentJob: true,
-//       startDate: "2020-03-15T00:00:00.000Z",
-//       endDate: null,
-//       responsibilities: `Performing discovery to identify client challenges & translating them into developmental tasks,
+    //     {
+    //       id: "4e2f2da9-2520-41d1-8807-d571532b3fb1",
+    //       title: "SOFTWARE TEST ENGINEER",
+    //       company: "University of Wollongong",
+    //       location: "NSW, Wollongong",
+    //       isCurrentJob: true,
+    //       startDate: "2020-03-15T00:00:00.000Z",
+    //       endDate: null,
+    //       responsibilities: `Performing discovery to identify client challenges & translating them into developmental tasks,
 
-// Delegating task, managing time-frames and client expectations for a team of 3 software developers following agile scrum methodology,
+    // Delegating task, managing time-frames and client expectations for a team of 3 software developers following agile scrum methodology,
 
-// Frequent communication & collaboration with clients to deliver an effective solution for their business needs,
+    // Frequent communication & collaboration with clients to deliver an effective solution for their business needs,
 
-// Creating web-applications with VueJS, NodeJS, Firebase and modern design styles
-//       `,
-//     },
-//     {
-//       id: "4e2f2da9-2520-41d1-8807-d571532b3fb2",
-//       title: "SERVICE DESK OFFICER",
-//       company: "University of Wollongong",
-//       location: "NSW, Wollongong",
-//       isCurrentJob: true,
-//       startDate: "2020-03-15T00:00:00.000Z",
-//       endDate: null,
-//       responsibilities: `Performing discovery to identify client challenges & translating them into developmental tasks,
+    // Creating web-applications with VueJS, NodeJS, Firebase and modern design styles
+    //       `,
+    //     },
+    //     {
+    //       id: "4e2f2da9-2520-41d1-8807-d571532b3fb2",
+    //       title: "SERVICE DESK OFFICER",
+    //       company: "University of Wollongong",
+    //       location: "NSW, Wollongong",
+    //       isCurrentJob: true,
+    //       startDate: "2020-03-15T00:00:00.000Z",
+    //       endDate: null,
+    //       responsibilities: `Performing discovery to identify client challenges & translating them into developmental tasks,
 
-// Delegating task, managing time-frames and client expectations for a team of 3 software developers following agile scrum methodology,
+    // Delegating task, managing time-frames and client expectations for a team of 3 software developers following agile scrum methodology,
 
-// Frequent communication & collaboration with clients to deliver an effective solution for their business needs,
+    // Frequent communication & collaboration with clients to deliver an effective solution for their business needs,
 
-// Creating web-applications with VueJS, NodeJS, Firebase and modern design styles
-//       `,
-//     },
-//     {
-//       id: "4e2f2da9-2520-41d1-8807-d571532b3fb4",
-//       title: "QUALITY ASSURANCE ENGINEER & DEVELOPER (SUMMER VACATIONER)",
-//       company: "Telstra",
-//       location: "NSW, Wollongong",
-//       isCurrentJob: true,
-//       startDate: "2020-03-15T00:00:00.000Z",
-//       endDate: null,
-//       responsibilities: `Performing discovery to identify client challenges & translating them into developmental tasks,
-  
-//   Delegating task, managing time-frames and client expectations for a team of 3 software developers following agile scrum methodology,
-  
-//   Frequent communication & collaboration with clients to deliver an effective solution for their business needs,
-  
-//   Creating web-applications with VueJS, NodeJS, Firebase and modern design styles
-//         `,
-//     },
+    // Creating web-applications with VueJS, NodeJS, Firebase and modern design styles
+    //       `,
+    //     },
+    //     {
+    //       id: "4e2f2da9-2520-41d1-8807-d571532b3fb4",
+    //       title: "QUALITY ASSURANCE ENGINEER & DEVELOPER (SUMMER VACATIONER)",
+    //       company: "Telstra",
+    //       location: "NSW, Wollongong",
+    //       isCurrentJob: true,
+    //       startDate: "2020-03-15T00:00:00.000Z",
+    //       endDate: null,
+    //       responsibilities: `Performing discovery to identify client challenges & translating them into developmental tasks,
+
+    //   Delegating task, managing time-frames and client expectations for a team of 3 software developers following agile scrum methodology,
+
+    //   Frequent communication & collaboration with clients to deliver an effective solution for their business needs,
+
+    //   Creating web-applications with VueJS, NodeJS, Firebase and modern design styles
+    //         `,
+    //     },
   ],
   certificates: [
     {

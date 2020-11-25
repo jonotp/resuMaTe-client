@@ -4,11 +4,11 @@ function Reference({ referenceType, references }) {
   return (
     <div className="section refrence">
       <div className="heading">
-        <div className="sectiontitle">References</div>
+        <div className="section-title">References</div>
       </div>
       <div className="refr-wrapper">
         <div className="paragraph">
-          <span className="txtBold">References available upon request</span>
+          <span className="text-bold">References available upon request</span>
         </div>
       </div>
     </div>

@@ -1,5 +1,29 @@
 @import "../../variables";
 
 .finalise-section {
- 
+  .resume-preview {
+    > .resume {
+      width: 100%;
+    }
+  }
+}
+
+@media print {
+  .finalise-section {
+    .resume-preview {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      background-color: transparent;
+      > .resume {
+        margin: 0;
+        > * {
+          width: 100%;
+        }
+      }
+    }
+  }
 }

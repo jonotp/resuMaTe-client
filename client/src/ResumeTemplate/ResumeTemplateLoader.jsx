@@ -1,22 +1,21 @@
-import React, { useEffect, useState } from 'react';
-import data from "../testData";
-import Corporate from "./Corporate/Corporate.jsx"
-import "./resume.scss";
+import React, { useEffect, useState } from "react";
+import Corporate from "./Corporate/Corporate.jsx";
+import "./resume-template-loader.scss";
 
-function Resume() {
+function ResumeTemplateLoader({ resume }) {
   const [isMounted, setMounted] = useState(false);
   useEffect(() => {
     if (!isMounted) {
       setMounted(true);
       // ManuallyAddPageBreak();
-      AddHeightToSidePane();
+      // AddHeightToSidePane();
     }
-  }, [isMounted])
+  }, [isMounted]);
   return (
     <div className="resume">
-      <Corporate resume={data} />
+      <Corporate resume={resume} />
     </div>
-  )
+  );
 }
 
 const pageHeight = 1123;
@@ -25,7 +24,9 @@ function AddHeightToSidePane() {
   const sidepane = document.getElementsByClassName("sidepane")[0];
   if (sidepane === undefined) return;
 
-  const parentTop = document.getElementsByClassName("resume")[0].getBoundingClientRect().top;
+  const parentTop = document
+    .getElementsByClassName("resume")[0]
+    .getBoundingClientRect().top;
   const rect = sidepane.getBoundingClientRect();
   const top = rect.top;
   const bottom = rect.bottom;
@@ -37,7 +38,6 @@ function AddHeightToSidePane() {
   const newHeight = newPageHeight - top + parentTop;
   sidepane.style.height = newHeight + "px";
 }
-
 
 function ManuallyAddPageBreak() {
   if (
@@ -76,4 +76,4 @@ function BreakPageBeforeElement(element) {
   element.style.marginTop = margin + "px";
 }
 
-export default Resume;
+export default ResumeTemplateLoader;

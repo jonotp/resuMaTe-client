@@ -1,0 +1,10 @@
+.resume {
+  margin: 20px 0;
+}
+
+@media print {
+  .resume {
+    display: block;
+    margin-top: 0;
+  }
+}

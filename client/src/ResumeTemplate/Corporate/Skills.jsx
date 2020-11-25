@@ -1,14 +1,14 @@
 import React from "react";
 
 function Skills({ skills }) {
-  return (
+  return skills.length > 0 ? (
     <div className="section skills">
       <div className="heading">
-        <div className="sectiontitle">Additional Skills</div>
+        <div className="section-title">Additional Skills</div>
       </div>
-      {skills.map((x,i) => (
+      {skills.map((x, i) => (
         <div className="paragraph" key={i}>
-          <div className="singlecolumn maincolumn">
+          <div className="container">
             <span>
               <p>{x}</p>
             </span>
@@ -16,7 +16,7 @@ function Skills({ skills }) {
         </div>
       ))}
     </div>
-  );
+  ) : null;
 }
 
 export default Skills;

@@ -1,6 +1,13 @@
 import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import { Drawer, List, ListItem, ListItemText, ListItemIcon, Divider } from "@material-ui/core";
+import {
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  Divider,
+} from "@material-ui/core";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import * as ROUTES from "../routes";
@@ -14,10 +21,13 @@ const useStyles = makeStyles((theme) =>
     root: {
       width: drawerWidth,
       flexShrink: 0,
+      "@media print": {
+        display: "none",
+      },
     },
     drawerPaper: {
       width: drawerWidth,
-      paddingTop: "4rem"
+      paddingTop: "4rem",
     },
     drawerContainer: {
       overflow: "auto",

@@ -1,16 +1,16 @@
 import React from "react";
 
 function Summary({ careerObjective }) {
-  return (
+  return careerObjective?.length > 0 ? (
     <div className="section summary">
       <div className="heading">
-        <div className="sectiontitle">Career Objective</div>
+        <div className="section-title">Career Objective</div>
       </div>
       <div className="paragraph">
-        <div className="field singlecolumn">{careerObjective}</div>
+        <div className="field container">{careerObjective}</div>
       </div>
     </div>
-  )
+  ) : null;
 }
 
 export default Summary;

@@ -4,7 +4,7 @@ import { GreenButton } from "../../CustomButton/GreenButton";
 import ResumeTemplateLoader from "../../ResumeTemplate/ResumeTemplateLoader";
 import "./finalise.scss";
 
-function Finalise({ state, setState, onContinue }) {
+function Finalise({ templateId, resume }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const oldTitle = document.title;
@@ -21,7 +21,7 @@ function Finalise({ state, setState, onContinue }) {
         resume as a pdf
       </div>
       <div className="resume-preview">
-        <ResumeTemplateLoader resume={state} />
+        <ResumeTemplateLoader resume={resume} templateId={templateId} />
       </div>
       <GreenButton
         type="submit"

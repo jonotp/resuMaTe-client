@@ -2,8 +2,22 @@ import React, { useEffect, useState } from "react";
 import Corporate from "./Corporate/Corporate.jsx";
 import "./resume-template-loader.scss";
 
-function ResumeTemplateLoader({ resume }) {
+function ResumeTemplateLoader({ resume, templateId }) {
   const [isMounted, setMounted] = useState(false);
+
+  const Template = () => {
+    switch (templateId) {
+      case 1:
+        return <Corporate resume={resume} />;
+      case 2:
+        return <div>Placeholder resume template 2</div>;
+      case 3:
+        return <div>Placeholder resume template 3</div>;
+      default:
+        return <Corporate resume={resume} />;
+    }
+  };
+
   useEffect(() => {
     if (!isMounted) {
       setMounted(true);
@@ -13,7 +27,7 @@ function ResumeTemplateLoader({ resume }) {
   }, [isMounted]);
   return (
     <div className="resume">
-      <Corporate resume={resume} />
+      <Template />
     </div>
   );
 }

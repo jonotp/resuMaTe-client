@@ -15,9 +15,10 @@ import data, {
   getTestPersonalDetails,
   getTestReferenceDetails,
   getTestSkills,
+  templates,
 } from "../testData";
 import * as ROUTES from "../routes.js";
-import Introduction from "./Introduction";
+import Introduction from "./Introduction/Introduction";
 import Education from "./Education/Education";
 import Certifications from "./Certifications/Certifcations";
 import Skills from "./Skills/Skills";
@@ -41,6 +42,7 @@ const ResumeBuilderPages = [
 ];
 
 function ResumeBuilder() {
+  const [selectedTemplateId, setSeletedTemplateId] = useState();
   const [personalDetails, setPersonalDetails] = useState(
     !useTestData ? {} : getTestPersonalDetails(data)
   );
@@ -78,6 +80,7 @@ function ResumeBuilder() {
   };
 
   console.log({
+    selectedTemplate: selectedTemplateId,
     personalDetails,
     education,
     certifications: certificates,
@@ -95,8 +98,8 @@ function ResumeBuilder() {
           render={(props) => (
             <Introduction
               {...props}
-              state={personalDetails}
-              setState={setPersonalDetails}
+              templates={templates}
+              onSelect={setSeletedTemplateId}
               onContinue={nextPage}
               onPageLoad={onPageLoad}
             />
@@ -107,8 +110,9 @@ function ResumeBuilder() {
           render={(props) => (
             <Introduction
               {...props}
-              state={personalDetails}
-              setState={setPersonalDetails}
+              templates={templates}
+              selectedTemplate={selectedTemplateId}
+              onSelect={setSeletedTemplateId}
               onContinue={nextPage}
               onPageLoad={onPageLoad}
             />
@@ -180,14 +184,14 @@ function ResumeBuilder() {
           render={(props) => (
             <Finalise
               {...props}
-              state={{
+              templateId={selectedTemplateId}
+              resume={{
                 ...personalDetails,
                 education,
                 certificates,
                 experience,
                 skills,
               }}
-              setState={setPersonalDetails}
               onContinue={nextPage}
               onPageLoad={onPageLoad}
             />

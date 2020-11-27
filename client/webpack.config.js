@@ -1,6 +1,17 @@
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
+const dotenv = require("dotenv");
 const path = require("path");
+const webpack = require("webpack");
+
+const env = dotenv.config().parsed;
+
+// reduce it to a nice object, the same as before
+const envKeys = Object.keys(env).reduce((prev, next) => {
+  prev[`process.env.${next}`] = JSON.stringify(env[next]);
+  return prev;
+}, {});
+
 module.exports = {
   devServer: {
     hot: true,
@@ -14,7 +25,7 @@ module.exports = {
   output: {
     path: path.resolve("dist"),
     filename: "main.js",
-    publicPath:'/'
+    publicPath: "/",
   },
   module: {
     rules: [
@@ -33,10 +44,11 @@ module.exports = {
       },
     ],
   },
-  resolve:{
-    extensions: ['.js', '.jsx','.scss']
+  resolve: {
+    extensions: [".js", ".jsx", ".scss"],
   },
   plugins: [
+    new webpack.EnvironmentPlugin(envKeys),
     // Will handle creating a new html in the build directory
     new HTMLWebpackPlugin({
       template: "./src/index.html",

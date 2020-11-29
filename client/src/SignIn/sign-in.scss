@@ -1,0 +1,77 @@
+@import "../variables";
+
+.sign-in-section {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .form-container {
+    background-color: white;
+    max-width: 1024px;
+    width: 400px;
+    margin-bottom: 10rem;
+
+    > form {
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-gap: 1rem;
+      padding: 1rem;
+
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus,
+      input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px white inset !important;
+      }
+
+      .text-input {
+        &.error {
+          label,
+          svg {
+            color: #f44336d1;
+          }
+
+          &:hover {
+            label,
+            svg {
+              color: #f44336d1;
+            }
+          }
+
+          &:active,
+          &:focus-within {
+            label,
+            svg {
+              color: #f44336;
+            }
+          }
+        }
+
+        label,
+        svg {
+          color: $border-grey;
+        }
+
+        &:hover {
+          label,
+          svg {
+            color: $border-hover-black;
+          }
+        }
+
+        &:active,
+        &:focus-within {
+          label,
+          svg {
+            color: $primary;
+          }
+        }
+      }
+
+      button {
+        margin-top: 1rem;
+      }
+    }
+  }
+}

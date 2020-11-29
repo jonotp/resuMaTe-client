@@ -6,11 +6,12 @@ import {
   Redirect,
   Route,
 } from "react-router-dom";
-import NavBar from "../NavBar/NavBar.jsx";
-import ResumeBuilder from "../ResumeBuilder/ResumeBuilder.jsx";
-import NotFound from "../NotFound/NotFound.jsx";
+import NavBar from "../NavBar/NavBar";
+import ResumeBuilder from "../ResumeBuilder/ResumeBuilder";
+import NotFound from "../NotFound/NotFound";
+import SideBar from "../SideBar/SideBar";
+import SignIn from "../SignIn/SignIn";
 import "./app.scss";
-import SideBar from "../SideBar/SideBar.jsx";
 
 function App() {
   return (
@@ -20,6 +21,10 @@ function App() {
         <SideBar />
         <div className="content">
           <Switch>
+            <Route
+              path={ROUTES.SIGN_IN}
+              render={(props) => <SignIn {...props} />}
+            />
             <Route
               path={ROUTES.RESUME_BUILDER_BASE}
               render={(props) => <ResumeBuilder {...props} />}

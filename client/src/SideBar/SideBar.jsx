@@ -39,10 +39,11 @@ function SideBar() {
   const classes = useStyles();
   const location = useLocation();
 
+  const isNoSideBarPAge = location.pathname.match(ROUTES.SIGN_IN) !== null;
   const isResumeBuilderPage =
     location.pathname.match(ROUTES.RESUME_BUILDER_BASE) !== null;
 
-  return (
+  return isNoSideBarPAge ? null : (
     <Drawer
       variant="permanent"
       className={classes.root}

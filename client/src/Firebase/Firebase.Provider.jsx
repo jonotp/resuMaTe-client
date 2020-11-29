@@ -1,7 +1,7 @@
-import React, { createContext } from "react";
+import React from "react";
+import FirebaseContext from "./Firebase.Context";
 import Firebase from "./firebase";
 
-const FirebaseContext = createContext(null);
 const FirebaseProvider = ({ children }) => {
   return (
     <FirebaseContext.Provider value={new Firebase()}>

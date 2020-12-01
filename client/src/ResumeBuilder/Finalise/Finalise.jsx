@@ -8,7 +8,7 @@ function Finalise({ templateId, resume }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const oldTitle = document.title;
-    document.title = `${state.firstName} ${state.lastName} - Resume`
+    document.title = `${resume.firstName} ${resume.lastName} - Resume`
     window.print();
     document.title = oldTitle;
   };

@@ -1,6 +1,7 @@
 import React from "react";
 import { List, ListItem, ListItemText } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
+import WithSideBar from "../WithSideBar/WithSideBar";
 import * as ROUTES from "../routes.js";
 
 const SideBarLinks = [
@@ -21,16 +22,14 @@ function ResumeBuilderSidebar() {
   };
 
   return (
-    <div>
-      <List>
-        {SideBarLinks.map((x) => (
-          <ListItem button key={x.text} onClick={handleClick(x.route)}>
-            <ListItemText primary={x.text} />
-          </ListItem>
-        ))}
-      </List>
-    </div>
+    <List>
+      {SideBarLinks.map((x) => (
+        <ListItem button key={x.text} onClick={handleClick(x.route)}>
+          <ListItemText primary={x.text} />
+        </ListItem>
+      ))}
+    </List>
   );
 }
 
-export default ResumeBuilderSidebar;
+export default WithSideBar(ResumeBuilderSidebar);

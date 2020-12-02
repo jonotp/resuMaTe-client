@@ -9,7 +9,6 @@ import {
 import NavBar from "../NavBar/NavBar";
 import ResumeBuilder from "../ResumeBuilder/ResumeBuilder";
 import NotFound from "../NotFound/NotFound";
-import SideBar from "../SideBar/SideBar";
 import SignIn from "../SignIn/SignIn";
 import "./app.scss";
 
@@ -18,7 +17,6 @@ function App() {
     <Router>
       <NavBar />
       <div className="app-body">
-        <SideBar />
         <div className="content">
           <Switch>
             <Route

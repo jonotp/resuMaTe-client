@@ -26,6 +26,7 @@ import Skills from "./Skills/Skills";
 import Finalise from "./Finalise/Finalise";
 import WorkExperience from "./WorkExperience/WorkExperience";
 import Personal from "./Personal/Personal";
+import ResumeBuilderSideBar from "./ResumeBuilderSideBar";
 import "./resume-builder.scss";
 
 const useTestData = true;
@@ -91,6 +92,7 @@ function ResumeBuilder() {
 
   return (
     <div className="resume-builder">
+      <ResumeBuilderSideBar />
       <Switch>
         <Route
           exact

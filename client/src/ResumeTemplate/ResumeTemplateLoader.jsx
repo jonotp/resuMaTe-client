@@ -4,6 +4,7 @@ import "./resume-template-loader.scss";
 
 function ResumeTemplateLoader({ resume, templateId }) {
   const [isMounted, setMounted] = useState(false);
+  const [pages, setPages] = useState(1);
 
   const Template = () => {
     switch (templateId) {
@@ -21,73 +22,27 @@ function ResumeTemplateLoader({ resume, templateId }) {
   useEffect(() => {
     if (!isMounted) {
       setMounted(true);
-      // ManuallyAddPageBreak();
-      // AddHeightToSidePane();
+      const resumeHeight = document
+        .getElementsByClassName("resume")[0]
+        .getBoundingClientRect().height;
+      const a4Height = document
+        .getElementsByClassName("hidden-a4")[0]
+        .getBoundingClientRect().height;
+      if (a4Height < resumeHeight) {
+        const additionalPages = resumeHeight % a4Height === 0 ? 0 : 1;
+        setPages(additionalPages + Math.floor(resumeHeight / a4Height));
+      }
     }
   }, [isMounted]);
+
   return (
-    <div className="resume">
-      <Template />
+    <div className="resume-template-loader">
+      <div className={`resume pages-${pages}`}>
+        <Template />
+      </div>
+      <div className="hidden-a4"></div>
     </div>
   );
-}
-
-const pageHeight = 1123;
-
-function AddHeightToSidePane() {
-  const sidepane = document.getElementsByClassName("sidepane")[0];
-  if (sidepane === undefined) return;
-
-  const parentTop = document
-    .getElementsByClassName("resume")[0]
-    .getBoundingClientRect().top;
-  const rect = sidepane.getBoundingClientRect();
-  const top = rect.top;
-  const bottom = rect.bottom;
-  var newPageHeight = pageHeight;
-  while (bottom > newPageHeight) {
-    newPageHeight += pageHeight;
-  }
-
-  const newHeight = newPageHeight - top + parentTop;
-  sidepane.style.height = newHeight + "px";
-}
-
-function ManuallyAddPageBreak() {
-  if (
-    document.getElementsByTagName("body")[0].getBoundingClientRect().bottom <
-    pageHeight
-  )
-    return;
-  var experience = document.getElementsByClassName("experience")[0];
-  console.log(experience.getBoundingClientRect());
-  if (experience.getBoundingClientRect().bottom > pageHeight) {
-    var paragraphs = experience.getElementsByClassName("paragraph");
-    var paragraph = GetBrokenElement(paragraphs, pageHeight);
-    var listItems = paragraph.getElementsByTagName("li");
-    var brokenListItem = GetBrokenElement(listItems, pageHeight);
-    BreakPageBeforeElement(brokenListItem);
-  } else {
-    var sections = document.getElementsByClassName("section");
-    var brokenSection = GetBrokenElement(sections, pageHeight);
-    BreakPageBeforeElement(brokenSection);
-  }
-}
-
-function GetBrokenElement(elements, pageHeight) {
-  for (var i = 0; i < elements.length; i++) {
-    if (elements[i].getBoundingClientRect().bottom > pageHeight) {
-      return elements[i];
-    }
-  }
-}
-
-function BreakPageBeforeElement(element) {
-  if (element === undefined) return;
-  const top = element.getBoundingClientRect().top;
-  const margin = pageHeight - top + 24;
-
-  element.style.marginTop = margin + "px";
 }
 
 export default ResumeTemplateLoader;

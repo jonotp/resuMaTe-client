@@ -8,7 +8,7 @@ function Finalise({ templateId, resume }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const oldTitle = document.title;
-    document.title = `${resume.firstName} ${resume.lastName} - Resume`
+    document.title = `${resume.firstName} ${resume.lastName} - Resume`;
     window.print();
     document.title = oldTitle;
   };
@@ -20,9 +20,7 @@ function Finalise({ templateId, resume }) {
         Review your information and click the finalise button to save your
         resume as a pdf
       </div>
-      <div className="resume-preview">
-        <ResumeTemplateLoader resume={resume} templateId={templateId} />
-      </div>
+      <ResumeTemplateLoader resume={resume} templateId={templateId} />
       <GreenButton
         type="submit"
         variant="contained"

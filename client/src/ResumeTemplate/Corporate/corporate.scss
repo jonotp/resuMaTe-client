@@ -6,240 +6,159 @@ $item-title-font-size-sm: 12px;
 $item-title-font-size-md: 13px;
 $margin-bottom-sm: 18px;
 $margin-bottom-md: 24px;
-$sidepane-margin-bottom-sm: 16px;
-$sidepane-margin-bottom-md: 18px;
+$right-pane-margin-bottom-sm: 16px;
+$right-pane-margin-bottom-md: 18px;
 $line-height-sm: 13px;
-$line-height-md: 15px;
+$line-height-md: 18px;
 $a4-page-height: 29.7cm;
 $top-section-height: 150px;
 
 .corporate {
+  display: flex;
+  flex-direction: column;
   background-color: white;
   color: #000000;
-  line-height: $line-height-sm;
-  min-height: 792px;
+  line-height: $line-height-md;
   width: 794px;
-  font-size: $font-size-sm;
+  font-size: $font-size-md;
   font-family: open sans !important;
   -webkit-print-color-adjust: exact;
-
-  * {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    vertical-align: baseline;
-    background: transparent;
-  }
-
-  .sidepane {
-    height: calc(#{$a4-page-height} - #{$top-section-height});
-  }
 
   ul {
     list-style: none;
     margin: 0;
     padding: 0;
     padding-left: 10px;
-    margin-top: 3px;
-    line-height: $line-height-sm;
+    margin-top: 5px;
+    line-height: $line-height-md;
+
+    li {
+      position: relative;
+      margin: 0 0 0 0px;
+      padding-left: 12px;
+    }
+
+    li:before {
+      content: "\2022";
+      font-size: 14px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
   }
 
-  ul li {
+  /* Top section */
+  .top-section {
+    text-align: center;
     position: relative;
-    margin: 0 0 0 0px;
-    padding-left: 12px;
-  }
-
-  ul li:before {
-    content: "\2022";
-    font-size: 14px;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-  p {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    outline: 0;
-    vertical-align: baseline;
-    background: transparent;
-  }
-
-  .text-bold {
+    text-transform: uppercase;
     font-weight: bold;
-  }
-
-  .text-italic {
-    font-style: italic;
-  }
-
-  .d-block {
-    display: block;
-  }
-
-  .text-uppercase {
-    text-transform: uppercase;
-  }
-
-  .name {
+    background: #353f58;
     color: #fff;
-    padding: 0 0 12px 0;
-    text-align: left;
-    text-transform: capitalize;
-    letter-spacing: 7.5px;
-  }
-
-  .position-title {
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-  }
-
-  /* common left-right table-container */
-  .section {
-    position: relative;
-  }
-
-  .left-box,
-  .right-box {
-    box-sizing: border-box;
-    position: relative;
-    display: table-cell;
-    vertical-align: top;
-    word-wrap: break-word;
-  }
-
-  .left-box {
-    padding: 25px 15px 25px 25px;
-  }
-
-  .right-box {
-    padding: 25px 25px 25px 15px;
-  }
-
-  .top-section .left-box {
-    display: block;
-    text-align: center;
+    height: 150px;
     padding: 25px;
+
+    .name {
+      text-align: center;
+      position: relative;
+      font-size: 24px;
+      line-height: 24px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      padding-bottom: 12px;
+      letter-spacing: 7.5px;
+    }
+
+    .name:before {
+      content: "";
+      position: absolute;
+      width: 40px;
+      height: 1px;
+      bottom: -1px;
+      left: 50%;
+      background: #fff;
+      transform: translateX(-50%);
+    }
+
+    .last-name {
+      margin-left: 0.5rem;
+    }
+
+    .position-title {
+      letter-spacing: 1.5px;
+      line-height: 13px;
+    }
   }
 
-  .top-section .left-box .name {
-    text-align: center;
+  /*corporate-body*/
+  .corporate-body {
+    display: flex;
+    flex-grow: 1;
+
+    > * {
+      padding: 18px 25px;
+    }
+    .left-pane {
+      padding-right: 15px;
+    }
+
+    .right-pane {
+      padding-left: 15px;
+      background-color: #f5f6f5;
+      width: 230px;
+      flex: none;
+
+      .container {
+        margin-bottom: $right-pane-margin-bottom-md;
+      }
+    }
+  }
+
+  /* common left-right corporate-body */
+  section {
     position: relative;
-    margin-bottom: 20px;
-    text-transform: uppercase;
+    margin-top: 15px;
   }
 
-  .top-section .left-box .name:before {
-    content: "";
-    position: absolute;
-    width: 30px;
-    height: 1px;
-    background: #fff;
-    bottom: -5px;
-    left: 47.24%;
-  }
-
-  .left-box:empty,
-  .section:empty {
-    display: none;
-  }
-
-  .section:first-child {
-    padding-top: 0;
+  section:first-child {
+    margin-top: 0;
     border: none;
   }
 
   .item-title {
-    font-size: $item-title-font-size-sm;
-  }
-
-  .job-title {
-    text-transform: uppercase;
+    font-size: $item-title-font-size-md;
   }
 
   .education .category-title {
     margin-top: 2px;
   }
 
-  .refername {
-    text-transform: capitalize;
-  }
-
-  .right-box > .summary:first-child .heading {
-    display: none;
-  }
-
-  /* Common Heading style */
-  .last-name {
-    margin-left: 0.5rem;
-  }
   .heading {
     padding-bottom: 5px;
     margin-bottom: 10px;
     position: relative;
-  }
-
-  .heading:before {
-    content: "";
-    position: absolute;
-    left: 0px;
-    bottom: -2px;
-    width: 40px;
-    height: 2px;
-    background: #ccc;
-  }
-
-  .section-title {
+    font-size: 15px;
+    line-height: 17px;
     text-transform: uppercase;
     color: #000000;
     font-weight: bold;
     letter-spacing: 1.5px;
   }
 
-  /* Top section */
-  .top-section {
-    height: 150px;
-    background: #353f58;
-    position: relative;
-    z-index: 9;
-    width: 100%;
-  }
-
-  .top-section .section {
-    border: none;
-    margin-bottom: 0;
-    padding-top: 0;
-  }
-
-  .top-section .left-box {
-    vertical-align: middle;
-  }
-
-  /*table-container*/
-  .table-container {
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-  }
-
-  .table-container .right-box {
-    background: #f5f6f5;
-  }
-
-  .table-container .left-box,
-  .table-container .right-box {
-    padding-top: 18px;
+  .heading:before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 2px;
+    bottom: -2px;
+    left: 0px;
+    background: #ccc;
   }
 
   /* SVG Icon Style */
   .icon-row {
-    clear: both;
-    display: table;
+    display: flex;
     margin-bottom: 7px;
-    word-wrap: break-word;
   }
 
   .icon-row:last-child {
@@ -261,61 +180,16 @@ $top-section-height: 150px;
   }
 
   .icon-text {
-    display: table-cell;
     padding-left: 5px;
-    vertical-align: top;
   }
 
-  .zipprefix {
-    display: none;
+  .container {
+    margin-bottom: $margin-bottom-md;
   }
 
-  /* word-break:break-all added for pdf */
-  .icon-text {
-    word-wrap: break-word;
-    word-break: break-all;
-    word-break: break-word;
-  }
-
-  .section {
-    margin-top: 15px;
-  }
-
-  .sidepane{
-    .paragraph{
-      margin-bottom: $sidepane-margin-bottom-sm;
-    }
-  }
-
-  .paragraph{
-    margin-bottom: $margin-bottom-sm;
-  }
-
-  .skills .paragraph,
-  .certificate .paragraph {
+  .skills .container,
+  .certificate .container {
     margin-top: 5px;
-  }
-
-  .table-container {
-    min-height: 696px;
-  }
-
-  .name {
-    font-size: 24px;
-    line-height: 24px;
-  }
-
-  .position-title {
-    line-height: 13px;
-  }
-
-  .section-title {
-    font-size: 15px;
-    line-height: 17px;
-  }
-
-  .table-container .right-box {
-    width: 230px;
   }
 
   /* icons */
@@ -326,5 +200,17 @@ $top-section-height: 150px;
   .icon-svg svg {
     width: 9px;
     margin-top: 2px;
+  }
+
+  .text-bold {
+    font-weight: bold;
+  }
+
+  .text-italic {
+    font-style: italic;
+  }
+
+  .text-uppercase {
+    text-transform: uppercase;
   }
 }

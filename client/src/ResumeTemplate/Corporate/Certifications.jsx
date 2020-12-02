@@ -7,25 +7,21 @@ const dateFormatter = new Intl.DateTimeFormat("default", {
 
 function Certifications({ certificates }) {
   return certificates.length > 0 ? (
-    <div className="section certifications">
-      <div className="heading">
-        <div className="section-title">Certifications</div>
-      </div>
+    <section className="certifications">
+      <div className="heading">Certifications</div>
       {certificates.map((x) => (
-        <div className="paragraph" key={x.id}>
-          <div className="container">
-            <span className="d-block text-uppercase text-bold item-title">{x.issuer}</span>
-            <p className="text-italic">
-              {x.name} ({dateFormatter.format(new Date(x.issueDate))}
-              {x.hasExpiryDate
-                ? ` - ${dateFormatter.format(new Date(x.expiryDate))}`
-                : null}
-              )
-            </p>
+        <div className="container" key={x.id}>
+          <div className="text-uppercase text-bold item-title">{x.issuer}</div>
+          <div className="text-italic">
+            {x.name} ({dateFormatter.format(new Date(x.issueDate))}
+            {x.hasExpiryDate
+              ? ` - ${dateFormatter.format(new Date(x.expiryDate))}`
+              : null}
+            )
           </div>
         </div>
       ))}
-    </div>
+    </section>
   ) : null;
 }
 

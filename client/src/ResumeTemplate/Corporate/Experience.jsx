@@ -2,16 +2,12 @@ import React from "react";
 
 function Experience({ experience }) {
   return (
-    <div className="section experience">
-      <div className="heading">
-        <div className="section-title">Experience</div>
-      </div>
+    <section className="experience">
+      <div className="heading">Experience</div>
       {experience.map((x, i) => (
-        <div className="paragraph" key={i}>
-          <ExperienceItem {...x} />
-        </div>
+        <ExperienceItem {...x} key={i} />
       ))}
-    </div>
+    </section>
   );
 }
 
@@ -33,25 +29,17 @@ const ExperienceItem = ({
     endDate !== null ? dateFormatter.format(new Date(endDate)) : "Present";
   return (
     <div className="container">
-      <span className="d-block">
-        <span className="job-title d-block text-bold item-title">{title}</span>
-        <span className="text-italic">
-          {company}
-          {location.trim().length !== 0 ? `, ${location}` : null},{" "}
-          {startDateFormatted} - {endDateFormatted}
-        </span>
-        <br />
-      </span>
-      <div>
-        <ul>
-          {responsibilities.split("\n\n").map((x, i) => (
-            <li key={i}>
-              <span>{x}</span>
-            </li>
-          ))}
-        </ul>
+      <div className="text-bold text-uppercase item-title">{title}</div>
+      <div className="text-italic">
+        {company}
+        {location.trim().length !== 0 ? `, ${location}` : null},{" "}
+        {startDateFormatted} - {endDateFormatted}
       </div>
-      <span></span>
+      <ul>
+        {responsibilities.split("\n\n").map((x, i) => (
+          <li key={i}>{x}</li>
+        ))}
+      </ul>
     </div>
   );
 };

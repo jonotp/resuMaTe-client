@@ -17,8 +17,8 @@ function Corporate({ resume }) {
         lastName={resume.lastName}
         positionTitle={resume.positionTitle}
       />
-      <div className="table-container">
-        <div className="left-box last-box">
+      <div className="corporate-body">
+        <div className="left-pane">
           <Summary careerObjective={resume.careerObjective} />
           <Experience experience={resume.experience} />
           <Reference
@@ -26,7 +26,7 @@ function Corporate({ resume }) {
             references={resume.references}
           />
         </div>
-        <div className="right-box last-box sidepane">
+        <div className="right-pane">
           <Contact
             address={resume.address}
             email={resume.email}

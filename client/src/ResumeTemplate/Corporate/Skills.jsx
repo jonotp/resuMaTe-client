@@ -2,20 +2,14 @@ import React from "react";
 
 function Skills({ skills }) {
   return skills.length > 0 ? (
-    <div className="section skills">
-      <div className="heading">
-        <div className="section-title">Additional Skills</div>
-      </div>
+    <section className="skills">
+      <div className="heading">Additional Skills</div>
       {skills.map((x, i) => (
-        <div className="paragraph" key={i}>
-          <div className="container">
-            <span>
-              <p>{x}</p>
-            </span>
-          </div>
+        <div className="container" key={i}>
+          {x}
         </div>
       ))}
-    </div>
+    </section>
   ) : null;
 }
 

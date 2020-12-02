@@ -2,15 +2,12 @@ import React from "react";
 
 function Education({ education }) {
   return (
-    <div className="section education">
-      <div className="heading">
-        <div className="section-title">Education</div>
-      </div>
+    <section className="education">
+      <div className="heading">Education</div>
       {education.map((x, i) => (
-        <div className="paragraph" key={i}>
-          <EducationItem  {...x} />
-        </div>))}
-    </div>
+        <EducationItem {...x} key={i} />
+      ))}
+    </section>
   );
 }
 
@@ -20,21 +17,19 @@ const dateFormatter = new Intl.DateTimeFormat("default", {
 });
 
 function EducationItem({ schoolName, program, mark, completionDate }) {
-  const completionDateFormatted = completionDate !== null ? dateFormatter.format(new Date(completionDate)) : "Present";
+  const completionDateFormatted =
+    completionDate !== null
+      ? dateFormatter.format(new Date(completionDate))
+      : "Present";
   return (
     <div className="container">
-      <div>
-        <span className="d-block text-bold">
-          <span className="d-block text-uppercase item-title">{schoolName}</span>
-          <span className="d-block">
-            <span>{mark}</span>
-          </span>
-        </span>
-        <span className="d-block text-italic" dependencyoncharvalue="EGRD_YES">
-          <span>{program}</span><span> (</span><span className="jobdates" format="%b %Y">{completionDateFormatted}</span><span>)</span>
-        </span>
+      <div className="text-bold">
+        <div className="text-uppercase item-title">{schoolName}</div>
+        <div>{mark}</div>
       </div>
-      <span className="field"></span>
+      <div className="text-italic">
+        {program} ({completionDateFormatted})
+      </div>
     </div>
   );
 }

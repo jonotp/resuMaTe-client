@@ -32,12 +32,18 @@ module.exports = (_, { mode }) => {
       filename: "main.js",
       publicPath: "/",
     },
+    devtool: 'inline-source-map',
     module: {
       rules: [
         {
           test: /\.js|\.jsx$/,
           exclude: /node_modules/,
           use: "babel-loader",
+        },
+        {
+          test: /\.js$/,
+          enforce: 'pre',
+          use: ['source-map-loader'],
         },
         {
           test: /\.scss$/,

@@ -5,6 +5,11 @@ service cloud.firestore {
       allow read, write: if false;
     }
         
+    match /templates/{template}{
+    	allow read: if true;
+      allow write: if false;
+    }
+
     match /users/{user} {
     	allow read: if request.auth.uid == resource.data.userId;
       allow create: if request.auth != null;

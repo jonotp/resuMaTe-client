@@ -79,6 +79,20 @@ class Firebase {
     this.db.collection("users").doc(userId).set(user);
     return await this.getUser(userId);
   };
+
+  getTemplates = async () => {
+    const templates = await this.db.collection("templates").get();
+    return Promise.all(
+      templates.doc.map(async (x) => {
+        const data = x.data();
+        const ref = this.storage.refFromURL(data.path);
+        return {
+          ...data,
+          path: await ref.getDownloadURL(),
+        };
+      })
+    );
+  };
 }
 
 export default Firebase;

@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   Route,
   useHistory,
@@ -15,7 +14,6 @@ import data, {
   getTestPersonalDetails,
   getTestReferenceDetails,
   getTestSkills,
-  templates,
 } from "../testData";
 import * as ROUTES from "../routes.js";
 import Introduction from "./Introduction/Introduction";
@@ -27,6 +25,7 @@ import Finalise from "./Finalise/Finalise";
 import WorkExperience from "./WorkExperience/WorkExperience";
 import Personal from "./Personal/Personal";
 import ResumeBuilderSideBar from "./ResumeBuilderSideBar";
+import FirebaseContext from "../Firebase/Firebase.Context";
 import "./resume-builder.scss";
 
 const useTestData = true;
@@ -44,6 +43,7 @@ const ResumeBuilderPages = [
 
 function ResumeBuilder() {
   const [selectedTemplateId, setSeletedTemplateId] = useState();
+  const [templates, setTemplates] = useState([]);
   const [personalDetails, setPersonalDetails] = useState(
     !useTestData ? {} : getTestPersonalDetails(data)
   );
@@ -63,6 +63,7 @@ function ResumeBuilder() {
   const [currentPage, setCurrentPage] = useState(0);
   const history = useHistory();
   const location = useLocation();
+  const firebase = useContext(FirebaseContext);
   const { path } = useRouteMatch();
 
   const nextPage = () => {
@@ -79,6 +80,17 @@ function ResumeBuilder() {
     );
     setCurrentPage(index);
   };
+
+  useEffect(() => {
+    try {
+      (async () => {
+        const firebaseTemplates = await firebase.getTemplates();
+        setTemplates(firebaseTemplates);
+      })();
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
 
   console.log({
     selectedTemplate: selectedTemplateId,

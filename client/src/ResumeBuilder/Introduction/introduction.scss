@@ -11,7 +11,9 @@
     .template-container {
       display: grid;
       grid-gap: 2rem;
-      grid-template-columns: repeat(3, calc(50% - 6rem)) 1rem;
+
+      // This is default value. The style below will be set inline where 3 is replaced with the number of templates
+      grid-template-columns: repeat(3, 300px) 1rem;
       grid-template-rows: minmax(150px, 1fr);
 
       &:after{

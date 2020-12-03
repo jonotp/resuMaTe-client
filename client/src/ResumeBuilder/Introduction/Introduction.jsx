@@ -14,13 +14,18 @@ function Introduction({ templates, onSelect, onContinue }) {
         Before we get started, please select your desired resume template.
       </div>
       <div className="scrollable">
-        <div className="template-container">
+        <div
+          className="template-container"
+          style={{
+            gridTemplateColumns: `repeat(${templates.length}, 300px) 1rem`,
+          }}
+        >
           {templates.map((x) => (
             <img
-              key={x.id}
+              key={x.templateId}
               src={x.path}
-              name={`template-${x.id}`}
-              onClick={handleClick(x.id)}
+              name={`template-${x.templateId}`}
+              onClick={handleClick(x.templateId)}
             />
           ))}
         </div>

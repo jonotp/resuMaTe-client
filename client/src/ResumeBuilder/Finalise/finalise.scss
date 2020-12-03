@@ -1,6 +1,7 @@
 @import "../../variables";
 
-.finalise-section {
-
+@media print{
+  .resume-builder-description, .resume-builder-heading, button{
+    display: none !important;
+  }
 }
-

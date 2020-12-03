@@ -20,3 +20,13 @@
     }
   }
 }
+
+@media print {
+  .app-body {
+    padding: 0;
+
+    .side-bar + * {
+      margin-left: 0 !important;
+    }
+  }
+}

@@ -6,6 +6,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     fontSize: "1.6rem",
     zIndex: theme.zIndex.drawer + 1,
+    "@media print":{
+      display:"none"
+    }
   },
   emphasise: {
     fontWeight: "bold",

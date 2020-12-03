@@ -5,7 +5,7 @@ $font-size-md: 12px;
 $item-title-font-size-sm: 12px;
 $item-title-font-size-md: 13px;
 $margin-bottom-sm: 18px;
-$margin-bottom-md: 24px;
+$margin-bottom-md: 1rem;
 $right-pane-margin-bottom-sm: 16px;
 $right-pane-margin-bottom-md: 18px;
 $line-height-sm: 13px;
@@ -19,7 +19,6 @@ $top-section-height: 150px;
   background-color: white;
   color: #000000;
   line-height: $line-height-md;
-  width: 794px;
   font-size: $font-size-md;
   font-family: open sans !important;
   -webkit-print-color-adjust: exact;
@@ -28,14 +27,14 @@ $top-section-height: 150px;
     list-style: none;
     margin: 0;
     padding: 0;
-    padding-left: 10px;
-    margin-top: 5px;
+    padding-left: 0.5rem;
+    margin-top: 0.25rem;
     line-height: $line-height-md;
 
     li {
       position: relative;
       margin: 0 0 0 0px;
-      padding-left: 12px;
+      padding-left: 0.75rem;
     }
 
     li:before {
@@ -56,16 +55,16 @@ $top-section-height: 150px;
     background: #353f58;
     color: #fff;
     height: 150px;
-    padding: 25px;
+    padding: 2rem;
 
     .name {
       text-align: center;
       position: relative;
       font-size: 24px;
       line-height: 24px;
-      margin-top: 15px;
-      margin-bottom: 15px;
-      padding-bottom: 12px;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
       letter-spacing: 7.5px;
     }
 
@@ -96,14 +95,14 @@ $top-section-height: 150px;
     flex-grow: 1;
 
     > * {
-      padding: 18px 25px;
+      padding: 1.5rem;
     }
     .left-pane {
-      padding-right: 15px;
+      padding-right: 1rem;
     }
 
     .right-pane {
-      padding-left: 15px;
+      padding-left: 1rem;
       background-color: #f5f6f5;
       width: 230px;
       flex: none;
@@ -117,7 +116,7 @@ $top-section-height: 150px;
   /* common left-right corporate-body */
   section {
     position: relative;
-    margin-top: 15px;
+    margin-top: 1rem;
   }
 
   section:first-child {
@@ -134,8 +133,8 @@ $top-section-height: 150px;
   }
 
   .heading {
-    padding-bottom: 5px;
-    margin-bottom: 10px;
+    padding-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
     position: relative;
     font-size: 15px;
     line-height: 17px;
@@ -158,7 +157,7 @@ $top-section-height: 150px;
   /* SVG Icon Style */
   .icon-row {
     display: flex;
-    margin-bottom: 7px;
+    margin-bottom: 0.5rem;
   }
 
   .icon-row:last-child {
@@ -166,8 +165,8 @@ $top-section-height: 150px;
   }
 
   .icon-svg {
-    width: 15px;
-    height: 15px;
+    width: 1rem;
+    height: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -180,7 +179,7 @@ $top-section-height: 150px;
   }
 
   .icon-text {
-    padding-left: 5px;
+    padding-left: 0.5rem;
   }
 
   .container {
@@ -189,17 +188,13 @@ $top-section-height: 150px;
 
   .skills .container,
   .certificate .container {
-    margin-top: 5px;
+    margin-top: 0.5rem;
   }
 
   /* icons */
-  .icon-svg {
-    margin-top: -1px;
-  }
 
   .icon-svg svg {
-    width: 9px;
-    margin-top: 2px;
+    width: 0.6rem;
   }
 
   .text-bold {

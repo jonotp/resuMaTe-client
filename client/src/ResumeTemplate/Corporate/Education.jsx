@@ -1,4 +1,5 @@
 import React from "react";
+import PageBreakableContainer from "../PageBreakableContainer";
 
 function Education({ education }) {
   return (
@@ -22,7 +23,7 @@ function EducationItem({ schoolName, program, mark, completionDate }) {
       ? dateFormatter.format(new Date(completionDate))
       : "Present";
   return (
-    <div className="container">
+    <PageBreakableContainer>
       <div className="text-bold">
         <div className="text-uppercase item-title">{schoolName}</div>
         <div>{mark}</div>
@@ -30,7 +31,7 @@ function EducationItem({ schoolName, program, mark, completionDate }) {
       <div className="text-italic">
         {program} ({completionDateFormatted})
       </div>
-    </div>
+    </PageBreakableContainer>
   );
 }
 

@@ -1,12 +1,13 @@
 import React from "react";
+import PageBreakableContainer from "../PageBreakableContainer";
 
 function Reference({ referenceType, references }) {
   return (
     <section className="refrence">
       <div className="heading">References</div>
-      <div className="container">
+      <PageBreakableContainer>
         <span className="text-bold">References available upon request</span>
-      </div>
+      </PageBreakableContainer>
     </section>
   );
 }

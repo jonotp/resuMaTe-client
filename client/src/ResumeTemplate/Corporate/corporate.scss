@@ -106,17 +106,13 @@ $top-section-height: 150px;
       background-color: #f5f6f5;
       width: 230px;
       flex: none;
-
-      .container {
-        margin-bottom: $right-pane-margin-bottom-md;
-      }
     }
   }
 
   /* common left-right corporate-body */
   section {
     position: relative;
-    margin-top: 1rem;
+    margin-top: 0.25rem;
   }
 
   section:first-child {
@@ -157,11 +153,10 @@ $top-section-height: 150px;
   /* SVG Icon Style */
   .icon-row {
     display: flex;
-    margin-bottom: 0.5rem;
-  }
+    + .icon-row {
+      margin-top: 0.5rem;
+    }
 
-  .icon-row:last-child {
-    margin-bottom: 0;
   }
 
   .icon-svg {
@@ -183,16 +178,10 @@ $top-section-height: 150px;
   }
 
   .container {
-    margin-bottom: $margin-bottom-md;
-  }
-
-  .skills .container,
-  .certificate .container {
-    margin-top: 0.5rem;
+    padding-bottom: $margin-bottom-md;
   }
 
   /* icons */
-
   .icon-svg svg {
     width: 0.6rem;
   }
@@ -207,5 +196,11 @@ $top-section-height: 150px;
 
   .text-uppercase {
     text-transform: uppercase;
+  }
+}
+
+@media print {
+  .page-break-container + * {
+    margin-top: 1.5rem;
   }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import PageBreakableContainer from "../PageBreakableContainer";
 
 const dateFormatter = new Intl.DateTimeFormat("default", {
   year: "numeric",
@@ -10,7 +11,7 @@ function Certifications({ certificates }) {
     <section className="certifications">
       <div className="heading">Certifications</div>
       {certificates.map((x) => (
-        <div className="container" key={x.id}>
+        <PageBreakableContainer key={x.id}>
           <div className="text-uppercase text-bold item-title">{x.issuer}</div>
           <div className="text-italic">
             {x.name} ({dateFormatter.format(new Date(x.issueDate))}
@@ -19,7 +20,7 @@ function Certifications({ certificates }) {
               : null}
             )
           </div>
-        </div>
+        </PageBreakableContainer>
       ))}
     </section>
   ) : null;

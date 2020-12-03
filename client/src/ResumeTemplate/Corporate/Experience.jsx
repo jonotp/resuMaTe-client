@@ -1,4 +1,5 @@
 import React from "react";
+import PageBreakableContainer from "../PageBreakableContainer";
 
 function Experience({ experience }) {
   return (
@@ -28,7 +29,7 @@ const ExperienceItem = ({
   const endDateFormatted =
     endDate !== null ? dateFormatter.format(new Date(endDate)) : "Present";
   return (
-    <div className="container">
+    <PageBreakableContainer>
       <div className="text-bold text-uppercase item-title">{title}</div>
       <div className="text-italic">
         {company}
@@ -40,7 +41,7 @@ const ExperienceItem = ({
           <li key={i}>{x}</li>
         ))}
       </ul>
-    </div>
+    </PageBreakableContainer>
   );
 };
 

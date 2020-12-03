@@ -1,9 +1,10 @@
 import React from "react";
+import PageBreakableContainer from "../PageBreakableContainer";
 
 function Contact({ email, phone, website, address }) {
   return (
     <section>
-      <div className="container">
+      <PageBreakableContainer>
         <div className="icon-row">
           <span className="icon-svg">
             <svg
@@ -69,7 +70,7 @@ function Contact({ email, phone, website, address }) {
           </span>
           <span className="icon-text">{address}</span>
         </div>
-      </div>
+      </PageBreakableContainer>
     </section>
   );
 }

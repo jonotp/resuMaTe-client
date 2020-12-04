@@ -18,7 +18,11 @@ function Contact({ email, phone, website, address }) {
               <path d="m317 277.21-51.396 49.393c-2.93 2.93-6.768 4.395-10.605 4.395s-7.676-1.465-10.605-4.395l-49.396-49.395-169.29 169.28c5.868 2.809 12.357 4.514 19.286 4.514h422c6.927 0 13.412-1.703 19.279-4.51l-169.28-169.28z"></path>
             </svg>
           </span>
-          <span className="icon-text">{email}</span>
+          {email.length > 0 ? (
+            <span className="icon-text">{email}</span>
+          ) : (
+            <span className="icon-text text-italic">Missing email address</span>
+          )}
         </div>
         <div className="icon-row">
           <span className="icon-svg">
@@ -30,7 +34,11 @@ function Contact({ email, phone, website, address }) {
               <path d="m373.33 266.88c-25.003 0-49.493-3.904-72.704-11.563-11.328-3.904-24.192-0.896-31.637 6.699l-46.016 34.752c-52.8-28.181-86.592-61.952-114.39-114.37l33.813-44.928c8.512-8.512 11.563-20.971 7.915-32.64-7.723-23.36-11.648-47.872-11.648-72.832 0-17.643-14.357-32-32-32h-74.667c-17.643 0-32 14.357-32 32 0 205.84 167.49 373.33 373.33 373.33 17.643 0 32-14.357 32-32v-74.453c0-17.643-14.357-32-32-32z"></path>
             </svg>
           </span>
-          <span className="icon-text">{phone}</span>
+          {phone.length > 0 ? (
+            <span className="icon-text">{phone}</span>
+          ) : (
+            <span className="icon-text text-italic">Missing phone number</span>
+          )}
         </div>
 
         {website?.length > 0 ? (
@@ -68,7 +76,13 @@ function Contact({ email, phone, website, address }) {
               ></path>
             </svg>
           </span>
-          <span className="icon-text">{address}</span>
+          {address.length > 0 ? (
+            <span className="icon-text">{address}</span>
+          ) : (
+            <span className="icon-text text-italic">
+              Missing residential address
+            </span>
+          )}
         </div>
       </PageBreakableContainer>
     </section>

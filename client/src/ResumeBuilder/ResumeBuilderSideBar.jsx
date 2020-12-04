@@ -15,7 +15,7 @@ const SideBarLinks = [
   { text: "Finalise", route: ROUTES.RESUME_BUILDER.FINALISE },
 ];
 
-function ResumeBuilderSidebar() {
+function ResumeBuilderSidebar({ latestPage }) {
   const history = useHistory();
   const handleClick = (route) => () => {
     history.push(ROUTES.RESUME_BUILDER_BASE + route);
@@ -23,8 +23,13 @@ function ResumeBuilderSidebar() {
 
   return (
     <List>
-      {SideBarLinks.map((x) => (
-        <ListItem button key={x.text} onClick={handleClick(x.route)}>
+      {SideBarLinks.map((x, i) => (
+        <ListItem
+          button
+          // disabled={i > latestPage}
+          key={x.text}
+          onClick={handleClick(x.route)}
+        >
           <ListItemText primary={x.text} />
         </ListItem>
       ))}

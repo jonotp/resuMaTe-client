@@ -5,9 +5,11 @@ function Education({ education }) {
   return (
     <section className="education">
       <div className="heading">Education</div>
-      {education.map((x, i) => (
-        <EducationItem {...x} key={i} />
-      ))}
+      {education.length === 0 ? (
+        <PageBreakableContainer>No formal education</PageBreakableContainer>
+      ) : (
+        education.map((x, i) => <EducationItem {...x} key={i} />)
+      )}
     </section>
   );
 }

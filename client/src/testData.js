@@ -186,6 +186,20 @@ const getTestPersonalDetails = ({
   };
 };
 
+const getDefaultPersonalDetails = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  positionTitle: "",
+  country: "",
+  address: "",
+  state: "",
+  city: "",
+  zipCode: "",
+  careerObjective: "",
+};
+
 const templates = [
   { id: 1, path: img },
   { id: 2, path: img },
@@ -211,6 +225,7 @@ const getTestSkills = (data) => {
 export default data;
 export {
   getTestPersonalDetails,
+  getDefaultPersonalDetails,
   getTestReferenceDetails,
   getTestExperience,
   getTestEducation,

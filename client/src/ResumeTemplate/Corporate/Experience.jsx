@@ -5,9 +5,9 @@ function Experience({ experience }) {
   return (
     <section className="experience">
       <div className="heading">Experience</div>
-      {experience.map((x, i) => (
-        <ExperienceItem {...x} key={i} />
-      ))}
+      {experience.length === 0
+        ? <PageBreakableContainer>No related work experience</PageBreakableContainer>
+        : experience.map((x, i) => <ExperienceItem {...x} key={i} />)}
     </section>
   );
 }

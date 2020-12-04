@@ -8,6 +8,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import data, {
+  getDefaultPersonalDetails,
   getTestCertificates,
   getTestEducation,
   getTestExperience,
@@ -28,7 +29,7 @@ import ResumeBuilderSideBar from "./ResumeBuilderSideBar";
 import FirebaseContext from "../Firebase/Firebase.Context";
 import "./resume-builder.scss";
 
-const useTestData = true;
+const useTestData = false;
 
 const ResumeBuilderPages = [
   ROUTES.RESUME_BUILDER.INTRODUCTION,
@@ -45,7 +46,7 @@ function ResumeBuilder() {
   const [selectedTemplateId, setSeletedTemplateId] = useState();
   const [templates, setTemplates] = useState([]);
   const [personalDetails, setPersonalDetails] = useState(
-    !useTestData ? {} : getTestPersonalDetails(data)
+    !useTestData ? getDefaultPersonalDetails : getTestPersonalDetails(data)
   );
   const [education, setEducation] = useState(
     !useTestData ? [] : getTestEducation(data)
@@ -61,6 +62,7 @@ function ResumeBuilder() {
     !useTestData ? {} : getTestReferenceDetails(data)
   );
   const [currentPage, setCurrentPage] = useState(0);
+  const [latestPage, setLatestPage] = useState(0);
   const history = useHistory();
   const location = useLocation();
   const firebase = useContext(FirebaseContext);
@@ -68,6 +70,7 @@ function ResumeBuilder() {
 
   const nextPage = () => {
     const newPage = Math.min(currentPage + 1, ResumeBuilderPages.length - 1);
+    setLatestPage(Math.max(latestPage, newPage));
     setCurrentPage(newPage);
     history.push(`${path}${ResumeBuilderPages[newPage]}`);
   };
@@ -104,7 +107,7 @@ function ResumeBuilder() {
 
   return (
     <div className="resume-builder">
-      <ResumeBuilderSideBar />
+      <ResumeBuilderSideBar latestPage={latestPage} />
       <Switch>
         <Route
           exact

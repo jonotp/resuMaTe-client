@@ -6,6 +6,7 @@
     flex-direction: column;
     margin: 20px 0;
     max-width: 794px;
+    min-height: $a4-height;
 
     > * {
       flex-grow: 1;
@@ -16,7 +17,7 @@
     pointer-events: none;
     position: absolute;
     z-index: -1;
-    height: 29.7cm;
+    height: $a4-height;
   }
 
   .container {

@@ -10,10 +10,6 @@ function ResumeTemplateLoader({ resume, templateId }) {
     switch (templateId) {
       case 1:
         return <Corporate resume={resume} />;
-      case 2:
-        return <div>Placeholder resume template 2</div>;
-      case 3:
-        return <div>Placeholder resume template 3</div>;
       default:
         return <Corporate resume={resume} />;
     }

@@ -83,7 +83,7 @@ class Firebase {
   getTemplates = async () => {
     const templates = await this.db.collection("templates").get();
     return Promise.all(
-      templates.doc.map(async (x) => {
+      templates.docs.map(async (x) => {
         const data = x.data();
         const ref = this.storage.refFromURL(data.path);
         return {

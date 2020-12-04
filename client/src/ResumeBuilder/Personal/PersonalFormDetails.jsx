@@ -30,7 +30,7 @@ function PersonalFormDetails({ applicant, onInputChange, hasError }) {
   const applicantCareerObjective =
     applicant.careerObjective.trim().length === 0 ? null : (
       <>
-        <p className="summary-career-objective summary-title">
+        <p className="summary-title-adornment summary-title">
           Career Objective
         </p>
         <p>{applicant.careerObjective}</p>

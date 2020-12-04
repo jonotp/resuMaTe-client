@@ -54,6 +54,21 @@
       font-size: 1.2rem;
       color: $primary;
     }
+
+    .summary-title-adornment {
+      position: relative;
+      padding-top: 0.75rem;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0.25rem;
+        height: 3px;
+        width: 10%;
+        background-color: $grey;
+        opacity: 0.3;
+      }
+    }
   }
 
   .resume-form-fields {
@@ -86,7 +101,8 @@
       }
     }
 
-    .hide-additional-fields-button, .show-additional-fields-button{
+    .hide-additional-fields-button,
+    .show-additional-fields-button {
       margin-top: -0.5rem;
     }
 

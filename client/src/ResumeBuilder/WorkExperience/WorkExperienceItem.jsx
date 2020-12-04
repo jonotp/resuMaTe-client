@@ -79,8 +79,10 @@ Responsibility #3`;
             ? `, ${workExperience.location}`
             : null}
         </p>
-        <p>Responsibilities</p>
-        <pre className="summary-responsibilities">{workExperience.responsibilities || "Missing Responsibilities"}</pre>
+        <p className="summary-title-adornment summary-title">Responsibilities</p>
+        <pre className="summary-responsibilities">
+          {workExperience.responsibilities || "Missing Responsibilities"}
+        </pre>
       </div>
 
       {/* Form */}

@@ -21,9 +21,6 @@
 
   .container {
     position: relative;
-    margin-left: -1rem;
-    margin-right: -1rem;
-    padding: 0 1rem 1rem 1rem;
 
     &.page-break-container {
       page-break-after: always;
@@ -93,14 +90,14 @@
       min-height: #{$a4-height} !important;
       width: 794px;
 
-      .container {
-        .page-break-container + * {
-          margin-top: 1.5rem;
-        }
+      .page-break-container + * {
+        margin-top: 1.5rem ;
+      }
 
-        .page-break-divider, .page-break-button, .page-break-adornment {
-          display: none;
-        }
+      .page-break-divider,
+      .page-break-button,
+      .page-break-adornment {
+        display: none;
       }
     }
 

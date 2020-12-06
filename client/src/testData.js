@@ -1,5 +1,3 @@
-import img from "./resume-test-img.png";
-
 const REFERENCE_TYPE = {
   UPON_REQUEST: 0,
   INCLUDE: 1,
@@ -200,12 +198,6 @@ const getDefaultPersonalDetails = {
   careerObjective: "",
 };
 
-const templates = [
-  { id: 1, path: img },
-  { id: 2, path: img },
-  { id: 3, path: img },
-];
-
 const getTestReferenceDetails = (data) => {
   return { referenceType: data.referenceType, references: data.references };
 };
@@ -231,5 +223,4 @@ export {
   getTestEducation,
   getTestCertificates,
   getTestSkills,
-  templates,
 };

@@ -12,3 +12,6 @@ dist/
 # dotenv environment variables file
 *.env
 *.env.*
+
+# Firebase caches
+.firebase*

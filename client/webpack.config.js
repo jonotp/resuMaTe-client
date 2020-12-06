@@ -4,12 +4,26 @@ const dotenv = require("dotenv");
 const path = require("path");
 const webpack = require("webpack");
 
+const devConfigExt = {
+  devServer: {
+    hot: true,
+    open: true,
+    port: 3000,
+    historyApiFallback: true,
+  },
+  devtool: "inline-source-map",
+};
+
+const prodConfigExt = {};
+
 module.exports = (_, { mode }) => {
   const envFile =
     mode === "development"
       ? path.join(__dirname, ".env")
       : path.join(__dirname, ".env.production");
   const env = dotenv.config({ path: envFile }).parsed;
+
+  const ext = mode === "development" ? devConfigExt : prodConfigExt;
 
   // reduce it to a nice object, the same as before
   const envKeys = Object.keys(env).reduce((prev, next) => {
@@ -18,21 +32,15 @@ module.exports = (_, { mode }) => {
   }, {});
 
   return {
-    devServer: {
-      hot: true,
-      open: true,
-      port: 3000,
-      historyApiFallback: true,
-    },
+    ...ext,
     entry: {
       index: "./src/index.js",
     },
     output: {
       path: path.resolve("dist"),
-      filename: "main.js",
+      filename: "main.[contenthash].js",
       publicPath: "/",
     },
-    devtool: 'inline-source-map',
     module: {
       rules: [
         {
@@ -42,8 +50,8 @@ module.exports = (_, { mode }) => {
         },
         {
           test: /\.js$/,
-          enforce: 'pre',
-          use: ['source-map-loader'],
+          enforce: "pre",
+          use: ["source-map-loader"],
         },
         {
           test: /\.scss$/,

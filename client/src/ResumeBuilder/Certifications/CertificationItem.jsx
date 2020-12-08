@@ -58,7 +58,7 @@ function CertificationItem({
         <p>
           {certification.issuer || "Missing issuing organisation"}
         </p>
-        <p>
+        <p className="summary-dates">
           {certification.issueDate !== null
             ? `
             Issued on the ${format(
@@ -83,7 +83,7 @@ function CertificationItem({
         <TextField
           id={`name-${certification.id}`}
           name="name"
-          label="Certification / Qualitification Name"
+          label="Certification Name"
           variant="outlined"
           margin="none"
           style={{ gridArea: "name" }}

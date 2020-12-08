@@ -1,6 +1,11 @@
 @import "../../variables";
 
 .certifications-section {
+  .summary-dates {
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+
   .card-container {
     .resume-form-fields {
       display: grid !important;
@@ -10,7 +15,22 @@
       grid-template-areas:
         "name name name"
         "issuer issuer issuer"
-        "issue-date has-expiry-date expiry-date"
+        "issue-date has-expiry-date expiry-date";
+    }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .certifications-section {
+    .card-container {
+      .resume-form-fields {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "name name"
+          "issuer issuer"
+          "issue-date issue-date"
+          "has-expiry-date expiry-date";
+      }
     }
   }
 }

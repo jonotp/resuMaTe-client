@@ -25,3 +25,21 @@
     }
   }
 }
+
+@media (max-width: $breakpoint-tablet) {
+  .work-experience-section {
+    .card-container {
+      .resume-form-fields {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "title title"
+          "company company"
+          "location location"
+          "start-date start-date"
+          "is-current-job end-date"
+          "divider divider"
+          "responsibilities responsibilities";
+      }
+    }
+  }
+}

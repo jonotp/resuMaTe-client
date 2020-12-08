@@ -1,9 +1,6 @@
 @import "../../variables";
 
 .personal-section {
-  .mt-4 {
-    margin-top: 2rem;
-  }
 
   .card-container {
     .resume-form-fields {
@@ -19,15 +16,28 @@
         "divider divider divider divider"
         "position-title position-title position-title empty2"
         "career-objective career-objective career-objective career-objective";
+    }
+  }
+}
 
-      .additional-form-fields {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+@media (max-width: $breakpoint-tablet) {
+  .personal-section {
+    .card-container {
+      .resume-form-fields {
+        display: grid !important;
+        grid-template-columns: 1fr;
         grid-template-rows: auto;
         gap: 1rem;
         grid-template-areas:
-          "career-objective career-objective career-objective"
-          "hide-additional-fields-button hide-additional-fields-button hide-additional-fields-button";
+          "first-name"
+          "last-name"
+          "address"
+          "email"
+          "phone"
+          "website"
+          "divider"
+          "position-title"
+          "career-objective";
       }
     }
   }

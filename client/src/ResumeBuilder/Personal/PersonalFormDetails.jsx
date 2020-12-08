@@ -38,133 +38,128 @@ function PersonalFormDetails({ applicant, onInputChange, hasError }) {
     );
 
   return (
-    <div>
-      <div className={showForm ? "card-container active" : "card-container"}>
-        {/* Header */}
-        <div className="card-header">
-          {showForm ? (
-            <IconButton
-              aria-label="dropdown"
-              onClick={() => setShowForm(false)}
-            >
-              <KeyboardArrowUpIcon />
-            </IconButton>
-          ) : (
-            <IconButton aria-label="dropdown" onClick={() => setShowForm(true)}>
-              <KeyboardArrowDownIcon />
-            </IconButton>
-          )}
-        </div>
-        {/* Summary fields */}
-        <div className="summary">
-          <p className="summary-title">
-            {applicantName} ({applicantPosition})
-          </p>
-          <p>{applicantAddress}</p>
-          <p>{applicantEmail}</p>
-          <p>{applicantPhone}</p>
-          {applicantCareerObjective}
-        </div>
+    <div className={showForm ? "card-container active" : "card-container"}>
+      {/* Header */}
+      <div className="card-header">
+        {showForm ? (
+          <IconButton aria-label="dropdown" onClick={() => setShowForm(false)}>
+            <KeyboardArrowUpIcon />
+          </IconButton>
+        ) : (
+          <IconButton aria-label="dropdown" onClick={() => setShowForm(true)}>
+            <KeyboardArrowDownIcon />
+          </IconButton>
+        )}
+      </div>
+      {/* Summary fields */}
+      <div className="summary">
+        <p className="summary-title">
+          {applicantName} ({applicantPosition})
+        </p>
+        <p>{applicantAddress}</p>
+        <p>{applicantEmail}</p>
+        <p>{applicantPhone}</p>
+        {applicantCareerObjective}
+      </div>
 
-        {/* Form */}
-        <div className="resume-form-fields">
-          <TextField
-            id={`first-name`}
-            name="firstName"
-            label="First Name"
-            variant="outlined"
-            margin="none"
-            style={{ gridArea: "first-name" }}
-            value={applicant.firstName}
-            onChange={onInputChange}
-            error={hasError && applicant.firstName.length === 0}
-            required
-          />
-          <TextField
-            id={`last-name`}
-            name="lastName"
-            label="Last Name"
-            variant="outlined"
-            margin="none"
-            style={{ gridArea: "last-name" }}
-            value={applicant.lastName}
-            onChange={onInputChange}
-          />
-          <TextField
-            id={`email`}
-            name="email"
-            label="Email"
-            variant="outlined"
-            margin="none"
-            style={{ gridArea: "email" }}
-            value={applicant.email}
-            onChange={onInputChange}
-            error={hasError && applicant.email.length === 0}
-            required
-          />
-          <TextField
-            id={`phone`}
-            name="phone"
-            label="Phone"
-            variant="outlined"
-            margin="none"
-            style={{ gridArea: "phone" }}
-            value={applicant.phone}
-            onChange={onInputChange}
-            error={hasError && applicant.phone.length === 0}
-            required
-          />
-          <TextField
-            id={`website`}
-            name="website"
-            label="Website"
-            variant="outlined"
-            margin="none"
-            style={{ gridArea: "website" }}
-            value={applicant.website}
-            onChange={onInputChange}
-          />
-          <TextField
-            id={`address`}
-            name="address"
-            label="Address"
-            variant="outlined"
-            margin="none"
-            style={{ gridArea: "address" }}
-            value={applicant.address}
-            onChange={onInputChange}
-            required
-            error={hasError && applicant.address.length === 0}
-            placeholder="Street Address, City, State"
-          />
-          <Divider style={{ gridArea: "divider" }} variant="middle" />
-          <TextField
-            id={`position-title`}
-            name="positionTitle"
-            label="Position"
-            variant="outlined"
-            margin="none"
-            style={{ gridArea: "position-title" }}
-            value={applicant.positionTitle}
-            onChange={onInputChange}
-            error={hasError && applicant.positionTitle.length === 0}
-            required
-          />
-          <TextField
-            id="career-objective"
-            name="careerObjective"
-            label="Career Objective"
-            variant="outlined"
-            margin="none"
-            fullWidth
-            multiline
-            rows={3}
-            rowsMax={10}
-            style={{ gridArea: "career-objective" }}
-            value={applicant.careerObjective}
-            onChange={onInputChange}
-          />
-        </div>
+      {/* Form */}
+      <div className="resume-form-fields">
+        <TextField
+          id={`first-name`}
+          name="firstName"
+          label="First Name"
+          variant="outlined"
+          margin="none"
+          style={{ gridArea: "first-name" }}
+          value={applicant.firstName}
+          onChange={onInputChange}
+          error={hasError && applicant.firstName.length === 0}
+          required
+        />
+        <TextField
+          id={`last-name`}
+          name="lastName"
+          label="Last Name"
+          variant="outlined"
+          margin="none"
+          style={{ gridArea: "last-name" }}
+          value={applicant.lastName}
+          onChange={onInputChange}
+        />
+        <TextField
+          id={`email`}
+          name="email"
+          label="Email"
+          variant="outlined"
+          margin="none"
+          style={{ gridArea: "email" }}
+          value={applicant.email}
+          onChange={onInputChange}
+          error={hasError && applicant.email.length === 0}
+          required
+        />
+        <TextField
+          id={`phone`}
+          name="phone"
+          label="Phone"
+          variant="outlined"
+          margin="none"
+          style={{ gridArea: "phone" }}
+          value={applicant.phone}
+          onChange={onInputChange}
+          error={hasError && applicant.phone.length === 0}
+          required
+        />
+        <TextField
+          id={`website`}
+          name="website"
+          label="Website"
+          variant="outlined"
+          margin="none"
+          style={{ gridArea: "website" }}
+          value={applicant.website}
+          onChange={onInputChange}
+        />
+        <TextField
+          id={`address`}
+          name="address"
+          label="Address"
+          variant="outlined"
+          margin="none"
+          style={{ gridArea: "address" }}
+          value={applicant.address}
+          onChange={onInputChange}
+          required
+          error={hasError && applicant.address.length === 0}
+          placeholder="Street Address, City, State"
+        />
+        <Divider style={{ gridArea: "divider" }} variant="middle" />
+        <TextField
+          id={`position-title`}
+          name="positionTitle"
+          label="Position"
+          variant="outlined"
+          margin="none"
+          style={{ gridArea: "position-title" }}
+          value={applicant.positionTitle}
+          onChange={onInputChange}
+          error={hasError && applicant.positionTitle.length === 0}
+          required
+        />
+        <TextField
+          id="career-objective"
+          name="careerObjective"
+          label="Career Objective"
+          variant="outlined"
+          margin="none"
+          fullWidth
+          multiline
+          rows={3}
+          rowsMax={10}
+          style={{ gridArea: "career-objective" }}
+          value={applicant.careerObjective}
+          onChange={onInputChange}
+        />
       </div>
     </div>
   );

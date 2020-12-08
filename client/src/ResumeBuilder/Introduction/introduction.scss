@@ -1,35 +1,37 @@
+@import "../../variables";
+
 // https://uxdesign.cc/creating-horizontal-scrolling-containers-the-right-way-css-grid-c256f64fc585
 .introduction-section {
   .resume-builder-description {
     margin-bottom: 0;
   }
 
-  .scrollable {
-    overflow: auto;
-    margin: 0 -3rem 1rem -3rem;
-    padding: 1rem 3rem;
+  .template-container {
+    display: grid;
+    grid-gap: 2rem;
+
+    // This is default value. The style below will be set inline where 3 is replaced with the number of templates
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: minmax(150px, 1fr);
+
+    img {
+      width: 100%;
+      cursor: pointer;
+      transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      &:hover {
+        z-index: 2;
+        box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .introduction-section {
     .template-container {
-      display: grid;
-      grid-gap: 2rem;
-
-      // This is default value. The style below will be set inline where 3 is replaced with the number of templates
-      grid-template-columns: repeat(3, 300px) 1rem;
-      grid-template-rows: minmax(150px, 1fr);
-
-      &:after{
-        content:'';
-      }
-
-      img {
-        width: 100%;
-        cursor: pointer;
-        transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
-        &:hover {
-          z-index: 2;
-          box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2);
-          transform: scale(1.05);
-        }
-      }
+      grid-template-columns: 1fr;
+      grid-gap: 1rem;
     }
   }
 }

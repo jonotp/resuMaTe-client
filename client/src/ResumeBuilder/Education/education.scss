@@ -27,3 +27,28 @@
     }
   }
 }
+@media (max-width: $breakpoint-tablet) {
+  .education-section {
+    .card-container {
+      .resume-form-fields {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "program"
+          "completion-date"
+          "school-name"
+          "divider"
+          "show-additional-fields-button"
+          "addition-fields";
+  
+        .additional-form-fields {
+          grid-template-columns: 1fr 1fr;
+          grid-template-areas:
+            "start-date start-date"
+            "has-graduated mark"
+            "location location"
+            "hide-additional-fields-button hide-additional-fields-button";
+        }
+      }
+    }
+  }
+}

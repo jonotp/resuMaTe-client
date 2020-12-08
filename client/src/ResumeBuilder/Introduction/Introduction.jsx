@@ -13,22 +13,15 @@ function Introduction({ templates, onSelect, onContinue }) {
       <div className="resume-builder-description">
         Before we get started, please select your desired resume template.
       </div>
-      <div className="scrollable">
-        <div
-          className="template-container"
-          style={{
-            gridTemplateColumns: `repeat(${templates.length}, 300px) 1rem`,
-          }}
-        >
-          {templates.map((x) => (
-            <img
-              key={x.templateId}
-              src={x.path}
-              name={`template-${x.templateId}`}
-              onClick={handleClick(x.templateId)}
-            />
-          ))}
-        </div>
+      <div className="template-container">
+        {templates.map((x) => (
+          <img
+            key={x.templateId}
+            src={x.path}
+            name={`template-${x.templateId}`}
+            onClick={handleClick(x.templateId)}
+          />
+        ))}
       </div>
     </div>
   );

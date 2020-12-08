@@ -142,7 +142,7 @@ Responsibility #3`;
         <DatePicker
           id={`start-date-${workExperience.id}`}
           name="startDate"
-          label="Employment Start Date"
+          label="Start Date"
           margin="none"
           inputVariant="outlined"
           format="MMM yyyy"
@@ -157,7 +157,7 @@ Responsibility #3`;
           <DatePicker
             id={`end-date-${workExperience.id}`}
             name="endDate"
-            label="Employment End Date"
+            label="End Date"
             margin="none"
             inputVariant="outlined"
             format="MMM yyyy"

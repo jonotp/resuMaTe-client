@@ -1,30 +1,31 @@
 import React from "react";
-import { AppBar, makeStyles, Toolbar } from "@material-ui/core";
+import { AppBar, IconButton, Toolbar } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    fontSize: "1.6rem",
-    zIndex: theme.zIndex.drawer + 1,
-    "@media print":{
-      display:"none"
-    }
-  },
-  emphasise: {
-    fontWeight: "bold",
-    textDecoration: "underline",
-    marginLeft:"0.25rem"
-  },
-}));
+import MenuIcon from "@material-ui/icons/Menu";
+import { useContext } from "react";
+import SideBarContext from "../WithSideBar/SideBar.context";
+import "./nav-bar.scss";
 
 function NavBar() {
-  const classes = useStyles();
+  const { setIsSideBarOpen } = useContext(SideBarContext);
+  const handleClick = () => {
+    setIsSideBarOpen((prev) => !prev);
+  };
 
   return (
-    <AppBar className={classes.root} position="sticky" color="primary">
+    <AppBar className="nav-bar" position="sticky" color="primary">
       <Toolbar>
-        <NavLink to="/" activeStyle={{ color: "#F3F4F9", textDecoration: "initial", fontWeight: "intial" }} >
-          Resume<strong className={classes.emphasise}>Ready</strong>
+        <IconButton
+          className="nav-menu-icon"
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          onClick={handleClick}
+        >
+          <MenuIcon />
+        </IconButton>
+        <NavLink to="/" className="nav-header">
+          Resume<strong className="emphasise">Ready</strong>
         </NavLink>
       </Toolbar>
     </AppBar>

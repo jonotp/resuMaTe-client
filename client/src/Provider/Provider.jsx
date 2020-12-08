@@ -5,6 +5,7 @@ import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import DateFnsUtils from "@date-io/date-fns";
 import FirebaseProvider from "../Firebase/Firebase.Provider.jsx";
 import AuthenticationProvider from "../Authentication/Authentication.Provider.jsx";
+import SideBarProvider from "../WithSideBar/SideBar.provider.jsx";
 import theme from "../theme.js";
 
 function Provider({ children }) {
@@ -14,7 +15,7 @@ function Provider({ children }) {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            {children}
+            <SideBarProvider>{children}</SideBarProvider>
           </MuiPickersUtilsProvider>
         </ThemeProvider>
       </FirebaseProvider>

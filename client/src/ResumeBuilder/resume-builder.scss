@@ -1,6 +1,12 @@
 @import "../variables";
 
 .resume-builder {
+  display: flex;
+
+  .resume-builder-section {
+    flex-grow: 1;
+  }
+
   .resume-builder-heading {
     font-size: 3rem;
     margin-bottom: 0.5rem;

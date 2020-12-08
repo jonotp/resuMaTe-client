@@ -1,6 +1,6 @@
 @import "../variables";
 
-.side-bar {
+.side-bar-permanent {
   width: $side-bar-width;
   flex-shrink: 0;
 
@@ -10,8 +10,26 @@
   }
 }
 
+.side-bar-collapsible {
+  display: none;
+
+  ul {
+    width: 180px;
+  }
+}
+
 @media print {
-  .side-bar {
+  .side-bar-permanent,
+  .side-bar-collapsible {
     display: none;
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .side-bar-permanent {
+    display: none;
+  }
+  .side-bar-collapsible {
+    display: block;
   }
 }

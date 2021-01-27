@@ -7,6 +7,7 @@ import FirebaseProvider from "../Firebase/Firebase.Provider";
 import AuthenticationProvider from "../Authentication/Authentication.Provider";
 import SideBarProvider from "../WithSideBar/SideBar.provider";
 import theme from "../theme";
+import { PreloaderContextProvider } from "../Preloader/preloader.context";
 
 function Provider({ children }: PropsWithChildren<any>) {
   return (
@@ -15,7 +16,9 @@ function Provider({ children }: PropsWithChildren<any>) {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <SideBarProvider>{children}</SideBarProvider>
+            <PreloaderContextProvider>
+              <SideBarProvider>{children}</SideBarProvider>
+            </PreloaderContextProvider>
           </MuiPickersUtilsProvider>
         </ThemeProvider>
       </FirebaseProvider>

@@ -1,7 +1,19 @@
 @import "../../variables";
 
-@media print{
-  .resume-builder-description, .resume-builder-heading, button{
+@media print {
+  .resume-builder-description,
+  .resume-builder-heading,
+  button {
     display: none !important;
+  }
+}
+
+.preloader {
+  left: 120px !important;
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .preloader {
+    left: 0 !important;
   }
 }

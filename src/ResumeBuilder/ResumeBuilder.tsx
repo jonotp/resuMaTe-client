@@ -29,8 +29,9 @@ import WorkExperience from "./WorkExperience/WorkExperience";
 import Personal from "./Personal/Personal";
 import ResumeBuilderSideBar from "./ResumeBuilderSideBar";
 import FirebaseContext from "../Firebase/Firebase.Context";
-import "./resume-builder.scss";
 import { ITemplate } from "../Shared/Interfaces/Template.interface";
+import Preloader from "../Preloader/preloader.component";
+import "./resume-builder.scss";
 
 const useTestData = false;
 
@@ -207,12 +208,14 @@ function ResumeBuilder() {
                 experience,
                 skills,
               }}
+              canDownload={latestPage === ResumeBuilderPages.length - 1}
               onPageLoad={onPageLoad}
             />
           )}
         />
         <Redirect from="*" to={ROUTES.NOT_FOUND} />
       </Switch>
+      <Preloader />
     </div>
   );
 }

@@ -3,8 +3,9 @@ import axios from "axios";
 import WithPageLoad from "../WithPageLoad";
 import { GreenButton } from "../../CustomButton/GreenButton";
 import FirebaseContext from "../../Firebase/Firebase.Context";
-import "./finalise.scss";
 import { IResume } from "../../Shared/Interfaces/Resume.interface";
+import { PreloaderContext } from "../../Preloader/preloader.context";
+import "./finalise.scss";
 
 interface FinaliseProps {
   templateId: string;
@@ -14,11 +15,14 @@ interface FinaliseProps {
 
 function Finalise({ templateId, resume, canDownload }: FinaliseProps) {
   const firebase = useContext(FirebaseContext);
+  const { setIsLoading } = useContext(PreloaderContext);
 
   useEffect(() => {
     (async () => {
       if (canDownload) {
+        setIsLoading(true);
         await downloadPDF();
+        setIsLoading(false);
       }
     })();
   }, []);
@@ -53,7 +57,7 @@ function Finalise({ templateId, resume, canDownload }: FinaliseProps) {
       <h1 className="resume-builder-heading">Finalise</h1>
       <div className="resume-builder-description">
         {canDownload
-          ? "Your pdf will be downloaded shortly"
+          ? "Thank you for using resume ready. If you encountered any download issues please click the button below."
           : "You have missed some fields. Please go to the beginning and complete all mandatory fields"}
       </div>
       <GreenButton

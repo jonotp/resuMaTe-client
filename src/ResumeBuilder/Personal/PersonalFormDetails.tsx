@@ -146,12 +146,12 @@ function PersonalFormDetails({
         />
         <Divider style={{ gridArea: "divider" }} variant="middle" />
         <TextField
-          id={`position-title`}
-          name="positionTitle"
+          id={`position`}
+          name="position"
           label="Position"
           variant="outlined"
           margin="none"
-          style={{ gridArea: "position-title" }}
+          style={{ gridArea: "position" }}
           value={applicant.position}
           onChange={onInputChange}
         />

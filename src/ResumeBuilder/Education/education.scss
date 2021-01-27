@@ -9,7 +9,7 @@
       gap: 1rem;
       grid-template-areas:
         "program program completion-date"
-        "school-name school-name school-name"
+        "school school school"
         "divider divider divider"
         "show-additional-fields-button show-additional-fields-button show-additional-fields-button"
         "addition-fields addition-fields addition-fields";
@@ -35,7 +35,7 @@
         grid-template-areas:
           "program"
           "completion-date"
-          "school-name"
+          "school"
           "divider"
           "show-additional-fields-button"
           "addition-fields";

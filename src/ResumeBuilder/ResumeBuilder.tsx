@@ -1,12 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import {
-  Route,
-  useHistory,
-  useLocation,
-  Switch,
-  useRouteMatch,
-  Redirect,
-} from "react-router-dom";
+import { Route, useHistory, useLocation, Switch, useRouteMatch, Redirect, } from "react-router-dom";
 import { getResumeId, getCertificates, getEducation, getExperience, getPersonalDetails, getSkills, } from "./ResumeFunctions";
 import testData from "../testData";
 import { v4 as uuid } from "uuid";

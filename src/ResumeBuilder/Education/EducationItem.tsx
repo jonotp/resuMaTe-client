@@ -127,12 +127,12 @@ function EducationItem({
           required
         />
         <TextField
-          id={`school-name-${education.id}`}
-          name="schoolName"
+          id={`school-${education.id}`}
+          name="school"
           label="Educational Institution's name"
           variant="outlined"
           margin="none"
-          style={{ gridArea: "school-name" }}
+          style={{ gridArea: "school" }}
           value={education.school || ""}
           onChange={handleInputChange}
           error={

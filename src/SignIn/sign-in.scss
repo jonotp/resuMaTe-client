@@ -14,7 +14,7 @@
 
     > form {
       display: grid;
-      grid-template-rows: 1fr;
+      grid-template-columns: 1fr;
       grid-gap: 1rem;
       padding: 1rem 1rem 1.5rem 1rem;
 
@@ -29,13 +29,13 @@
         &.error {
           label,
           svg {
-            color: #f44336d1;
+            color: $error-color-transparent;
           }
 
           &:hover {
             label,
             svg {
-              color: #f44336d1;
+              color: $error-color-transparent;
             }
           }
 
@@ -43,7 +43,7 @@
           &:focus-within {
             label,
             svg {
-              color: #f44336;
+              color: $error-color;
             }
           }
         }
@@ -71,6 +71,17 @@
     }
   }
 }
+
+.sign-in-link-description {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1rem;
+
+  .description {
+    margin-right: 0.2rem;
+  }
+}
+
 
 @media (max-width: $breakpoint-tablet) {
   .sign-in-section {

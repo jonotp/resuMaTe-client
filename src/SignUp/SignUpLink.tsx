@@ -1,11 +1,14 @@
 import React from "react";
+import { useHistory } from "react-router";
 import LinkButton from "../CustomButton/LinkButton";
+import * as ROUTES from "../routes";
 
-function SignUpLink() {
+function SignInLink() {
+  const history = useHistory();
   const handleClick = () => {
-    console.log("Redirect to sign up page");
+    history.push(ROUTES.SIGN_IN);
   };
-  return <LinkButton label="Sign Up" onClick={handleClick} />;
+  return <LinkButton label="Sign In" onClick={handleClick} />;
 }
 
-export default SignUpLink;
+export default SignInLink;

@@ -13,6 +13,7 @@ import NavBar from "../NavBar/NavBar";
 import ResumeBuilder from "../ResumeBuilder/ResumeBuilder";
 import NotFound from "../NotFound/NotFound";
 import SignIn from "../SignIn/SignIn";
+import SignUp from "../SignUp/SignUp";
 import "./app.scss";
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
         <div className="content">
           <Switch>
             <Route path={ROUTES.SIGN_IN} render={() => <SignIn />} />
+            <Route path={ROUTES.SIGN_UP} render={() => <SignUp />} />
             <ProtectedRoute
               path={ROUTES.RESUME_BUILDER_BASE}
               isReady={isMounted}

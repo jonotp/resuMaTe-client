@@ -1,4 +1,6 @@
 export const SIGN_IN = "/sign-in";
+export const SIGN_UP = "/sign-up";
+export const FORGOT_PASSWORD = "/forgot-password";
 export const RESUME_BUILDER_BASE = "/resume-builder"
 export const RESUME_BUILDER = {
   INTRODUCTION: "/introduction",

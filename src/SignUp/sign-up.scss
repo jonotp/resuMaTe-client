@@ -1,3 +1,87 @@
+@import "../variables";
+
+.sign-up-section {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .form-container {
+    background-color: white;
+    max-width: 1024px;
+    margin-bottom: 10rem;
+
+    .mt--1rem {
+      margin-top: -1rem;
+    }
+
+    > form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1rem;
+      padding: 1rem 1rem 1.5rem 1rem;
+      grid-template-areas:
+        "first-name last-name"
+        "email email"
+        "password password"
+        "password-requirements password-requirements"
+        "sign-up-key sign-up-key"
+        "sign-up-button sign-up-button";
+
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus,
+      input:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px white inset !important;
+      }
+
+      .text-input {
+        &.error {
+          label,
+          svg {
+            color: $error-color-transparent;
+          }
+
+          &:hover {
+            label,
+            svg {
+              color: $error-color-transparent;
+            }
+          }
+
+          &:active,
+          &:focus-within {
+            label,
+            svg {
+              color: $error-color;
+            }
+          }
+        }
+
+        label,
+        svg {
+          color: $border-grey;
+        }
+
+        &:hover {
+          label,
+          svg {
+            color: $border-hover-black;
+          }
+        }
+
+        &:active,
+        &:focus-within {
+          label,
+          svg {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+}
+
 .sign-up-link-description {
   display: flex;
   justify-content: center;
@@ -5,5 +89,47 @@
 
   .description {
     margin-right: 0.2rem;
+  }
+}
+
+.password-requirements {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 1.5rem;
+  margin: -0.5rem 0 0.5rem 0;
+
+  ::marker {
+    color: $primary;
+  }
+
+  .error {
+    color: $error-color;
+    &::marker {
+      color: $error-color;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .sign-up-section {
+    align-items: flex-start;
+
+    .form-container {
+      margin: 2rem 0 2rem 0;
+      width: 100%;
+
+      > form {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "first-name"
+          "last-name"
+          "email"
+          "blank"
+          "password"
+          "password-requirements"
+          "sign-up-key"
+          "sign-up-button";
+      }
+    }
   }
 }

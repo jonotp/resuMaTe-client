@@ -8,7 +8,6 @@ import {
   Redirect,
 } from "react-router-dom";
 import data, {
-  getDefaultPersonalDetails,
   getTestCertificates,
   getTestEducation,
   getTestExperience,
@@ -31,9 +30,10 @@ import ResumeBuilderSideBar from "./ResumeBuilderSideBar";
 import FirebaseContext from "../Firebase/Firebase.Context";
 import { ITemplate } from "../Shared/Interfaces/Template.interface";
 import Preloader from "../Preloader/Preloader";
+import { DefaultPersonal } from "../Shared/Interfaces/Personal.interface";
 import "./resume-builder.scss";
 
-const useTestData = false;
+const useTestData = true;
 
 const ResumeBuilderPages = [
   ROUTES.RESUME_BUILDER.INTRODUCTION,
@@ -47,13 +47,13 @@ const ResumeBuilderPages = [
 ];
 
 function ResumeBuilder() {
-  const [resumeId, setResumeId] = useState(
+  const [resumeId, ] = useState(
     !useTestData ? uuid() : getResumeId(data)
   );
   const [selectedTemplateId, setSeletedTemplateId] = useState("");
   const [templates, setTemplates] = useState<ITemplate[]>([]);
   const [personalDetails, setPersonalDetails] = useState(
-    !useTestData ? getDefaultPersonalDetails : getTestPersonalDetails(data)
+    !useTestData ? DefaultPersonal : getTestPersonalDetails(data)
   );
   const [education, setEducation] = useState(
     !useTestData ? [] : getTestEducation(data)

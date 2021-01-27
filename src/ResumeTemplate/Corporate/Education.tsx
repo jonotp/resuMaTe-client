@@ -1,5 +1,5 @@
 import React from "react";
-import { IEducation } from "../../Shared/Interfaces/Resume.interface";
+import { IEducation } from "../../Shared/Interfaces/Education.interface";
 import PageBreakableContainer from "../PageBreakableContainer";
 
 interface EducationProps {
@@ -25,7 +25,7 @@ const dateFormatter = new Intl.DateTimeFormat("default", {
 });
 
 function EducationItem({
-  schoolName,
+  school,
   program,
   mark,
   completionDate,
@@ -37,7 +37,7 @@ function EducationItem({
   return (
     <PageBreakableContainer>
       <div className="text-bold">
-        <div className="text-uppercase item-title">{schoolName}</div>
+        <div className="text-uppercase item-title">{school}</div>
         <div>{mark}</div>
       </div>
       <div className="text-italic">

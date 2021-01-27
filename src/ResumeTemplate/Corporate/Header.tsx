@@ -3,10 +3,10 @@ import React from "react";
 interface HeaderProp {
   firstName: string;
   lastName: string;
-  positionTitle: string;
+  position?: string;
 }
 
-function Header({ firstName, lastName, positionTitle }: HeaderProp) {
+function Header({ firstName, lastName, position }: HeaderProp) {
   return (
     <div className="top-section">
       <div className="name">
@@ -16,9 +16,9 @@ function Header({ firstName, lastName, positionTitle }: HeaderProp) {
         <span className="first-name">{firstName}</span>
         <span className="last-name">{lastName}</span>
       </div>
-      {positionTitle?.length > 0 ? (
+      {position !== undefined && position.length > 0 ? (
         <div className="position-title">
-          <span>{positionTitle}</span>
+          <span>{position}</span>
         </div>
       ) : null}
     </div>

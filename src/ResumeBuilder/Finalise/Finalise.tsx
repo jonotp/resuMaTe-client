@@ -20,8 +20,12 @@ function Finalise({ templateId, resume, canDownload }: FinaliseProps) {
   useEffect(() => {
     setIsLoading(true);
     (async () => {
-      if (canDownload) {
-        await downloadPDF();
+      try {
+        if (canDownload) {
+          await downloadPDF();
+        }
+      } catch (error) {
+        console.error(error);
       }
       setIsLoading(false);
     })();

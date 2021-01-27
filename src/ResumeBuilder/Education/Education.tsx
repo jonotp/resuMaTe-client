@@ -5,12 +5,12 @@ import { GreenButton } from "../../CustomButton/GreenButton";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 import { AddButton } from "../../CustomButton/AddButton";
 import EducationItem from "./EducationItem";
-import "./education.scss";
 import {
   DefaultEducation,
   IEducation,
-} from "../../Shared/Interfaces/Resume.interface";
+} from "../../Shared/Interfaces/Education.interface";
 import { ResumeBuilderSectionProps } from "../../Shared/Interfaces/ResumeBuilder.interface";
+import "./education.scss";
 
 function Education({
   state,
@@ -66,10 +66,10 @@ function Education({
       state.find(
         (x) =>
           x.program === undefined ||
-          x.schoolName === undefined ||
+          x.school === undefined ||
           x.completionDate === null ||
           x.program.length === 0 ||
-          x.schoolName.length === 0
+          x.school.length === 0
       ) === undefined;
 
     setHasError(!isValid);

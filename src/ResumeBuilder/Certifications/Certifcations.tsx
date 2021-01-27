@@ -9,7 +9,7 @@ import "./certifications.scss";
 import {
   DefaultCertificate,
   ICertificate,
-} from "../../Shared/Interfaces/Resume.interface";
+} from "../../Shared/Interfaces/Certificate.interface";
 import { ResumeBuilderSectionProps } from "../../Shared/Interfaces/ResumeBuilder.interface";
 
 function Certifications({

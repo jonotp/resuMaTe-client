@@ -2,9 +2,9 @@ import React, { ChangeEvent, FormEvent, useState } from "react";
 import WithPageLoad from "../WithPageLoad";
 import { GreenButton } from "../../CustomButton/GreenButton";
 import PersonalFormDetails from "./PersonalFormDetails";
-import "./personal.scss";
 import { ResumeBuilderSectionProps } from "../../Shared/Interfaces/ResumeBuilder.interface";
-import { IPersonal } from "../../Shared/Interfaces/Resume.interface";
+import { IPersonal } from "../../Shared/Interfaces/Personal.interface";
+import "./personal.scss";
 
 function Personal({
   state,
@@ -33,7 +33,7 @@ function Personal({
       state.firstName.trim().length === 0 ||
       state.email.trim().length === 0 ||
       state.phone.trim().length === 0 ||
-      state.positionTitle.trim().length === 0
+      state.address.trim().length === 0
     );
 
     setHasError(!isValid);

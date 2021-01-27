@@ -1,5 +1,5 @@
 import React from "react";
-import { IExperience } from "../../Shared/Interfaces/Resume.interface";
+import { IExperience } from "../../Shared/Interfaces/Experience.interface";
 import PageBreakableContainer from "../PageBreakableContainer";
 
 interface ExperienceProps {
@@ -34,7 +34,10 @@ const ExperienceItem = ({
   endDate,
   responsibilities,
 }: IExperience) => {
-  const startDateFormatted = startDate !== null ? dateFormatter.format(new Date(startDate)) : "No start date";
+  const startDateFormatted =
+    startDate !== null
+      ? dateFormatter.format(new Date(startDate))
+      : "No start date";
   const endDateFormatted =
     endDate !== null ? dateFormatter.format(new Date(endDate)) : "Present";
   return (
@@ -42,11 +45,13 @@ const ExperienceItem = ({
       <div className="text-bold text-uppercase item-title">{title}</div>
       <div className="text-italic">
         {company}
-        {location.trim().length !== 0 ? `, ${location}` : null},{" "}
-        {startDateFormatted} - {endDateFormatted}
+        {location !== undefined && location.trim().length !== 0
+          ? `, ${location}`
+          : null}
+        , {startDateFormatted} - {endDateFormatted}
       </div>
       <ul>
-        {responsibilities.split("\n\n").map((x, i) => (
+        {responsibilities.split("\n\n").map((x: string, i: number) => (
           <li key={i}>{x}</li>
         ))}
       </ul>

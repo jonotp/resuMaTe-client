@@ -14,9 +14,9 @@ import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import CloseIcon from "@material-ui/icons/Close";
 import { DatePicker } from "@material-ui/pickers";
-import "./education.scss";
-import { IEducation } from "../../Shared/Interfaces/Resume.interface";
+import { IEducation } from "../../Shared/Interfaces/Education.interface";
 import { MaterialUiPickersDate } from "@material-ui/pickers/typings/date";
+import "./education.scss";
 
 interface EducationItemProp {
   education: IEducation;
@@ -88,7 +88,7 @@ function EducationItem({
             : "Missing completion date"}
         </p>
         <p>
-          {education.schoolName || "Missing institution's name"}
+          {education.school || "Missing institution's name"}
           {education.location !== undefined && education.location.length > 0
             ? `, ${education.location}`
             : null}
@@ -133,12 +133,11 @@ function EducationItem({
           variant="outlined"
           margin="none"
           style={{ gridArea: "school-name" }}
-          value={education.schoolName || ""}
+          value={education.school || ""}
           onChange={handleInputChange}
           error={
             hasError &&
-            (education.schoolName === undefined ||
-              education.schoolName.length === 0)
+            (education.school === undefined || education.school.length === 0)
           }
           required
         />

@@ -1,5 +1,5 @@
 import React from "react";
-import { ICertificate } from "../../Shared/Interfaces/Resume.interface";
+import { ICertificate } from "../../Shared/Interfaces/Certificate.interface";
 import PageBreakableContainer from "../PageBreakableContainer";
 
 const dateFormatter = new Intl.DateTimeFormat("default", {

@@ -12,7 +12,7 @@ import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import CloseIcon from "@material-ui/icons/Close";
 import { DatePicker } from "@material-ui/pickers";
-import { ICertificate } from "../../Shared/Interfaces/Resume.interface";
+import { ICertificate } from "../../Shared/Interfaces/Certificate.interface";
 import { MaterialUiPickersDate } from "@material-ui/pickers/typings/date";
 
 interface CertificationItemProp {

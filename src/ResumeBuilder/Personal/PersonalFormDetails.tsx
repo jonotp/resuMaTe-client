@@ -2,7 +2,7 @@ import React, { ChangeEvent, useState } from "react";
 import { Divider, IconButton, TextField } from "@material-ui/core";
 import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import { IPersonal } from "../../Shared/Interfaces/Resume.interface";
+import { IPersonal } from "../../Shared/Interfaces/Personal.interface";
 
 interface PersonalFormDetailsProps {
   applicant: IPersonal;
@@ -23,9 +23,9 @@ function PersonalFormDetails({
       : `${applicant.firstName} ${applicant.lastName}`;
 
   const applicantPosition =
-    applicant.positionTitle.trim().length === 0
-      ? "Missing position"
-      : applicant.positionTitle;
+    applicant.position === undefined || applicant.position.trim().length === 0
+      ? ""
+      : `(${applicant.position})`;
 
   const applicantAddress =
     applicant.address.trim().length === 0
@@ -65,7 +65,7 @@ function PersonalFormDetails({
       {/* Summary fields */}
       <div className="summary">
         <p className="summary-title">
-          {applicantName} ({applicantPosition})
+          {applicantName} {applicantPosition}
         </p>
         <p>{applicantAddress}</p>
         <p>{applicantEmail}</p>
@@ -152,10 +152,8 @@ function PersonalFormDetails({
           variant="outlined"
           margin="none"
           style={{ gridArea: "position-title" }}
-          value={applicant.positionTitle}
+          value={applicant.position}
           onChange={onInputChange}
-          error={hasError && applicant.positionTitle.length === 0}
-          required
         />
         <TextField
           id="career-objective"

@@ -13,9 +13,9 @@ import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
 import CloseIcon from "@material-ui/icons/Close";
 import { DatePicker } from "@material-ui/pickers";
-import "./work-experience.scss";
-import { IExperience } from "../../Shared/Interfaces/Resume.interface";
+import { IExperience } from "../../Shared/Interfaces/Experience.interface";
 import { MaterialUiPickersDate } from "@material-ui/pickers/typings/date";
+import "./work-experience.scss";
 
 interface WorkExperienceItemProps {
   workExperience: IExperience;
@@ -97,7 +97,7 @@ Responsibility #3`;
         </p>
         <p>
           {workExperience.company || "Missing company's name"}
-          {workExperience.location.length > 0
+          {workExperience.location !== undefined && workExperience.location.length > 0
             ? `, ${workExperience.location}`
             : null}
         </p>

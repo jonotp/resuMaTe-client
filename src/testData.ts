@@ -1,3 +1,7 @@
+import { ICertificate } from "./Shared/Interfaces/Certificate.interface";
+import { IEducation } from "./Shared/Interfaces/Education.interface";
+import { IExperience } from "./Shared/Interfaces/Experience.interface";
+import { IPersonal } from "./Shared/Interfaces/Personal.interface";
 import { IResume } from "./Shared/Interfaces/Resume.interface";
 
 const REFERENCE_TYPE = {
@@ -6,26 +10,19 @@ const REFERENCE_TYPE = {
   DO_NOT_INCLUDE: 2,
 };
 
-const EDUCATION_TYPE = {
-  HIGH_SCHOOL: 0,
-  UNIVERSITY_OR_COLLEGE: 1,
-  OTHER: 2,
-};
-
 const data: IResume = {
-  id: "b729f7bb-68be-4eed-abad-2a35c837c8a9",
+  id: "c729f7bb-68be-4eed-abad-2a35c837c8a9",
   firstName: "Jonathan",
   lastName: "Pham",
   email: "jonathanphame@gmail.com",
   phone: "+61 400 000 000",
-  positionTitle: "Software Engineer",
+  position: "Software Engineer",
   address: "15 test street, Wollongong, NSW",
   careerObjective: `A meticulous hardworking individual with a strong passion for anything technology related, whether it be science, computers or programming. Possess strong planning and analytical skills and a thirst for problem solving opportunities. Willing to listen, learn, experience and contribute to innovative ideas.`,
-  userId: "",
   education: [
     {
       id: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
-      schoolName: "University of Wollongong",
+      school: "University of Wollongong",
       location: "Australia, NSW, Wollongong",
       program: "Bachelor of Computer Science",
       mark: "WAM 89",
@@ -35,7 +32,7 @@ const data: IResume = {
     },
     {
       id: "1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed",
-      schoolName: "University of Wollongong",
+      school: "University of Wollongong",
       location: "",
       program: "Bachelor of Science Major in Nanotechnology",
       mark: "WAM 89",
@@ -164,55 +161,44 @@ const getTestPersonalDetails = ({
   lastName,
   email,
   phone,
-  positionTitle,
+  position,
   address,
   careerObjective,
-}: IResume) => {
+}: IResume): IPersonal => {
   return {
     firstName,
     lastName,
     email,
     phone,
-    positionTitle,
+    position,
     address,
     careerObjective,
   };
 };
 
-const getDefaultPersonalDetails = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  phone: "",
-  positionTitle: "",
-  address: "",
-  careerObjective: "",
-};
-
-const getResumeId = (data: IResume) => {
+const getResumeId = (data: IResume): string => {
   return data.id;
 }
 
 const getTestReferenceDetails = (data: IResume) => {
   return { referenceType: data.referenceType, references: data.references };
 };
-const getTestExperience = (data: IResume) => {
+const getTestExperience = (data: IResume): IExperience[] => {
   return data.experience;
 };
-const getTestEducation = (data: IResume) => {
+const getTestEducation = (data: IResume): IEducation[] => {
   return data.education;
 };
-const getTestCertificates = (data: IResume) => {
+const getTestCertificates = (data: IResume): ICertificate[] => {
   return data.certificates;
 };
-const getTestSkills = (data: IResume) => {
+const getTestSkills = (data: IResume): string[] => {
   return data.skills;
 };
 
 export default data;
 export {
   getTestPersonalDetails,
-  getDefaultPersonalDetails,
   getTestReferenceDetails,
   getTestExperience,
   getTestEducation,

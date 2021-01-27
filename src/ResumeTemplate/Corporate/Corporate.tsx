@@ -20,7 +20,7 @@ function Corporate({ resume }: CorporateProps) {
       <Header
         firstName={resume.firstName}
         lastName={resume.lastName}
-        positionTitle={resume.positionTitle}
+        position={resume.position}
       />
       <div className="corporate-body">
         <div className="left-pane">

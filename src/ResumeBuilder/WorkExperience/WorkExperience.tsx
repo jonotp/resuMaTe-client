@@ -8,7 +8,7 @@ import WorkExperienceItem from "./WorkExperienceItem";
 import {
   DefaultExperience,
   IExperience,
-} from "../../Shared/Interfaces/Resume.interface";
+} from "../../Shared/Interfaces/Experience.interface";
 import { ResumeBuilderSectionProps } from "../../Shared/Interfaces/ResumeBuilder.interface";
 import "./work-experience.scss";
 

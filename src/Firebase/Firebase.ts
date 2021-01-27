@@ -106,6 +106,12 @@ class Firebase {
 
     return (await this.db.collection("resumes").doc(resume.id).get()).data() as IResume;
   };
+
+  isValidSignUpKey = async (key: string) => {
+    const data = await this.db.collection("keys").doc(key).get();
+    debugger;
+    return data.exists;
+  }
 }
 
 export default Firebase;

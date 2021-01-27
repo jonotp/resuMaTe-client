@@ -14,12 +14,13 @@ import PasswordRequirements from "./PasswordRequirement";
 import VisibilityOffIcon from "@material-ui/icons/VisibilityOff";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import SignInLinkDescription from "../SignIn/SignInLinkDescription";
-// import * as ROUTES from "../routes";
+import * as ROUTES from "../routes";
+import { DefaultUser } from "../Shared/Interfaces/User.interface";
 import "./sign-up.scss";
 
 function SignUp() {
-  // const history = useHistory();
-  // const firebase = useContext(FirebaseContext);
+  const history = useHistory();
+  const firebase = useContext(FirebaseContext);
   const [user, setUser] = useState({
     firstName: "",
     lastName: "",
@@ -44,7 +45,21 @@ function SignUp() {
     console.log("In handle submit");
     try {
       if (hasErrors()) throw "Error in fields";
-      // history.push(ROUTES.RESUME_BUILDER_BASE);
+
+      const validKey = await firebase.isValidSignUpKey(user.signUpKey);
+      if (!validKey) throw "Invalid sign up key";
+
+      await firebase.signUp(
+        {
+          ...DefaultUser,
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: user.email,
+        },
+        user.password
+      );
+
+      history.push(ROUTES.RESUME_BUILDER_BASE);
     } catch (err) {
       console.error(err);
       setHasError(true);
@@ -56,8 +71,7 @@ function SignUp() {
       user.firstName.trim().length === 0 ||
       user.lastName.trim().length === 0 ||
       user.email.trim().match(/\w+\@\w+\.\w+/) === null ||
-      user.password.match(/^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])[\w]{8,}$/) ===
-        null ||
+      user.password.match(/^(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).{8,}$/) === null ||
       user.signUpKey.trim().length === 0
     );
   };
@@ -123,9 +137,8 @@ function SignUp() {
               required
               error={
                 hasError &&
-                user.password.match(
-                  /^(?=.*[A-Z])(?=.*\d)(?=.*[a-z])[\w]{8,}$/
-                ) === null
+                user.password.match(/^(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).{8,}$/) ===
+                  null
               }
               margin="none"
               fullWidth

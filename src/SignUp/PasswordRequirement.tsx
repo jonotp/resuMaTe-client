@@ -12,7 +12,7 @@ function PasswordRequirements({
   const lowercaseError = hasError && password.match(/[a-z]/) === null;
   const uppercaseError = hasError && password.match(/[A-Z]/) === null;
   const numberError = hasError && password.match(/\d/) === null;
-  const characterLimitError = hasError && password.match(/\w{8,}/) === null;
+  const characterLimitError = hasError && password.match(/.{8,}/) === null;
 
   return (
     <ul className="password-requirements">

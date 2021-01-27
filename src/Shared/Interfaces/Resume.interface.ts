@@ -4,7 +4,7 @@ export interface IResume {
   lastName: string;
   email: string;
   phone: string;
-  website: string;
+  website?: string;
   positionTitle: string;
   address: string;
   careerObjective?: string;
@@ -12,7 +12,7 @@ export interface IResume {
   experience: IExperience[];
   certificates: ICertificate[];
   skills: string[];
-  referenceType?: string;
+  referenceType?: number;
   references?: [];
   userId: string;
 }
@@ -22,7 +22,7 @@ export interface IPersonal {
   lastName: string;
   email: string;
   phone: string;
-  website: string;
+  website?: string;
   positionTitle: string;
   address: string;
   careerObjective?: string;

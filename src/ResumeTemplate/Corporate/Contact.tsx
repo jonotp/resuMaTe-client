@@ -4,7 +4,7 @@ import PageBreakableContainer from "../PageBreakableContainer";
 interface ContactProps {
   email: string;
   phone: string;
-  website: string;
+  website?: string;
   address: string;
 }
 
@@ -48,7 +48,7 @@ function Contact({ email, phone, website, address }: ContactProps) {
           )}
         </div>
 
-        {website?.length > 0 ? (
+        {website?.length ?? 0 > 0 ? (
           <div className="icon-row">
             <span className="icon-svg">
               <svg

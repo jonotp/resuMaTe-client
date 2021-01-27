@@ -2,7 +2,7 @@ import React from "react";
 import PageBreakableContainer from "../PageBreakableContainer";
 
 interface ReferenceProps {
-  referenceType?: string;
+  referenceType?: number;
   references?: string[];
 }
 

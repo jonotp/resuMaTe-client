@@ -141,7 +141,7 @@ function PersonalFormDetails({
           variant="outlined"
           margin="none"
           style={{ gridArea: "website" }}
-          value={applicant.website}
+          value={applicant.website || ""}
           onChange={onInputChange}
         />
         <Divider style={{ gridArea: "divider" }} variant="middle" />
@@ -168,7 +168,7 @@ function PersonalFormDetails({
           rows={3}
           rowsMax={10}
           style={{ gridArea: "career-objective" }}
-          value={applicant.careerObjective}
+          value={applicant.careerObjective || ""}
           onChange={onInputChange}
         />
       </div>

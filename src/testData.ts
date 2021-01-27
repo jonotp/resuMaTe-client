@@ -1,3 +1,5 @@
+import { IResume } from "./Shared/Interfaces/Resume.interface";
+
 const REFERENCE_TYPE = {
   UPON_REQUEST: 0,
   INCLUDE: 1,
@@ -10,7 +12,7 @@ const EDUCATION_TYPE = {
   OTHER: 2,
 };
 
-const data = {
+const data: IResume = {
   id: "b729f7bb-68be-4eed-abad-2a35c837c8a9",
   firstName: "Jonathan",
   lastName: "Pham",
@@ -18,9 +20,8 @@ const data = {
   phone: "+61 400 000 000",
   positionTitle: "Software Engineer",
   address: "15 test street, Wollongong, NSW",
-
-  // Nullable
   careerObjective: `A meticulous hardworking individual with a strong passion for anything technology related, whether it be science, computers or programming. Possess strong planning and analytical skills and a thirst for problem solving opportunities. Willing to listen, learn, experience and contribute to innovative ideas.`,
+  userId: "",
   education: [
     {
       id: "9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d",
@@ -35,6 +36,7 @@ const data = {
     {
       id: "1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed",
       schoolName: "University of Wollongong",
+      location: "",
       program: "Bachelor of Science Major in Nanotechnology",
       mark: "WAM 89",
       startDate: "2016-02-15T00:00:00.000Z",
@@ -165,7 +167,7 @@ const getTestPersonalDetails = ({
   positionTitle,
   address,
   careerObjective,
-}) => {
+}: IResume) => {
   return {
     firstName,
     lastName,
@@ -187,23 +189,23 @@ const getDefaultPersonalDetails = {
   careerObjective: "",
 };
 
-const getResumeId = (data) => {
-  return data.resumeId;
+const getResumeId = (data: IResume) => {
+  return data.id;
 }
 
-const getTestReferenceDetails = (data) => {
+const getTestReferenceDetails = (data: IResume) => {
   return { referenceType: data.referenceType, references: data.references };
 };
-const getTestExperience = (data) => {
+const getTestExperience = (data: IResume) => {
   return data.experience;
 };
-const getTestEducation = (data) => {
+const getTestEducation = (data: IResume) => {
   return data.education;
 };
-const getTestCertificates = (data) => {
+const getTestCertificates = (data: IResume) => {
   return data.certificates;
 };
-const getTestSkills = (data) => {
+const getTestSkills = (data: IResume) => {
   return data.skills;
 };
 

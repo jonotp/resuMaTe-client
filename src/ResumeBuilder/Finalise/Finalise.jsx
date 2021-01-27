@@ -3,7 +3,7 @@ import { v4 as uuid } from "uuid";
 import axios from "axios";
 import WithPageLoad from "../WithPageLoad";
 import { GreenButton } from "../../CustomButton/GreenButton";
-import ResumeTemplateLoader from "../../ResumeTemplate/ResumeTemplateLoader";
+// import ResumeTemplateLoader from "../../ResumeTemplate/ResumeTemplateLoader";
 import FirebaseContext from "../../Firebase/Firebase.Context";
 import "./finalise.scss";
 
@@ -27,7 +27,7 @@ function Finalise({ templateId, resume, onSaveResume }) {
     const savedResume = await saveResume();
     try {
       const result = await axios.get(
-        `http://localhost:3001/resume-ready/us-central1/api/resume/${templateId}/${savedResume.resumeId}`,
+        `${process.env.REACT_APP_API_URL}/resume/${templateId}/${savedResume.resumeId}`,
         {
           responseType: "arraybuffer",
           headers: {
@@ -57,7 +57,7 @@ function Finalise({ templateId, resume, onSaveResume }) {
         Review your information and click the finalise button to save your
         resume as a pdf
       </div>
-      <ResumeTemplateLoader resume={resume} templateId={templateId} />
+      {/* <ResumeTemplateLoader resume={resume} templateId={templateId} /> */}
       <GreenButton
         type="submit"
         variant="contained"

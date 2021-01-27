@@ -44,7 +44,9 @@ const ResumeBuilderPages = [
 ];
 
 function ResumeBuilder() {
-  const [resumeId, setResumeId] = useState(!useTestData ? null : getResumeId(data));
+  const [resumeId, setResumeId] = useState(
+    !useTestData ? null : getResumeId(data)
+  );
   const [selectedTemplateId, setSeletedTemplateId] = useState();
   const [templates, setTemplates] = useState([]);
   const [personalDetails, setPersonalDetails] = useState(
@@ -91,6 +93,7 @@ function ResumeBuilder() {
       (async () => {
         const firebaseTemplates = await firebase.getTemplates();
         setTemplates(firebaseTemplates);
+        setSeletedTemplateId(firebaseTemplates[0].templateId);
       })();
     } catch (err) {
       console.log(err);

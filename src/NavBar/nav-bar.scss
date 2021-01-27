@@ -13,10 +13,17 @@
   }
 
   .nav-header {
+    position: relative;
     color: $text-color;
     text-decoration: initial;
     font-weight: initial;
     flex-grow: 1;
+
+    .nav-logo {
+      position: absolute;
+      height: 44px;
+      top: -23px;
+    }
   }
 
   .nav-menu-icon {

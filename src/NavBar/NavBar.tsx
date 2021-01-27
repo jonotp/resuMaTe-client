@@ -5,6 +5,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { useContext } from "react";
 import SideBarContext from "../WithSideBar/SideBar.context";
 import UserNavItem from "./UserNavItem/UserNavItem";
+import imagePath from "../Icon/logo-light-no-border.svg";
 import "./nav-bar.scss";
 
 function NavBar() {
@@ -26,9 +27,9 @@ function NavBar() {
           <MenuIcon />
         </IconButton>
         <NavLink to="/" className="nav-header">
-          Resume<strong className="emphasise">Ready</strong>
+          <img className="nav-logo" src={imagePath} />
         </NavLink>
-        <UserNavItem/>
+        <UserNavItem />
       </Toolbar>
     </AppBar>
   );

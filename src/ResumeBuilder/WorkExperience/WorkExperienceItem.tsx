@@ -146,6 +146,20 @@ Responsibility #3`;
           onChange={onInputChange}
           placeholder="Street Address, City, State"
         />
+        <DatePicker
+          id={`start-date-${workExperience.id}`}
+          name="startDate"
+          label="Start Date"
+          margin="none"
+          inputVariant="outlined"
+          format="MMM yyyy"
+          className="date"
+          style={{ gridArea: "start-date" }}
+          value={workExperience.startDate}
+          onChange={handleDateChange("startDate")}
+          error={hasError && workExperience.startDate === null}
+          required
+        />
         <FormControl style={{ gridArea: "is-current-job" }} variant="outlined">
           <InputLabel id={`is-current-job-label-${workExperience.id}`}>
             Currently Working Here?
@@ -163,20 +177,6 @@ Responsibility #3`;
             <MenuItem value="false">No</MenuItem>
           </Select>
         </FormControl>
-        <DatePicker
-          id={`start-date-${workExperience.id}`}
-          name="startDate"
-          label="Start Date"
-          margin="none"
-          inputVariant="outlined"
-          format="MMM yyyy"
-          className="date"
-          style={{ gridArea: "start-date" }}
-          value={workExperience.startDate}
-          onChange={handleDateChange("startDate")}
-          error={hasError && workExperience.startDate === null}
-          required
-        />
         {workExperience.isCurrentJob ? null : (
           <DatePicker
             id={`end-date-${workExperience.id}`}
@@ -197,7 +197,7 @@ Responsibility #3`;
         <TextField
           id={`responsibilities-${workExperience.id}`}
           name="responsibilities"
-          label="Responsibilities"
+          label={workExperience.responsibilities.length > 0 ? "Responsibilities" : ""}
           variant="outlined"
           margin="none"
           style={{ gridArea: "responsibilities" }}

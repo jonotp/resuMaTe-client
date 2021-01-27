@@ -98,6 +98,19 @@ function PersonalFormDetails({
           onChange={onInputChange}
         />
         <TextField
+          id={`address`}
+          name="address"
+          label="Address"
+          variant="outlined"
+          margin="none"
+          style={{ gridArea: "address" }}
+          value={applicant.address}
+          onChange={onInputChange}
+          required
+          error={hasError && applicant.address.length === 0}
+          placeholder="Street Address, City, State"
+        />
+        <TextField
           id={`email`}
           name="email"
           label="Email"
@@ -130,19 +143,6 @@ function PersonalFormDetails({
           style={{ gridArea: "website" }}
           value={applicant.website}
           onChange={onInputChange}
-        />
-        <TextField
-          id={`address`}
-          name="address"
-          label="Address"
-          variant="outlined"
-          margin="none"
-          style={{ gridArea: "address" }}
-          value={applicant.address}
-          onChange={onInputChange}
-          required
-          error={hasError && applicant.address.length === 0}
-          placeholder="Street Address, City, State"
         />
         <Divider style={{ gridArea: "divider" }} variant="middle" />
         <TextField

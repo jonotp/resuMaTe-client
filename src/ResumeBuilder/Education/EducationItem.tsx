@@ -112,6 +112,20 @@ function EducationItem({
           }
           required
         />
+        <DatePicker
+          id={`completion-date-${education.id}`}
+          name="completionDate"
+          label="Completion Date"
+          margin="none"
+          inputVariant="outlined"
+          format="MMM yyyy"
+          className="date"
+          style={{ gridArea: "completion-date" }}
+          value={education.completionDate || null}
+          onChange={handleDateChange("completionDate")}
+          error={hasError && education.completionDate === undefined}
+          required
+        />
         <TextField
           id={`school-name-${education.id}`}
           name="schoolName"
@@ -126,20 +140,6 @@ function EducationItem({
             (education.schoolName === undefined ||
               education.schoolName.length === 0)
           }
-          required
-        />
-        <DatePicker
-          id={`completion-date-${education.id}`}
-          name="completionDate"
-          label="Completion Date"
-          margin="none"
-          inputVariant="outlined"
-          format="MMM yyyy"
-          className="date"
-          style={{ gridArea: "completion-date" }}
-          value={education.completionDate || null}
-          onChange={handleDateChange("completionDate")}
-          error={hasError && education.completionDate === undefined}
           required
         />
         <Divider style={{ gridArea: "divider" }} variant="middle" />

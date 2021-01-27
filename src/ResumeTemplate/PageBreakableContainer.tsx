@@ -1,4 +1,4 @@
-import { Button } from "@material-ui/core"
+import { Button } from "@material-ui/core";
 import React, { useState, PropsWithChildren } from "react";
 
 function PageBreakableContainer({ children }: PropsWithChildren<any>) {

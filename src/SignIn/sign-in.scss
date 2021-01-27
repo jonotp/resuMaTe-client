@@ -16,7 +16,7 @@
       display: grid;
       grid-template-rows: 1fr;
       grid-gap: 1rem;
-      padding: 1rem;
+      padding: 1rem 1rem 1.5rem 1rem;
 
       input:-webkit-autofill,
       input:-webkit-autofill:hover,
@@ -67,10 +67,6 @@
             color: $primary;
           }
         }
-      }
-
-      button {
-        margin-top: 1rem;
       }
     }
   }

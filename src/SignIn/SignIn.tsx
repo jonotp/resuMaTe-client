@@ -10,6 +10,7 @@ import FirebaseContext from "../Firebase/Firebase.Context";
 import { GreenButton } from "../CustomButton/GreenButton";
 import EmailIcon from "@material-ui/icons/Email";
 import LockIcon from "@material-ui/icons/Lock";
+import SignUpLinkDescription from "../SignUp/SignUpLinkDescription";
 import * as ROUTES from "../routes";
 import "./sign-in.scss";
 
@@ -96,6 +97,7 @@ function SignIn() {
             Sign In
           </GreenButton>
         </form>
+        <SignUpLinkDescription />
       </div>
     </div>
   );

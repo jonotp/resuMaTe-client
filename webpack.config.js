@@ -65,7 +65,7 @@ module.exports = (_, { mode }) => {
       ],
     },
     resolve: {
-      extensions: [".ts", ".tsx", ".js", ".jsx", ".scss"],
+      extensions: [".ts", ".tsx", ".js", ".jsx", ".scss",".svg"],
     },
     plugins: [
       // Will clear the output path directory pre build
@@ -74,6 +74,7 @@ module.exports = (_, { mode }) => {
       // Will handle creating a new html in the build directory
       new HTMLWebpackPlugin({
         template: "./src/index.html",
+        favicon: "./src/Icon/favicon.png",
       }),
       new MiniCSSExtractPlugin({
         filename: "[name].css",

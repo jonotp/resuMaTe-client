@@ -1,8 +1,7 @@
-import React, { Dispatch, FormEvent, useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import axios from "axios";
 import WithPageLoad from "../WithPageLoad";
 import { GreenButton } from "../../CustomButton/GreenButton";
-// import ResumeTemplateLoader from "../../ResumeTemplate/ResumeTemplateLoader";
 import FirebaseContext from "../../Firebase/Firebase.Context";
 import "./finalise.scss";
 import { IResume } from "../../Shared/Interfaces/Resume.interface";
@@ -10,18 +9,19 @@ import { IResume } from "../../Shared/Interfaces/Resume.interface";
 interface FinaliseProps {
   templateId: string;
   resume: IResume;
+  canDownload: boolean;
 }
 
-function Finalise({ templateId, resume }: FinaliseProps) {
+function Finalise({ templateId, resume, canDownload }: FinaliseProps) {
   const firebase = useContext(FirebaseContext);
 
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    const oldTitle = document.title;
-    document.title = `${resume.firstName} ${resume.lastName} - Resume`;
-    window.print();
-    document.title = oldTitle;
-  };
+  useEffect(() => {
+    (async () => {
+      if (canDownload) {
+        await downloadPDF();
+      }
+    })();
+  }, []);
 
   const downloadPDF = async () => {
     const savedResume = await firebase.saveResume(resume);
@@ -52,17 +52,18 @@ function Finalise({ templateId, resume }: FinaliseProps) {
     <div className="resume-builder-section finalise-section">
       <h1 className="resume-builder-heading">Finalise</h1>
       <div className="resume-builder-description">
-        Review your information and click the finalise button to save your
-        resume as a pdf
+        {canDownload
+          ? "Your pdf will be downloaded shortly"
+          : "You have missed some fields. Please go to the beginning and complete all mandatory fields"}
       </div>
-      {/* <ResumeTemplateLoader resume={resume} templateId={templateId} /> */}
       <GreenButton
         type="submit"
         variant="contained"
         color="primary"
+        disabled={!canDownload}
         onClick={async () => await downloadPDF()}
       >
-        Finalise
+        Retry Download
       </GreenButton>
     </div>
   );

@@ -26,7 +26,7 @@ function ResumeBuilderSidebar({ latestPage }) {
       {SideBarLinks.map((x, i) => (
         <ListItem
           button
-          // disabled={i > latestPage}
+          disabled={i > latestPage}
           key={x.text}
           onClick={handleClick(x.route)}
         >

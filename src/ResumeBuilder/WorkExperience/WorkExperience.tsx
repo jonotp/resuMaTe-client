@@ -1,5 +1,4 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+import React, { FormEvent, useState } from "react";
 import WithPageLoad from "../WithPageLoad";
 import { GreenButton } from "../../CustomButton/GreenButton";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
@@ -11,6 +10,12 @@ import {
 } from "../../Shared/Interfaces/Experience.interface";
 import { ResumeBuilderSectionProps } from "../../Shared/Interfaces/ResumeBuilder.interface";
 import "./work-experience.scss";
+import {
+  UseStateHelperArrayElementIDAdd,
+  UseStateHelperArrayElementIDDelete,
+  UseStateHelperArrayElementIDInputChange,
+  UseStateHelperArrayElementIDChange,
+} from "../../Shared/functions/UseStateHelper";
 
 function WorkExperience({
   state,
@@ -19,41 +24,12 @@ function WorkExperience({
 }: ResumeBuilderSectionProps<IExperience[]>) {
   const [hasError, setHasError] = useState(false);
 
-  const handleAdd = () => {
-    setState((prev) => prev.concat({ ...DefaultExperience, id: uuidv4() }));
-  };
-
-  const handleDelete = (id: string) => {
-    setState((prev) => prev.filter((x) => x.id !== id));
-  };
-
-  const handleInputChange = (id: string) => (
-    event: ChangeEvent<HTMLInputElement>
-  ) => {
-    setState((prev) => {
-      return prev.map((x) =>
-        x.id === id
-          ? {
-              ...x,
-              [event.target.name]: event.target.value,
-            }
-          : x
-      );
-    });
-  };
-
-  const handleChange = (id: string) => (property: string, value: any) => {
-    setState((prev) => {
-      return prev.map((x) =>
-        x.id === id
-          ? {
-              ...x,
-              [property]: value,
-            }
-          : x
-      );
-    });
-  };
+  const handleAdd = UseStateHelperArrayElementIDAdd(setState)(
+    DefaultExperience
+  );
+  const handleDelete = UseStateHelperArrayElementIDDelete(setState);
+  const handleInputChange = UseStateHelperArrayElementIDInputChange(setState);
+  const handleChange = UseStateHelperArrayElementIDChange(setState);
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -81,9 +57,9 @@ function WorkExperience({
       noValidate
       className="resume-builder-section work-experience-section"
     >
-      <h1 className="resume-builder-heading">Work Experience</h1>
+      <h1 className="resume-builder-heading">Employment History</h1>
       <div className="resume-builder-description">
-        Include relevant education experience
+        Include relevant work experience
       </div>
       {state !== null
         ? state.map((x) => (
@@ -91,7 +67,7 @@ function WorkExperience({
               workExperience={x}
               onInputChange={handleInputChange(x.id)}
               onChange={handleChange(x.id)}
-              onDelete={handleDelete}
+              onDelete={handleDelete(x.id)}
               hasError={hasError}
               key={x.id}
             />

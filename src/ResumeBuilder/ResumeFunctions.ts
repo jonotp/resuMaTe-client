@@ -10,8 +10,9 @@ export const getPersonalDetails = ({
   lastName,
   email,
   phone,
-  position,
+  website,
   address,
+  position,
   careerObjective,
 }: IResume): IPersonal => {
   return {
@@ -19,8 +20,9 @@ export const getPersonalDetails = ({
     lastName,
     email,
     phone,
-    position,
+    website,
     address,
+    position,
     careerObjective,
   };
 };

@@ -1,4 +1,6 @@
-export interface ICertificate {
+import { ID } from "./ID.interface";
+
+export interface ICertificate extends ID{
   id: string;
   name: string;
   issuer: string;

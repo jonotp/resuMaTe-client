@@ -1,4 +1,6 @@
-export interface IEducation {
+import { ID } from "./ID.interface";
+
+export interface IEducation extends ID{
   id: string;
   school: string;
   location?: string;

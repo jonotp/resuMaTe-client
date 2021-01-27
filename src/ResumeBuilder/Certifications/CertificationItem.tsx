@@ -19,26 +19,22 @@ interface CertificationItemProp {
   certification: ICertificate;
   onInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onChange: (property: string, value: any) => void;
-  onDelete: (id: string) => void;
+  onDelete: () => void;
   hasError: boolean;
 }
 
 function CertificationItem({
   certification,
-  onInputChange,
-  onChange,
-  onDelete,
+  onInputChange: handleInputChange,
+  onChange: handleChange,
+  onDelete: handleDelete,
   hasError,
 }: CertificationItemProp) {
   const [showForm, setShowForm] = useState(true);
 
-  const handleDelete = () => {
-    onDelete(certification.id);
-  };
-
   const handleDateChange = (property: string) => (date: MaterialUiPickersDate) => {
     if (date !== null) {
-      onChange(property, date.toISOString());
+      handleChange(property, date.toISOString());
     }
   };
 
@@ -47,7 +43,7 @@ function CertificationItem({
   ) => {
     if (event.target.name === undefined)
       throw "select component does not have name";
-    onChange(event.target.name, event.target.value === "true");
+    handleChange(event.target.name, event.target.value === "true");
   };
 
   return (
@@ -104,7 +100,7 @@ function CertificationItem({
           margin="none"
           style={{ gridArea: "name" }}
           value={certification.name}
-          onChange={onInputChange}
+          onChange={handleInputChange}
           error={hasError && certification.name.length === 0}
           required
         />
@@ -116,7 +112,7 @@ function CertificationItem({
           margin="none"
           style={{ gridArea: "issuer" }}
           value={certification.issuer}
-          onChange={onInputChange}
+          onChange={handleInputChange}
           error={hasError && certification.issuer.length === 0}
           required
         />

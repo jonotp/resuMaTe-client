@@ -1,5 +1,4 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
+import React, { FormEvent, useState } from "react";
 import WithPageLoad from "../WithPageLoad";
 import { GreenButton } from "../../CustomButton/GreenButton";
 import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
@@ -11,6 +10,12 @@ import {
 } from "../../Shared/Interfaces/Education.interface";
 import { ResumeBuilderSectionProps } from "../../Shared/Interfaces/ResumeBuilder.interface";
 import "./education.scss";
+import {
+  UseStateHelperArrayElementIDAdd,
+  UseStateHelperArrayElementIDChange,
+  UseStateHelperArrayElementIDDelete,
+  UseStateHelperArrayElementIDInputChange,
+} from "../../Shared/functions/UseStateHelper";
 
 function Education({
   state,
@@ -19,41 +24,10 @@ function Education({
 }: ResumeBuilderSectionProps<IEducation[]>) {
   const [hasError, setHasError] = useState(false);
 
-  const handleAdd = () => {
-    setState((prev) => prev.concat({ ...DefaultEducation, id: uuidv4() }));
-  };
-
-  const handleDelete = (id: string) => {
-    setState((prev) => prev.filter((x) => x.id !== id));
-  };
-
-  const handleInputChange = (id: string) => (
-    event: ChangeEvent<HTMLInputElement | { value: unknown; name: string }>
-  ) => {
-    setState((prev) => {
-      return prev.map((x) =>
-        x.id === id
-          ? {
-              ...x,
-              [event.target.name]: event.target.value,
-            }
-          : x
-      );
-    });
-  };
-
-  const handleChange = (id: string) => (property: string, value: any) => {
-    setState((prev) => {
-      return prev.map((x) =>
-        x.id === id
-          ? {
-              ...x,
-              [property]: value,
-            }
-          : x
-      );
-    });
-  };
+  const handleAdd = UseStateHelperArrayElementIDAdd(setState)(DefaultEducation);
+  const handleDelete = UseStateHelperArrayElementIDDelete(setState);
+  const handleInputChange = UseStateHelperArrayElementIDInputChange(setState);
+  const handleChange = UseStateHelperArrayElementIDChange(setState);
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -90,9 +64,9 @@ function Education({
         ? state.map((x) => (
             <EducationItem
               education={x}
-              handleInputChange={handleInputChange(x.id)}
+              onInputChange={handleInputChange(x.id)}
               onChange={handleChange(x.id)}
-              onDelete={handleDelete}
+              onDelete={handleDelete(x.id)}
               hasError={hasError}
               key={x.id}
             />

@@ -1,4 +1,5 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { FormEvent, useState } from "react";
+import { UseStateHelperFormInputChange } from "../../Shared/functions/UseStateHelper";
 import WithPageLoad from "../WithPageLoad";
 import { GreenButton } from "../../CustomButton/GreenButton";
 import PersonalFormDetails from "./PersonalFormDetails";
@@ -13,14 +14,7 @@ function Personal({
 }: ResumeBuilderSectionProps<IPersonal>) {
   const [hasError, setHasError] = useState(false);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setState((prev) => {
-      return {
-        ...prev,
-        [event.target.name]: event.target.value,
-      };
-    });
-  };
+  const handleChange = UseStateHelperFormInputChange(setState);
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();

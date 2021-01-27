@@ -14,7 +14,7 @@ export const UseStateHelperFormInputChange = <T>(dispatch: React.Dispatch<React.
   )
 };
 
-export const UseStateHelperArrayElementIDInputChange = <T extends ID>(dispatch: React.Dispatch<React.SetStateAction<T[]>>) => (id: string) => (event: ChangeEvent<HTMLInputElement>) => {
+export const UseStateHelperArrayElementIDInputChange = <T extends ID>(dispatch: React.Dispatch<React.SetStateAction<T[]>>) => (id: string) => (event: ChangeEvent<HTMLInputElement | { value: unknown; name: string }>) => {
   event.persist();
   return (
     dispatch((prev: T[]) => prev.map((x) => x.id === id ? { ...x, [event.target.name]: event.target.value } : x))

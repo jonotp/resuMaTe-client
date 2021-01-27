@@ -25,22 +25,18 @@ function SkillItem({
   skill,
   index,
   showLevel,
-  onInputChange,
-  onChange,
-  onDelete,
+  onInputChange: handleInputChange,
+  onChange: handleChange,
+  onDelete: handleDelete,
   hasError,
 }: SkillItemProp) {
-  const handleDelete = () => {
-    onDelete();
-  };
-
   const handleDropdown = (
     event: ChangeEvent<{ name?: string; value: any }>
   ) => {
     if (event.target.name === undefined)
       throw "select component does not have name";
 
-    onChange(event.target.name, Number(event.target.value));
+    handleChange(event.target.name, Number(event.target.value));
   };
 
   return (
@@ -55,7 +51,7 @@ function SkillItem({
             label={`Skill #${index + 1}`}
             name="name"
             value={skill.name}
-            onChange={onInputChange}
+            onChange={handleInputChange}
             required
             error={hasError && skill.name.length === 0}
             margin="none"

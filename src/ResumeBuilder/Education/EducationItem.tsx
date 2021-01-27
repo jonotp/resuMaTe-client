@@ -20,31 +20,27 @@ import "./education.scss";
 
 interface EducationItemProp {
   education: IEducation;
-  handleInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  onInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onChange: (property: string, value: any) => void;
-  onDelete: (id: string) => void;
+  onDelete: () => void;
   hasError: boolean;
 }
 
 function EducationItem({
   education,
-  handleInputChange,
-  onChange,
-  onDelete,
+  onInputChange: handleInputChange,
+  onChange: handleChange,
+  onDelete: handleDelete,
   hasError,
 }: EducationItemProp) {
   const [showForm, setShowForm] = useState(true);
   const [showMore, setShowMore] = useState(false);
 
-  const handleDelete = () => {
-    onDelete(education.id);
-  };
-
   const handleDateChange = (property: string) => (
     date: MaterialUiPickersDate
   ) => {
     if (date !== null) {
-      onChange(property, date.toISOString());
+      handleChange(property, date.toISOString());
     }
   };
 
@@ -53,7 +49,7 @@ function EducationItem({
   ) => {
     if (event.target.name === undefined)
       throw "select component does not have name";
-    onChange(event.target.name, event.target.value === "true");
+    handleChange(event.target.name, event.target.value === "true");
   };
 
   return (

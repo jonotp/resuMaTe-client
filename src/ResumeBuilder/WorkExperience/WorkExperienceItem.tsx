@@ -19,41 +19,35 @@ import "./work-experience.scss";
 
 interface WorkExperienceItemProps {
   workExperience: IExperience;
-  onInputChange: (
-    event: ChangeEvent<HTMLInputElement>
-  ) => void;
+  onInputChange: (event: ChangeEvent<HTMLInputElement>) => void;
   onChange: (property: string, value: any) => void;
-  onDelete: (id: string) => void;
+  onDelete: () => void;
   hasError: boolean;
 }
 
 function WorkExperienceItem({
   workExperience,
-  onInputChange,
-  onChange,
-  onDelete,
+  onInputChange: handleInputChange,
+  onChange: handleChange,
+  onDelete: handleDelete,
   hasError,
 }: WorkExperienceItemProps) {
   const [showForm, setShowForm] = useState(true);
-
-  const handleDelete = () => {
-    onDelete(workExperience.id);
-  };
 
   const handleDateChange = (property: string) => (
     date: MaterialUiPickersDate
   ) => {
     if (date !== null) {
-      onChange(property, date.toISOString());
+      handleChange(property, date.toISOString());
     }
   };
-  
+
   const handleCheckbox = (
     event: ChangeEvent<{ name?: string; value: unknown }>
   ) => {
     if (event.target.name === undefined)
       throw "select component does not have name";
-    onChange(event.target.name, event.target.value === "true");
+    handleChange(event.target.name, event.target.value === "true");
   };
 
   const reponsibilityPlaceholder = `Responsibility #1
@@ -97,7 +91,8 @@ Responsibility #3`;
         </p>
         <p>
           {workExperience.company || "Missing company's name"}
-          {workExperience.location !== undefined && workExperience.location.length > 0
+          {workExperience.location !== undefined &&
+          workExperience.location.length > 0
             ? `, ${workExperience.location}`
             : null}
         </p>
@@ -119,7 +114,7 @@ Responsibility #3`;
           margin="none"
           style={{ gridArea: "title" }}
           value={workExperience.title}
-          onChange={onInputChange}
+          onChange={handleInputChange}
           error={hasError && workExperience.title.length === 0}
           required
         />
@@ -131,7 +126,7 @@ Responsibility #3`;
           margin="none"
           style={{ gridArea: "company" }}
           value={workExperience.company}
-          onChange={onInputChange}
+          onChange={handleInputChange}
           error={hasError && workExperience.company.length === 0}
           required
         />
@@ -143,7 +138,7 @@ Responsibility #3`;
           margin="none"
           style={{ gridArea: "location" }}
           value={workExperience.location}
-          onChange={onInputChange}
+          onChange={handleInputChange}
           placeholder="Street Address, City, State"
         />
         <DatePicker
@@ -197,12 +192,14 @@ Responsibility #3`;
         <TextField
           id={`responsibilities-${workExperience.id}`}
           name="responsibilities"
-          label={workExperience.responsibilities.length > 0 ? "Responsibilities" : ""}
+          label={
+            workExperience.responsibilities.length > 0 ? "Responsibilities" : ""
+          }
           variant="outlined"
           margin="none"
           style={{ gridArea: "responsibilities" }}
           value={workExperience.responsibilities}
-          onChange={onInputChange}
+          onChange={handleInputChange}
           rows={5}
           rowsMax={10}
           fullWidth

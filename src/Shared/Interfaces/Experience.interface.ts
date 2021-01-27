@@ -1,4 +1,6 @@
-export interface IExperience {
+import { ID } from "./ID.interface";
+
+export interface IExperience extends ID{
   id: string;
   title: string;
   company: string;

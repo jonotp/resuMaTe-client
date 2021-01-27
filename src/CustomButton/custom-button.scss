@@ -30,3 +30,17 @@ $add-btn-border-color: rgba(0, 0, 0, 0.23);
     width: 100%;
   }
 }
+
+.custom-menu-button {
+  display: flex;
+
+  .custom-menu-button-icon {
+    margin-right: 0.25rem;
+  }
+
+  .custom-menu-button-component {
+    * > {
+      pointer-events: none;
+    }
+  }
+}

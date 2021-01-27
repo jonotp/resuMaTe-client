@@ -16,6 +16,7 @@
     color: $text-color;
     text-decoration: initial;
     font-weight: initial;
+    flex-grow: 1;
   }
 
   .nav-menu-icon {
@@ -33,6 +34,6 @@
 
 @media print {
   .nav-bar {
-    display: none;
+    display: none !important;
   }
 }

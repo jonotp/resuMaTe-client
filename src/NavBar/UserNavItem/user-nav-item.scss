@@ -1,0 +1,33 @@
+@import "../../variables";
+
+.user-nav-item {
+  > button {
+    justify-content: flex-end;
+  }
+
+  .user-menu-button {
+    display: flex;
+
+    .nav-user {
+      font-size: 1rem;
+      padding-left: 0.25rem;
+      text-transform: none;
+    }
+  }
+}
+
+#user-menu {
+  > * {
+    min-width: 150px;
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .user-nav-item {
+    .user-menu-button {
+      .nav-user {
+        display: none;
+      }
+    }
+  }
+}

@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useContext } from "react";
 import SideBarContext from "../WithSideBar/SideBar.context";
+import UserNavItem from "./UserNavItem/UserNavItem";
 import "./nav-bar.scss";
 
 function NavBar() {
@@ -27,6 +28,7 @@ function NavBar() {
         <NavLink to="/" className="nav-header">
           Resume<strong className="emphasise">Ready</strong>
         </NavLink>
+        <UserNavItem/>
       </Toolbar>
     </AppBar>
   );

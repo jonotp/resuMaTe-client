@@ -1,7 +1,7 @@
 import { Dispatch, createContext } from "react";
 
 const AuthenticationContext = createContext<{
-  auth: any,
+  auth: firebase.default.User | null
   setAuth: Dispatch<any>
 }>({
   auth:  null,

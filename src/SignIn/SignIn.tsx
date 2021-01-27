@@ -17,7 +17,7 @@ import "./sign-in.scss";
 function SignIn() {
   const history = useHistory();
   const firebase = useContext(FirebaseContext);
-  const [user, setUser] = useState({ username: "", password: "" });
+  const [user, setUser] = useState({ email: "", password: "" });
   const [hasError, setHasError] = useState(false);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +33,7 @@ function SignIn() {
     event.preventDefault();
     console.log("In handle submit");
     try {
-      await firebase.signIn(user.username, user.password);
+      await firebase.signIn(user.email, user.password);
       history.push(ROUTES.RESUME_BUILDER_BASE);
     } catch (err) {
       console.error(err);
@@ -50,13 +50,13 @@ function SignIn() {
             variant="outlined"
             fullWidth
           >
-            <InputLabel htmlFor="username">Username</InputLabel>
+            <InputLabel htmlFor="email">Email</InputLabel>
             <OutlinedInput
               className={`text-input ${hasError ? "error" : ""}`}
-              id="username"
-              name="username"
-              label="Username"
-              value={user.username}
+              id="email"
+              name="email"
+              label="Email"
+              value={user.email}
               onChange={handleChange}
               required
               error={hasError}

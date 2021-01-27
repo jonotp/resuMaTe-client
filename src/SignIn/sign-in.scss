@@ -71,3 +71,12 @@
     }
   }
 }
+
+@media (max-width: $breakpoint-tablet) {
+  .sign-in-section {
+    align-items: flex-start;
+    .form-container {
+      margin: 2rem 0 0 0;
+    }
+  }
+}

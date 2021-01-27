@@ -1,8 +1,8 @@
-import React from "react";
+import React, { FormEvent } from "react";
 import { List, ListItem, ListItemText } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import WithSideBar from "../WithSideBar/WithSideBar";
-import * as ROUTES from "../routes.js";
+import * as ROUTES from "../routes";
 
 const SideBarLinks = [
   { text: "Introduction", route: ROUTES.RESUME_BUILDER.INTRODUCTION },
@@ -15,9 +15,13 @@ const SideBarLinks = [
   { text: "Finalise", route: ROUTES.RESUME_BUILDER.FINALISE },
 ];
 
-function ResumeBuilderSidebar({ latestPage }) {
+interface ResumeBuilderSideBarProps {
+  latestPage: number;
+}
+
+function ResumeBuilderSidebar({ latestPage }: ResumeBuilderSideBarProps) {
   const history = useHistory();
-  const handleClick = (route) => () => {
+  const handleClick = (route: string) => () => {
     history.push(ROUTES.RESUME_BUILDER_BASE + route);
   };
 

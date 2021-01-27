@@ -1,8 +1,9 @@
 import React from "react";
+import { ISkill } from "../../Shared/Interfaces/Skill.interface";
 import PageBreakableContainer from "../PageBreakableContainer";
 
 interface SkillsProps {
-  skills: string[];
+  skills: ISkill[];
 }
 
 function Skills({ skills }: SkillsProps) {
@@ -10,7 +11,7 @@ function Skills({ skills }: SkillsProps) {
     <section className="skills">
       <div className="heading">Additional Skills</div>
       {skills.map((x, i) => (
-        <PageBreakableContainer key={i}>{x}</PageBreakableContainer>
+        <PageBreakableContainer key={i}>{x.name}</PageBreakableContainer>
       ))}
     </section>
   ) : null;

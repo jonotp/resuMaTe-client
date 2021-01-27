@@ -1,8 +1,10 @@
 import { ICertificate } from "./Certificate.interface";
 import { IEducation } from "./Education.interface";
 import { IExperience } from "./Experience.interface";
+import { ISkill } from "./Skill.interface";
+import { ID } from "./ID.interface";
 
-export interface IResume {
+export interface IResume extends ID {
   id: string;
   firstName: string;
   lastName: string;
@@ -16,7 +18,7 @@ export interface IResume {
   education: IEducation[];
   experience: IExperience[];
   certificates: ICertificate[];
-  skills: string[];
+  skills: ISkill[];
   referenceType?: number;
   references?: [];
 }

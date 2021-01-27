@@ -3,6 +3,7 @@ import { IEducation } from "../Shared/Interfaces/Education.interface";
 import { IExperience } from "../Shared/Interfaces/Experience.interface";
 import { IPersonal } from "../Shared/Interfaces/Personal.interface";
 import { IResume } from "../Shared/Interfaces/Resume.interface";
+import { ISkill } from "../Shared/Interfaces/Skill.interface";
 
 export const getPersonalDetails = ({
   firstName,
@@ -44,6 +45,6 @@ export const getCertificates = (data: IResume): ICertificate[] => {
   return data.certificates;
 };
 
-export const getSkills = (data: IResume): string[] => {
+export const getSkills = (data: IResume): ISkill[] => {
   return data.skills;
 };

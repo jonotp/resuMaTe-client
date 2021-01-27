@@ -1,0 +1,19 @@
+.skill-section {
+  .switch {
+    margin-left: 0.25rem;
+    margin-top: -4px;
+  }
+
+  .skill-item {
+    display: flex;
+
+    .skill-name {
+      flex-grow: 1;
+    }
+
+    .skill-level {
+      width: 30%;
+      margin-left: 1rem;
+    }
+  }
+}

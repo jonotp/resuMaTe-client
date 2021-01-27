@@ -1,6 +1,20 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Route, useHistory, useLocation, Switch, useRouteMatch, Redirect, } from "react-router-dom";
-import { getResumeId, getCertificates, getEducation, getExperience, getPersonalDetails, getSkills, } from "./ResumeFunctions";
+import {
+  Route,
+  useHistory,
+  useLocation,
+  Switch,
+  useRouteMatch,
+  Redirect,
+} from "react-router-dom";
+import {
+  getResumeId,
+  getCertificates,
+  getEducation,
+  getExperience,
+  getPersonalDetails,
+  getSkills,
+} from "./ResumeFunctions";
 import testData from "../testData";
 import { v4 as uuid } from "uuid";
 import * as ROUTES from "../routes";
@@ -21,6 +35,7 @@ import { IEducation } from "../Shared/Interfaces/Education.interface";
 import { ICertificate } from "../Shared/Interfaces/Certificate.interface";
 import { IExperience } from "../Shared/Interfaces/Experience.interface";
 import "./resume-builder.scss";
+import { ISkill } from "../Shared/Interfaces/Skill.interface";
 
 const useTestData = false;
 
@@ -44,7 +59,7 @@ function ResumeBuilder() {
   const [education, setEducation] = useState<IEducation[]>([]);
   const [certificates, setCertifications] = useState<ICertificate[]>([]);
   const [experience, setExperience] = useState<IExperience[]>([]);
-  const [skills, setSkills] = useState<string[]>([]);
+  const [skills, setSkills] = useState<ISkill[]>([]);
   // const [reference, setReferences] = useState(
   //   !useTestData ? {} : getTestReferenceDetails(data)
   // );
@@ -74,12 +89,11 @@ function ResumeBuilder() {
   useEffect(() => {
     try {
       (async () => {
-        
-        const data = useTestData 
-          ? testData 
-          : firebase.isAutheticated() 
-            ?  await firebase.getResume() 
-            : null;
+        const data = useTestData
+          ? testData
+          : firebase.isAutheticated()
+          ? await firebase.getResume()
+          : null;
 
         if (data !== null) {
           setResumeId(getResumeId(data));
@@ -89,7 +103,6 @@ function ResumeBuilder() {
           setExperience(getExperience(data));
           setSkills(getSkills(data));
         }
-
       })();
     } catch (err) {
       console.log(err);

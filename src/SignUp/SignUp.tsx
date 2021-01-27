@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, useState, useContext } from "react";
+import React, { FormEvent, useState, useContext } from "react";
 import {
   FormControl,
   IconButton,
@@ -16,6 +16,7 @@ import VisibilityIcon from "@material-ui/icons/Visibility";
 import SignInLinkDescription from "../SignIn/SignInLinkDescription";
 import * as ROUTES from "../routes";
 import { DefaultUser } from "../Shared/Interfaces/User.interface";
+import { UseStateHelperFormInputChange } from "../Shared/functions/UseStateHelper";
 import "./sign-up.scss";
 
 function SignUp() {
@@ -26,28 +27,16 @@ function SignUp() {
     lastName: "",
     email: "",
     password: "",
-    signUpKey: "",
   });
   const [showPassword, setShowPassword] = useState(false);
   const [hasError, setHasError] = useState(false);
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setUser((prev) => {
-      return {
-        ...prev,
-        [event.target.name]: event.target.value,
-      };
-    });
-  };
+  const handleChange = UseStateHelperFormInputChange(setUser);
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    console.log("In handle submit");
     try {
       if (hasErrors()) throw "Error in fields";
-
-      const validKey = await firebase.isValidSignUpKey(user.signUpKey);
-      if (!validKey) throw "Invalid sign up key";
 
       await firebase.signUp(
         {
@@ -70,9 +59,8 @@ function SignUp() {
     return (
       user.firstName.trim().length === 0 ||
       user.lastName.trim().length === 0 ||
-      user.email.trim().match(/\w+\@\w+\.\w+/) === null ||
-      user.password.match(/^(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).{8,}$/) === null ||
-      user.signUpKey.trim().length === 0
+      user.email.trim().match(/[\w-.]+\@[\w-.]+\.\w+/) === null ||
+      user.password.match(/^(?=.*[A-Z])(?=.*\d)(?=.*[a-z]).{8,}$/) === null
     );
   };
 
@@ -157,19 +145,6 @@ function SignUp() {
               hasError={hasError}
             />
           </div>
-          <TextField
-            id="sign-up-key"
-            name="signUpKey"
-            label="Sign Up Key"
-            type="password"
-            variant="outlined"
-            margin="none"
-            style={{ gridArea: "sign-up-key" }}
-            value={user.signUpKey}
-            onChange={handleChange}
-            error={hasError && user.signUpKey.trim().length === 0}
-            required
-          />
           <GreenButton
             type="submit"
             variant="contained"

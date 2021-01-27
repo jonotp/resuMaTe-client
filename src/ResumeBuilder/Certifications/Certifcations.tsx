@@ -15,7 +15,7 @@ import {
   UseStateHelperArrayElementIDChange,
   UseStateHelperArrayElementIDDelete,
   UseStateHelperArrayElementIDInputChange,
-} from "../../Shared/functions/UseStateHelper";
+} from "../../Shared/Functions/UseStateHelper";
 
 function Certifications({
   state,

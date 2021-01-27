@@ -15,7 +15,7 @@ import {
   UseStateHelperArrayElementIDDelete,
   UseStateHelperArrayElementIDInputChange,
   UseStateHelperArrayElementIDChange,
-} from "../../Shared/functions/UseStateHelper";
+} from "../../Shared/Functions/UseStateHelper";
 
 function WorkExperience({
   state,

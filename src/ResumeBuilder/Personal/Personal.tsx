@@ -1,5 +1,5 @@
 import React, { FormEvent, useState } from "react";
-import { UseStateHelperFormInputChange } from "../../Shared/functions/UseStateHelper";
+import { UseStateHelperFormInputChange } from "../../Shared/Functions/UseStateHelper";
 import WithPageLoad from "../WithPageLoad";
 import { GreenButton } from "../../CustomButton/GreenButton";
 import PersonalFormDetails from "./PersonalFormDetails";

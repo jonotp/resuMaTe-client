@@ -7,7 +7,7 @@ import FirebaseProvider from "../Firebase/Firebase.Provider";
 import AuthenticationProvider from "../Authentication/Authentication.Provider";
 import SideBarProvider from "../WithSideBar/SideBar.provider";
 import PreloaderProvider from "../Preloader/Preloader.Provider";
-import theme from "../theme";
+import theme from "../Theme";
 
 function Provider({ children }: PropsWithChildren<any>) {
   return (

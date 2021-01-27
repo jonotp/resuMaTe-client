@@ -16,7 +16,7 @@ import VisibilityIcon from "@material-ui/icons/Visibility";
 import SignInLinkDescription from "../SignIn/SignInLinkDescription";
 import * as ROUTES from "../routes";
 import { DefaultUser } from "../Shared/Interfaces/User.interface";
-import { UseStateHelperFormInputChange } from "../Shared/functions/UseStateHelper";
+import { UseStateHelperFormInputChange } from "../Shared/Functions/UseStateHelper";
 import "./sign-up.scss";
 
 function SignUp() {

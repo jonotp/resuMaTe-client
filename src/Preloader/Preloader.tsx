@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import PreloaderContext from "./Preloader.Context";
-import "./Preloader.scss";
+import "./preloader.scss";
 
 const Preloader = () => {
   const { isLoading } = useContext(PreloaderContext);

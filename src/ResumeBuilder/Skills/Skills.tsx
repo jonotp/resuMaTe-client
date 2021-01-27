@@ -4,7 +4,7 @@ import {
   UseStateHelperArrayElementIDChange,
   UseStateHelperArrayElementIDDelete,
   UseStateHelperArrayElementIDInputChange,
-} from "../../Shared/functions/UseStateHelper";
+} from "../../Shared/Functions/UseStateHelper";
 import { Switch } from "@material-ui/core";
 import WithPageLoad from "../WithPageLoad";
 import { GreenButton } from "../../CustomButton/GreenButton";

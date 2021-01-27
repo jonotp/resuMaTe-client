@@ -15,7 +15,7 @@ import {
   getPersonalDetails,
   getSkills,
 } from "./ResumeFunctions";
-import testData from "../testData";
+import testData from "../TestData";
 import { v4 as uuid } from "uuid";
 import * as ROUTES from "../routes";
 import Introduction from "./Introduction/Introduction";
@@ -92,8 +92,8 @@ function ResumeBuilder() {
         const data = useTestData
           ? testData
           : firebase.isAutheticated()
-          ? await firebase.getResume()
-          : null;
+            ? await firebase.getResume()
+            : null;
 
         if (data !== null) {
           setResumeId(getResumeId(data));

@@ -7,15 +7,8 @@ import {
   useRouteMatch,
   Redirect,
 } from "react-router-dom";
-import data, {
-  getTestCertificates,
-  getTestEducation,
-  getTestExperience,
-  getTestPersonalDetails,
-  getTestReferenceDetails,
-  getTestSkills,
-  getResumeId,
-} from "../testData";
+import { getResumeId, getCertificates, getEducation, getExperience, getPersonalDetails, getSkills, } from "./ResumeFunctions";
+import testData from "../testData";
 import { v4 as uuid } from "uuid";
 import * as ROUTES from "../routes";
 import Introduction from "./Introduction/Introduction";
@@ -31,9 +24,12 @@ import FirebaseContext from "../Firebase/Firebase.Context";
 import { ITemplate } from "../Shared/Interfaces/Template.interface";
 import Preloader from "../Preloader/Preloader";
 import { DefaultPersonal } from "../Shared/Interfaces/Personal.interface";
+import { IEducation } from "../Shared/Interfaces/Education.interface";
+import { ICertificate } from "../Shared/Interfaces/Certificate.interface";
+import { IExperience } from "../Shared/Interfaces/Experience.interface";
 import "./resume-builder.scss";
 
-const useTestData = true;
+const useTestData = false;
 
 const ResumeBuilderPages = [
   ROUTES.RESUME_BUILDER.INTRODUCTION,
@@ -47,27 +43,18 @@ const ResumeBuilderPages = [
 ];
 
 function ResumeBuilder() {
-  const [resumeId, ] = useState(
-    !useTestData ? uuid() : getResumeId(data)
-  );
+  const [resumeId, setResumeId] = useState(uuid());
+  const [isNewResume, setIsNewResume] = useState(true);
   const [selectedTemplateId, setSeletedTemplateId] = useState("");
   const [templates, setTemplates] = useState<ITemplate[]>([]);
-  const [personalDetails, setPersonalDetails] = useState(
-    !useTestData ? DefaultPersonal : getTestPersonalDetails(data)
-  );
-  const [education, setEducation] = useState(
-    !useTestData ? [] : getTestEducation(data)
-  );
-  const [certificates, setCertifications] = useState(
-    !useTestData ? [] : getTestCertificates(data)
-  );
-  const [experience, setExperience] = useState(
-    !useTestData ? [] : getTestExperience(data)
-  );
-  const [skills, setSkills] = useState(!useTestData ? [] : getTestSkills(data));
-  const [reference, setReferences] = useState(
-    !useTestData ? {} : getTestReferenceDetails(data)
-  );
+  const [personalDetails, setPersonalDetails] = useState(DefaultPersonal);
+  const [education, setEducation] = useState<IEducation[]>([]);
+  const [certificates, setCertifications] = useState<ICertificate[]>([]);
+  const [experience, setExperience] = useState<IExperience[]>([]);
+  const [skills, setSkills] = useState<string[]>([]);
+  // const [reference, setReferences] = useState(
+  //   !useTestData ? {} : getTestReferenceDetails(data)
+  // );
   const [currentPage, setCurrentPage] = useState(0);
   const [latestPage, setLatestPage] = useState(0);
   const history = useHistory();
@@ -90,6 +77,31 @@ function ResumeBuilder() {
     );
     setCurrentPage(index);
   };
+
+  useEffect(() => {
+    try {
+      (async () => {
+        
+        const data = useTestData 
+          ? testData 
+          : firebase.isAutheticated() 
+            ?  await firebase.getResume() 
+            : null;
+
+        if (data !== null) {
+          setResumeId(getResumeId(data));
+          setPersonalDetails(getPersonalDetails(data));
+          setEducation(getEducation(data));
+          setCertifications(getCertificates(data));
+          setExperience(getExperience(data));
+          setSkills(getSkills(data));
+        }
+
+      })();
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
 
   useEffect(() => {
     try {
@@ -208,6 +220,7 @@ function ResumeBuilder() {
                 experience,
                 skills,
               }}
+              isNewResume={isNewResume}
               canDownload={latestPage === ResumeBuilderPages.length - 1}
               onPageLoad={onPageLoad}
             />

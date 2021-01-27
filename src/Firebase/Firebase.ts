@@ -55,6 +55,8 @@ class Firebase {
     return await this.getUser(credentials.user?.uid);
   };
 
+  isAutheticated = () => this.auth.currentUser !== null;
+
   signOut = () => this.auth.signOut();
 
   sendPasswordResetEmail = (email: string) => this.auth.sendPasswordResetEmail(email);
@@ -98,11 +100,29 @@ class Firebase {
     );
   };
 
-  saveResume = async (resume: IResume) => {
+  getResume = async () => {
+    const data = await this.db.collection("resumes")
+      .where("userId", "==", this.auth.currentUser?.uid)
+      .orderBy("updatedAt", "desc")
+      .limit(1)
+      .get();
+
+    if (data.empty) return null;
+
+    return data.docs[0].data() as IResume;
+  }
+
+  saveResume = async (resume: IResume, isNew: boolean) => {
+    const optionalFields = isNew ? { createdAt: app.firestore.Timestamp.now() } : {};
     await this.db
       .collection("resumes")
       .doc(resume.id)
-      .set({ ...resume, userId: this.auth.currentUser?.uid || null });
+      .set({
+        ...resume,
+        userId: this.auth.currentUser?.uid || null,
+        ...optionalFields,
+        updatedAt: app.firestore.Timestamp.now()
+      }, { merge: true });
 
     return (await this.db.collection("resumes").doc(resume.id).get()).data() as IResume;
   };

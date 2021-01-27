@@ -1,7 +1,3 @@
-import { ICertificate } from "./Shared/Interfaces/Certificate.interface";
-import { IEducation } from "./Shared/Interfaces/Education.interface";
-import { IExperience } from "./Shared/Interfaces/Experience.interface";
-import { IPersonal } from "./Shared/Interfaces/Personal.interface";
 import { IResume } from "./Shared/Interfaces/Resume.interface";
 
 const REFERENCE_TYPE = {
@@ -156,53 +152,4 @@ Implementing application integration with 3rd party tools such as SEQ, JIRA and 
   references: [],
 };
 
-const getTestPersonalDetails = ({
-  firstName,
-  lastName,
-  email,
-  phone,
-  position,
-  address,
-  careerObjective,
-}: IResume): IPersonal => {
-  return {
-    firstName,
-    lastName,
-    email,
-    phone,
-    position,
-    address,
-    careerObjective,
-  };
-};
-
-const getResumeId = (data: IResume): string => {
-  return data.id;
-}
-
-const getTestReferenceDetails = (data: IResume) => {
-  return { referenceType: data.referenceType, references: data.references };
-};
-const getTestExperience = (data: IResume): IExperience[] => {
-  return data.experience;
-};
-const getTestEducation = (data: IResume): IEducation[] => {
-  return data.education;
-};
-const getTestCertificates = (data: IResume): ICertificate[] => {
-  return data.certificates;
-};
-const getTestSkills = (data: IResume): string[] => {
-  return data.skills;
-};
-
 export default data;
-export {
-  getTestPersonalDetails,
-  getTestReferenceDetails,
-  getTestExperience,
-  getTestEducation,
-  getTestCertificates,
-  getTestSkills,
-  getResumeId,
-};

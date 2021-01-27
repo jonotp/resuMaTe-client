@@ -11,9 +11,15 @@ interface FinaliseProps {
   templateId: string;
   resume: IResume;
   canDownload: boolean;
+  isNewResume: boolean;
 }
 
-function Finalise({ templateId, resume, canDownload }: FinaliseProps) {
+function Finalise({
+  templateId,
+  resume,
+  isNewResume,
+  canDownload,
+}: FinaliseProps) {
   const firebase = useContext(FirebaseContext);
   const { setIsLoading } = useContext(PreloaderContext);
 
@@ -32,7 +38,7 @@ function Finalise({ templateId, resume, canDownload }: FinaliseProps) {
   }, []);
 
   const downloadPDF = async () => {
-    const savedResume = await firebase.saveResume(resume);
+    const savedResume = await firebase.saveResume(resume, isNewResume);
     try {
       const result = await axios.get(
         `${process.env.REACT_APP_API_URL}/resume/${templateId}/${savedResume.id}`,

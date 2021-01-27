@@ -1,5 +1,6 @@
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const MiniCSSExtractPlugin = require("mini-css-extract-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const dotenv = require("dotenv");
 const path = require("path");
 const webpack = require("webpack");
@@ -34,7 +35,7 @@ module.exports = (_, { mode }) => {
   return {
     ...ext,
     entry: {
-      index: "./src/index.js",
+      index: "./src/index.tsx",
     },
     output: {
       path: path.resolve("dist"),
@@ -44,7 +45,7 @@ module.exports = (_, { mode }) => {
     module: {
       rules: [
         {
-          test: /\.js|\.jsx$/,
+          test: /\.jsx?$|\.tsx?$/,
           exclude: /node_modules/,
           use: "babel-loader",
         },
@@ -64,9 +65,11 @@ module.exports = (_, { mode }) => {
       ],
     },
     resolve: {
-      extensions: [".js", ".jsx", ".scss"],
+      extensions: [".ts", ".tsx", ".js", ".jsx", ".scss"],
     },
     plugins: [
+      // Will clear the output path directory pre build
+      new CleanWebpackPlugin(),
       new webpack.EnvironmentPlugin(envKeys),
       // Will handle creating a new html in the build directory
       new HTMLWebpackPlugin({

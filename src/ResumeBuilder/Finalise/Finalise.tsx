@@ -1,5 +1,4 @@
 import React, { Dispatch, FormEvent, useContext } from "react";
-import { v4 as uuid } from "uuid";
 import axios from "axios";
 import WithPageLoad from "../WithPageLoad";
 import { GreenButton } from "../../CustomButton/GreenButton";
@@ -11,10 +10,9 @@ import { IResume } from "../../Shared/Interfaces/Resume.interface";
 interface FinaliseProps {
   templateId: string;
   resume: IResume;
-  onSaveResume: Dispatch<any>;
 }
 
-function Finalise({ templateId, resume, onSaveResume }: FinaliseProps) {
+function Finalise({ templateId, resume }: FinaliseProps) {
   const firebase = useContext(FirebaseContext);
 
   const handleSubmit = (event: FormEvent) => {
@@ -25,16 +23,11 @@ function Finalise({ templateId, resume, onSaveResume }: FinaliseProps) {
     document.title = oldTitle;
   };
 
-  const saveResume = async () => {
-    const resumeId = resume.resumeId || uuid();
-    return await firebase.saveResume(resumeId, resume);
-  };
-
   const downloadPDF = async () => {
-    const savedResume = await saveResume();
+    const savedResume = await firebase.saveResume(resume);
     try {
       const result = await axios.get(
-        `${process.env.REACT_APP_API_URL}/resume/${templateId}/${savedResume.resumeId}`,
+        `${process.env.REACT_APP_API_URL}/resume/${templateId}/${savedResume.id}`,
         {
           responseType: "arraybuffer",
           headers: {
@@ -50,8 +43,6 @@ function Finalise({ templateId, resume, onSaveResume }: FinaliseProps) {
       link.href = window.URL.createObjectURL(blob);
       link.download = `${savedResume.firstName} ${savedResume.lastName} - Resume.pdf`;
       link.click();
-
-      onSaveResume(savedResume.resumeId);
     } catch (err) {
       console.error("ERRORED WHILE DOWNLOADING: " + err);
     }

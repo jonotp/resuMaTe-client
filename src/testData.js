@@ -11,7 +11,7 @@ const EDUCATION_TYPE = {
 };
 
 const data = {
-  resumeId: "b729f7bb-68be-4eed-abad-2a35c837c8a9",
+  id: "b729f7bb-68be-4eed-abad-2a35c837c8a9",
   firstName: "Jonathan",
   lastName: "Pham",
   email: "jonathanphame@gmail.com",

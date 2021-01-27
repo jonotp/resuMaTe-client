@@ -98,13 +98,13 @@ class Firebase {
     );
   };
 
-  saveResume = async (resumeId: string, resume: IResume) => {
+  saveResume = async (resume: IResume) => {
     await this.db
       .collection("resumes")
-      .doc(resumeId)
-      .set({ ...resume, resumeId, userId: this.auth.currentUser?.uid || null });
+      .doc(resume.id)
+      .set({ ...resume, userId: this.auth.currentUser?.uid || null });
 
-    return (await this.db.collection("resumes").doc(resumeId).get()).data() as IResume;
+    return (await this.db.collection("resumes").doc(resume.id).get()).data() as IResume;
   };
 }
 

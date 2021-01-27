@@ -17,6 +17,7 @@ import data, {
   getTestSkills,
   getResumeId,
 } from "../testData";
+import { v4 as uuid } from "uuid";
 import * as ROUTES from "../routes";
 import Introduction from "./Introduction/Introduction";
 import Education from "./Education/Education";
@@ -31,7 +32,7 @@ import FirebaseContext from "../Firebase/Firebase.Context";
 import "./resume-builder.scss";
 import { ITemplate } from "../Shared/Interfaces/Template.interface";
 
-const useTestData = true;
+const useTestData = false;
 
 const ResumeBuilderPages = [
   ROUTES.RESUME_BUILDER.INTRODUCTION,
@@ -46,7 +47,7 @@ const ResumeBuilderPages = [
 
 function ResumeBuilder() {
   const [resumeId, setResumeId] = useState(
-    !useTestData ? null : getResumeId(data)
+    !useTestData ? uuid() : getResumeId(data)
   );
   const [selectedTemplateId, setSeletedTemplateId] = useState("");
   const [templates, setTemplates] = useState<ITemplate[]>([]);
@@ -199,14 +200,13 @@ function ResumeBuilder() {
               {...props}
               templateId={selectedTemplateId}
               resume={{
-                resumeId,
+                id: resumeId,
                 ...personalDetails,
                 education,
                 certificates,
                 experience,
                 skills,
               }}
-              onSaveResume={setResumeId}
               onPageLoad={onPageLoad}
             />
           )}

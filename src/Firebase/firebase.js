@@ -93,6 +93,15 @@ class Firebase {
       })
     );
   };
+
+  saveResume = async (resumeId, resume) => {
+    await this.db
+      .collection("resumes")
+      .doc(resumeId)
+      .set({ ...resume, resumeId, userId: this.auth.currentUser?.uid || null });
+
+    return (await this.db.collection("resumes").doc(resumeId).get()).data();
+  };
 }
 
 export default Firebase;

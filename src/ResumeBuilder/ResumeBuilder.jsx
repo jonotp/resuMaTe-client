@@ -15,6 +15,7 @@ import data, {
   getTestPersonalDetails,
   getTestReferenceDetails,
   getTestSkills,
+  getResumeId,
 } from "../testData";
 import * as ROUTES from "../routes.js";
 import Introduction from "./Introduction/Introduction";
@@ -43,6 +44,7 @@ const ResumeBuilderPages = [
 ];
 
 function ResumeBuilder() {
+  const [resumeId, setResumeId] = useState(!useTestData ? null : getResumeId(data));
   const [selectedTemplateId, setSeletedTemplateId] = useState();
   const [templates, setTemplates] = useState([]);
   const [personalDetails, setPersonalDetails] = useState(
@@ -94,16 +96,6 @@ function ResumeBuilder() {
       console.log(err);
     }
   }, []);
-
-  console.log({
-    selectedTemplate: selectedTemplateId,
-    personalDetails,
-    education,
-    certifications: certificates,
-    experience,
-    skills,
-    reference,
-  });
 
   return (
     <div className="resume-builder">
@@ -203,13 +195,14 @@ function ResumeBuilder() {
               {...props}
               templateId={selectedTemplateId}
               resume={{
+                resumeId,
                 ...personalDetails,
                 education,
                 certificates,
                 experience,
                 skills,
               }}
-              onContinue={nextPage}
+              onSaveResume={setResumeId}
               onPageLoad={onPageLoad}
             />
           )}

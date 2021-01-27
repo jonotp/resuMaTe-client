@@ -4,7 +4,7 @@ import WithPageLoad from "../WithPageLoad";
 import { GreenButton } from "../../CustomButton/GreenButton";
 import FirebaseContext from "../../Firebase/Firebase.Context";
 import { IResume } from "../../Shared/Interfaces/Resume.interface";
-import { PreloaderContext } from "../../Preloader/preloader.context";
+import PreloaderContext from "../../Preloader/Preloader.Context";
 import "./finalise.scss";
 
 interface FinaliseProps {
@@ -18,12 +18,12 @@ function Finalise({ templateId, resume, canDownload }: FinaliseProps) {
   const { setIsLoading } = useContext(PreloaderContext);
 
   useEffect(() => {
+    setIsLoading(true);
     (async () => {
       if (canDownload) {
-        setIsLoading(true);
         await downloadPDF();
-        setIsLoading(false);
       }
+      setIsLoading(false);
     })();
   }, []);
 

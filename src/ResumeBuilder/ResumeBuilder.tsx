@@ -30,7 +30,7 @@ import Personal from "./Personal/Personal";
 import ResumeBuilderSideBar from "./ResumeBuilderSideBar";
 import FirebaseContext from "../Firebase/Firebase.Context";
 import { ITemplate } from "../Shared/Interfaces/Template.interface";
-import Preloader from "../Preloader/preloader.component";
+import Preloader from "../Preloader/Preloader";
 import "./resume-builder.scss";
 
 const useTestData = false;

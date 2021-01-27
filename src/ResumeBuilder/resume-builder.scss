@@ -172,3 +172,11 @@
     }
   }
 }
+@media print {
+  .resume-builder {
+    .resume-builder-section {
+      padding: 0;
+      overflow: initial;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { PreloaderContext } from "./preloader.context";
-import "./preloader.component.scss";
+import PreloaderContext from "./Preloader.Context";
+import "./Preloader.scss";
 
 const Preloader = () => {
   const { isLoading } = useContext(PreloaderContext);
@@ -9,7 +9,7 @@ const Preloader = () => {
     <div className={classStyle}>
       {isLoading ? (
         <div>
-           {/* eslint-disable */}
+          {/* eslint-disable */}
           <div role="loader" className="square"></div>
           <div role="loader" className="square"></div>
           <div role="loader" className="square"></div>

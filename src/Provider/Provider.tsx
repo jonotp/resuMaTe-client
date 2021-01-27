@@ -6,8 +6,8 @@ import DateFnsUtils from "@date-io/date-fns";
 import FirebaseProvider from "../Firebase/Firebase.Provider";
 import AuthenticationProvider from "../Authentication/Authentication.Provider";
 import SideBarProvider from "../WithSideBar/SideBar.provider";
+import PreloaderProvider from "../Preloader/Preloader.Provider";
 import theme from "../theme";
-import { PreloaderContextProvider } from "../Preloader/preloader.context";
 
 function Provider({ children }: PropsWithChildren<any>) {
   return (
@@ -16,9 +16,9 @@ function Provider({ children }: PropsWithChildren<any>) {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <MuiPickersUtilsProvider utils={DateFnsUtils}>
-            <PreloaderContextProvider>
+            <PreloaderProvider>
               <SideBarProvider>{children}</SideBarProvider>
-            </PreloaderContextProvider>
+            </PreloaderProvider>
           </MuiPickersUtilsProvider>
         </ThemeProvider>
       </FirebaseProvider>

@@ -1,8 +1,4 @@
-import React, {
-  createContext,
-  PropsWithChildren,
-  useState,
-} from "react";
+import React, { createContext } from "react";
 
 const PreloaderContext = createContext<{
   isLoading: boolean;
@@ -12,13 +8,4 @@ const PreloaderContext = createContext<{
   setIsLoading: () => null,
 });
 
-const PreloaderContextProvider = ({ children }: PropsWithChildren<any>) => {
-  const [isLoading, setIsLoading] = useState(false);
-  return (
-    <PreloaderContext.Provider value={{ isLoading, setIsLoading }}>
-      {children}
-    </PreloaderContext.Provider>
-  );
-};
-
-export { PreloaderContext, PreloaderContextProvider };
+export default PreloaderContext;

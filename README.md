@@ -1,7 +1,7 @@
 # [ResuMaTe]((https://resumate.project-jtp.dev))
 ![ResuMate logo](src/Icon/logo-black-no-border.svg)
 
-Want a customisable resume that will make you stand out from the rest? Well **ResuMaTe** is for you. Free to use and with a growing selection of resume templates to choose from. Get started [here]((https://resumate.project-jtp.dev)). 
+Want a customisable resume that will make you stand out from the rest? Well **ResuMaTe** is for you. Free to use and with a growing selection of resume templates to choose from. Get started [here](https://resumate.project-jtp.dev). 
 
 
 ## Motivation 
